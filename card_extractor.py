@@ -3,6 +3,7 @@ import json
 import re
 import os
 import urllib.parse
+from difflib import SequenceMatcher
 from typing import List, Dict, Any
 
 # --- CONFIGURATION ---
@@ -10,12 +11,11 @@ ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
 # --- CONSTANTS ---
-# Words that appear in headers that we definitely don't want as names
 IGNORED_NAMES = {
     "Guild", "Resurrectionist", "Arcanist", "Neverborn", 
     "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", 
     "Dead Man's Hand", "Cost", "Stn", "Sz", "Df", "Wp", "Sp", "Mv",
-    "Minion", "Master", "Henchman", "Enforcer", "Peon"
+    "Minion", "Master", "Henchman", "Enforcer", "Peon", "Totem"
 }
 
 def clean_text(text: str) -> str:
@@ -23,50 +23,56 @@ def clean_text(text: str) -> str:
 
 def fix_shadow_text(text: str) -> str:
     """
-    Fixes 'FFIIRREE GGOOLLEEMM' -> 'FIRE GOLEM'
-    This happens when PDF text layers are duplicated for bold/shadow effects.
+    Robust fix for 'FFIIRREE GGOOLLEEMM'.
+    Logic: If the characters at even indices match the characters at odd indices
+    (e.g. index 0 matches 1, 2 matches 3), it's shadow text.
     """
-    if not text or len(text) < 2: return text
+    if not text or len(text) < 4: return text
 
-    # Check for perfect doubling: "FFii"
-    # If > 60% of pairs match (text[i] == text[i+1]), it's likely shadow text
-    matches = 0
-    pairs = len(text) // 2
-    if pairs == 0: return text
+    # Split into evens and odds
+    evens = text[::2]
+    odds = text[1::2]
     
-    for i in range(0, pairs * 2, 2):
-        if text[i] == text[i+1]:
-            matches += 1
-            
-    if matches / pairs > 0.6:
-        # It's shadow text, return every 2nd char
-        return text[::2]
+    # If string length is odd, the slices won't match length, so trim to compare
+    min_len = min(len(evens), len(odds))
+    
+    # Calculate similarity ratio
+    matcher = SequenceMatcher(None, evens[:min_len], odds[:min_len])
+    ratio = matcher.ratio()
+    
+    # If > 85% similar, it's definitely shadow text. 
+    # (We use 85% because sometimes a space or punctuation isn't perfectly doubled in OCR)
+    if ratio > 0.85:
+        return evens
         
     return text
 
 def clean_name_line(text: str) -> str:
     """
-    Removes artifacts like "CCOOSSTT" or "COST" from the end of a name.
+    Cleans up the Name line specifically.
     """
-    # 1. First fix the shadow doubling
+    # 1. Fix Shadow Text (FFIIRREE -> FIRE)
     text = fix_shadow_text(text)
     
-    # 2. Strip standard labels that might appear on the same line
-    # Remove "COST" or "STN" appearing at the end
-    text = re.sub(r"\s*(C\s*O\s*S\s*T|S\s*T\s*N)\s*.*$", "", text, flags=re.IGNORECASE)
+    # 2. Strip standard labels appearing at the end
+    # "Fire Golem COST" -> "Fire Golem"
+    # "Fire Golem STN" -> "Fire Golem"
+    text = re.sub(r"\s+(COST|STN|SZ).*$", "", text, flags=re.IGNORECASE)
     
-    # 3. Strip trailing numbers (the cost value itself)
-    text = re.sub(r"\s*\d+$", "", text)
+    # 3. Strip trailing numbers (The cost value)
+    text = re.sub(r"\s+\d+$", "", text)
     
     return text.strip()
 
 def is_valid_name(line: str) -> bool:
     clean = line.strip()
     if not clean: return False
+    # Reject pure numbers
     if re.match(r"^\d+$", clean): return False 
+    # Reject Stat patterns
     if re.match(r"^(Sp|Mv|Df|Wp|Sz|Hz|Cost|Stn)[:\s]*\d+", clean, re.IGNORECASE): return False
     
-    # Check against known headers (case insensitive)
+    # Check against known headers
     clean_upper = clean.upper()
     for ignored in IGNORED_NAMES:
         if ignored.upper() == clean_upper: return False
@@ -75,9 +81,7 @@ def is_valid_name(line: str) -> bool:
     return True
 
 def extract_stat(text: str, stat_name: str) -> int:
-    # Looks for "Df 5" or "Df: 5" or "Df. 5"
-    # Also handles shadow text "DDff 55" by ignoring the extra chars in regex if needed,
-    # but usually numbers extract fine.
+    # Pattern: Stat Name -> Optional Colon -> Optional Space -> Number
     pattern = re.compile(rf"{stat_name}[:\.\s]*(\d+)", re.IGNORECASE)
     match = pattern.search(text)
     return int(match.group(1)) if match else 0
@@ -120,15 +124,17 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             # --- 1. EXTRACT NAME ---
             name = "Unknown"
             
-            # Scan for the first valid text line
             for line in lines:
                 if is_valid_name(line):
-                    # Clean it immediately to handle FFIIRREE
+                    # Clean the line (De-Shadow, remove COST)
                     cleaned_line = clean_name_line(line)
-                    if len(cleaned_line) > 2:
+                    
+                    # Double check validity after cleaning
+                    if len(cleaned_line) > 2 and not cleaned_line.isdigit():
                         name = cleaned_line
                         break
             
+            # Fallback
             if name == "Unknown":
                 name = os.path.splitext(filename)[0].replace("_", " ")
 

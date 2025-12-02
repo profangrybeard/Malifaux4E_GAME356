@@ -1,7 +1,7 @@
 [
   {
     "id": 100,
-    "name": "FFIIRREE GGOOLLEEMM CCOOSSTT",
+    "name": "FIRE GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -66,7 +66,7 @@
   },
   {
     "id": 105,
-    "name": "WINDS G",
+    "name": "WWIINNDDSS GG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -92,7 +92,7 @@
   },
   {
     "id": 107,
-    "name": "KKUUDDRRAA CCOOSSTT",
+    "name": "KUDRA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -105,7 +105,7 @@
   },
   {
     "id": 108,
-    "name": "RRUUNN RRAAJJPPUU CCOOSSTT",
+    "name": "RUN RAJPUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -144,7 +144,7 @@
   },
   {
     "id": 111,
-    "name": "ORDIAN M",
+    "name": "ORDIAN MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -157,7 +157,7 @@
   },
   {
     "id": 112,
-    "name": "ORDIAN M",
+    "name": "ORDIAN MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -170,7 +170,7 @@
   },
   {
     "id": 113,
-    "name": "ORDIAN M",
+    "name": "ORDIAN MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -183,7 +183,7 @@
   },
   {
     "id": 114,
-    "name": "NDEEP DESA",
+    "name": "NDEEP DESACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -196,7 +196,7 @@
   },
   {
     "id": 115,
-    "name": "NDEEP DESA",
+    "name": "NDEEP DESACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -248,7 +248,7 @@
   },
   {
     "id": 119,
-    "name": "WWIINNDD GGAAMM IINN CCOOSSTT",
+    "name": "WIND GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -261,7 +261,7 @@
   },
   {
     "id": 120,
-    "name": "WWIINNDD GGAAMM IINN CCOOSSTT",
+    "name": "WIND GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -274,7 +274,7 @@
   },
   {
     "id": 121,
-    "name": "WWIINNDD GGAAMM IINN CCOOSSTT",
+    "name": "WIND GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -287,7 +287,7 @@
   },
   {
     "id": 122,
-    "name": "FFIIRREE GGOOLLEEMM CCOOSSTT",
+    "name": "FIRE GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -300,7 +300,7 @@
   },
   {
     "id": 123,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -313,7 +313,7 @@
   },
   {
     "id": 124,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -326,7 +326,7 @@
   },
   {
     "id": 125,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -404,7 +404,7 @@
   },
   {
     "id": 131,
-    "name": "BBAASSHHEE CCOOSSTT",
+    "name": "BASHE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -417,7 +417,7 @@
   },
   {
     "id": 132,
-    "name": "IICCEE GGAAMMIINN CCOOSSTT",
+    "name": "ICE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -430,7 +430,7 @@
   },
   {
     "id": 133,
-    "name": "IICCEE GGAAMMIINN CCOOSSTT",
+    "name": "ICE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -443,7 +443,7 @@
   },
   {
     "id": 134,
-    "name": "IICCEE GGAAMMIINN CCOOSSTT",
+    "name": "ICE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -456,7 +456,7 @@
   },
   {
     "id": 135,
-    "name": "IICCEE GGOOLLEEMM CCOOSSTT",
+    "name": "ICE GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -482,7 +482,7 @@
   },
   {
     "id": 137,
-    "name": "CCEEDDDDRRAA CCOOSSTT",
+    "name": "CEDDRA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -495,7 +495,7 @@
   },
   {
     "id": 138,
-    "name": "CCEEDDDDRRAA CCOOSSTT",
+    "name": "CEDDRA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -586,7 +586,7 @@
   },
   {
     "id": 145,
-    "name": "MMAARRAA CCOOSSTT",
+    "name": "MARA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -599,7 +599,7 @@
   },
   {
     "id": 146,
-    "name": "RASPUTIN A",
+    "name": "RASPUTIN ACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -612,7 +612,7 @@
   },
   {
     "id": 147,
-    "name": "RASPUTIN A",
+    "name": "RASPUTIN ACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -625,7 +625,7 @@
   },
   {
     "id": 148,
-    "name": "SSIILLEENNTT OONN EE CCOOSSTT",
+    "name": "SILENT ONE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -638,7 +638,7 @@
   },
   {
     "id": 149,
-    "name": "SSIILLEENNTT OONN EE CCOOSSTT",
+    "name": "SILENT ONE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -768,7 +768,7 @@
   },
   {
     "id": 159,
-    "name": "CKWORK T",
+    "name": "CKWORK TCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -781,7 +781,7 @@
   },
   {
     "id": 160,
-    "name": "CKWORK T",
+    "name": "CKWORK TCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -794,7 +794,7 @@
   },
   {
     "id": 161,
-    "name": "CKWORK T",
+    "name": "CKWORK TCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -807,7 +807,7 @@
   },
   {
     "id": 162,
-    "name": "CKWORK T",
+    "name": "CKWORK TCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -885,7 +885,7 @@
   },
   {
     "id": 168,
-    "name": "AATTHHAANN RREEIICC",
+    "name": "ATHAN REIC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -898,7 +898,7 @@
   },
   {
     "id": 169,
-    "name": "UULL CCRROOCCKKEE",
+    "name": "UL CROCKE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -911,7 +911,7 @@
   },
   {
     "id": 170,
-    "name": "AANNDD WWOORRMM CCOOSSTT",
+    "name": "AND WORMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -924,7 +924,7 @@
   },
   {
     "id": 171,
-    "name": "AAIINNEEDD RRAAPPTTOO CCOOSSTT",
+    "name": "AINED RAPTOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -937,7 +937,7 @@
   },
   {
     "id": 172,
-    "name": "AAIINNEEDD RRAAPPTTOO CCOOSSTT",
+    "name": "AINED RAPTOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -950,7 +950,7 @@
   },
   {
     "id": 173,
-    "name": "AAIINNEEDD RRAAPPTTOO CCOOSSTT",
+    "name": "AINED RAPTOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -989,7 +989,7 @@
   },
   {
     "id": 176,
-    "name": "RRUUNN RRAAJJPPUU CCOOSSTT",
+    "name": "RUN RAJPUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1028,7 +1028,7 @@
   },
   {
     "id": 179,
-    "name": "MINA NAID",
+    "name": "MINA NAIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1080,7 +1080,7 @@
   },
   {
     "id": 183,
-    "name": "JJOOSSSS CCOOSSTT",
+    "name": "JOSS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1093,7 +1093,7 @@
   },
   {
     "id": 184,
-    "name": "MMOOUUSSEE CCOOSSTT",
+    "name": "MOUSE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1132,7 +1132,7 @@
   },
   {
     "id": 187,
-    "name": "HHEE CCAAPPTTAAIINN CCOOSSTT",
+    "name": "HE CAPTAINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1145,7 +1145,7 @@
   },
   {
     "id": 188,
-    "name": "NNII IIRROONNSSIIDD",
+    "name": "NI IRONSID",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1158,7 +1158,7 @@
   },
   {
     "id": 189,
-    "name": "NNII IIRROONNSSIIDD",
+    "name": "NI IRONSID",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1171,7 +1171,7 @@
   },
   {
     "id": 190,
-    "name": "NN JJOOUURRNNEEYY",
+    "name": "N JOURNEY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1184,7 +1184,7 @@
   },
   {
     "id": 191,
-    "name": "NN JJOOUURRNNEEYY",
+    "name": "N JOURNEY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1197,7 +1197,7 @@
   },
   {
     "id": 192,
-    "name": "NN JJOOUURRNNEEYY",
+    "name": "N JOURNEY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1275,7 +1275,7 @@
   },
   {
     "id": 198,
-    "name": "RRLLOOSS VVAASSQQ",
+    "name": "RLOS VASQ",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1366,7 +1366,7 @@
   },
   {
     "id": 205,
-    "name": "RRIIAANN CCRROO",
+    "name": "RIAN CRO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1379,7 +1379,7 @@
   },
   {
     "id": 206,
-    "name": "HANICAL D",
+    "name": "HANICAL DCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1392,7 +1392,7 @@
   },
   {
     "id": 207,
-    "name": "HANICAL D",
+    "name": "HANICAL DCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1405,7 +1405,7 @@
   },
   {
     "id": 208,
-    "name": "HANICAL D",
+    "name": "HANICAL DCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1470,7 +1470,7 @@
   },
   {
     "id": 213,
-    "name": "RCANE FATE",
+    "name": "RCANE FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1483,7 +1483,7 @@
   },
   {
     "id": 214,
-    "name": "RCANE FATE",
+    "name": "RCANE FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1496,7 +1496,7 @@
   },
   {
     "id": 215,
-    "name": "EENNVVYY CCOOSSTT",
+    "name": "ENVY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1574,7 +1574,7 @@
   },
   {
     "id": 221,
-    "name": "RRIISSOONN FFRROODD",
+    "name": "RISON FROD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1587,7 +1587,7 @@
   },
   {
     "id": 222,
-    "name": "HARRIS J-",
+    "name": "HARRIS J-5COST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1600,7 +1600,7 @@
   },
   {
     "id": 223,
-    "name": "DINAND VO",
+    "name": "DINAND VOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1613,7 +1613,7 @@
   },
   {
     "id": 224,
-    "name": "DINAND VO",
+    "name": "DINAND VOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1652,7 +1652,7 @@
   },
   {
     "id": 227,
-    "name": "FFIIRREE GGOOLLEEMM CCOOSSTT",
+    "name": "FIRE GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1743,7 +1743,7 @@
   },
   {
     "id": 234,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1756,7 +1756,7 @@
   },
   {
     "id": 235,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1769,7 +1769,7 @@
   },
   {
     "id": 236,
-    "name": "FFIIRREE GGAAMMIINN CCOOSSTT",
+    "name": "FIRE GAMINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1795,7 +1795,7 @@
   },
   {
     "id": 238,
-    "name": "HHEERRBBIIEE CCOOSSTT",
+    "name": "HERBIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1808,7 +1808,7 @@
   },
   {
     "id": 239,
-    "name": "WWAARRDD LLAANNGG",
+    "name": "WARD LANG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1821,7 +1821,7 @@
   },
   {
     "id": 240,
-    "name": "KKAAEERRIISS CCOOSSTT",
+    "name": "KAERIS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1834,7 +1834,7 @@
   },
   {
     "id": 241,
-    "name": "KKAAEERRIISS CCOOSSTT",
+    "name": "KAERIS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1912,7 +1912,7 @@
   },
   {
     "id": 247,
-    "name": "EE FFIIRREESSTTAARRTT",
+    "name": "E FIRESTART",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -1925,7 +1925,7 @@
   },
   {
     "id": 248,
-    "name": "HHEE SSCCOORRPPIIUU CCOOSSTT",
+    "name": "HE SCORPIUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2016,7 +2016,7 @@
   },
   {
     "id": 255,
-    "name": "A NRAVEN C",
+    "name": "A NRAVEN CCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2029,7 +2029,7 @@
   },
   {
     "id": 256,
-    "name": "A NRAVEN C",
+    "name": "A NRAVEN CCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2055,7 +2055,7 @@
   },
   {
     "id": 258,
-    "name": "LLOOHHIITTHH CCOOSSTT",
+    "name": "LOHITH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2068,7 +2068,7 @@
   },
   {
     "id": 259,
-    "name": "RRCCOO BBOONNAA",
+    "name": "RCO BONA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2120,7 +2120,7 @@
   },
   {
     "id": 263,
-    "name": "HHEE PPUUZZZZLLEE BB OO CCOOSSTT",
+    "name": "HE PUZZLEB OCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2133,7 +2133,7 @@
   },
   {
     "id": 264,
-    "name": "HHEE PPUUZZZZLLEE BB OO CCOOSSTT",
+    "name": "HE PUZZLEB OCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2172,7 +2172,7 @@
   },
   {
     "id": 267,
-    "name": "AUNTY MEL",
+    "name": "AUNTY MELCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2185,7 +2185,7 @@
   },
   {
     "id": 268,
-    "name": "BBRRUUCCEE CCOOSSTT",
+    "name": "BRUCE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2198,7 +2198,7 @@
   },
   {
     "id": 269,
-    "name": "BB UUCCKKAARROOOO CCOOSSTT",
+    "name": "B UCKAROOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2211,7 +2211,7 @@
   },
   {
     "id": 270,
-    "name": "BB UUCCKKAARROOOO CCOOSSTT",
+    "name": "B UCKAROOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2224,7 +2224,7 @@
   },
   {
     "id": 271,
-    "name": "BB UUCCKKAARROOOO CCOOSSTT",
+    "name": "B UCKAROOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2276,7 +2276,7 @@
   },
   {
     "id": 275,
-    "name": "SSIIRR VVAANNTTEESS CCOOSSTT",
+    "name": "SIR VANTESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2289,7 +2289,7 @@
   },
   {
     "id": 276,
-    "name": "KK UULLKKEERR SSKK IINN CCOOSSTT",
+    "name": "K ULKERSK INCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2302,7 +2302,7 @@
   },
   {
     "id": 277,
-    "name": "KK UULLKKEERR SSKK IINN CCOOSSTT",
+    "name": "K ULKERSK INCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2315,7 +2315,7 @@
   },
   {
     "id": 278,
-    "name": "KK UULLKKEERR SSKK IINN CCOOSSTT",
+    "name": "K ULKERSK INCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2328,7 +2328,7 @@
   },
   {
     "id": 279,
-    "name": "HHEE CCLLAAMMPPEETT",
+    "name": "HE CLAMPET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2341,7 +2341,7 @@
   },
   {
     "id": 280,
-    "name": "HHEE CCLLAAMMPPEETT",
+    "name": "HE CLAMPET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2354,7 +2354,7 @@
   },
   {
     "id": 281,
-    "name": "NCLE BOG",
+    "name": "NCLE BOGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2367,7 +2367,7 @@
   },
   {
     "id": 282,
-    "name": "MM OOSSSSBBEEAARRDD CCOOSSTT",
+    "name": "M OSSBEARDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2445,7 +2445,7 @@
   },
   {
     "id": 288,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2458,7 +2458,7 @@
   },
   {
     "id": 289,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2471,7 +2471,7 @@
   },
   {
     "id": 290,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2484,7 +2484,7 @@
   },
   {
     "id": 291,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2549,7 +2549,7 @@
   },
   {
     "id": 296,
-    "name": "REMLIN CRIE",
+    "name": "REMLIN CRIECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2562,7 +2562,7 @@
   },
   {
     "id": 297,
-    "name": "REMLIN CRIE",
+    "name": "REMLIN CRIECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2575,7 +2575,7 @@
   },
   {
     "id": 298,
-    "name": "REMLIN CRIE",
+    "name": "REMLIN CRIECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2627,7 +2627,7 @@
   },
   {
     "id": 302,
-    "name": "MM\u2019\u2019EERR TTEEEETTHH JJOO",
+    "name": "M\u2019ER TEETHJO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2640,7 +2640,7 @@
   },
   {
     "id": 303,
-    "name": "MM\u2019\u2019EERR TTEEEETTHH JJOO",
+    "name": "M\u2019ER TEETHJO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2653,7 +2653,7 @@
   },
   {
     "id": 304,
-    "name": "SPIT HOG",
+    "name": "SPIT HOGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2718,7 +2718,7 @@
   },
   {
     "id": 309,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2731,7 +2731,7 @@
   },
   {
     "id": 310,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2744,7 +2744,7 @@
   },
   {
     "id": 311,
-    "name": "YYOOUU GGRREEMM",
+    "name": "YOU GREM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2809,7 +2809,7 @@
   },
   {
     "id": 316,
-    "name": "NCOIS LaCR",
+    "name": "NCOIS LaCRCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2874,7 +2874,7 @@
   },
   {
     "id": 321,
-    "name": "OOLLDD CCRRAANNKK",
+    "name": "OLD CRANK",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2913,7 +2913,7 @@
   },
   {
     "id": 324,
-    "name": "PPEERREE RRAAVVAAGG",
+    "name": "PERE RAVAG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2952,7 +2952,7 @@
   },
   {
     "id": 327,
-    "name": "MMMMYY LLaaCCRROO CCOOSSTT",
+    "name": "MMY LaCROCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2978,7 +2978,7 @@
   },
   {
     "id": 329,
-    "name": "GG-- OOIILL SSAALLEESSMM CCOOSSTT",
+    "name": "G- OILSALESM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2991,7 +2991,7 @@
   },
   {
     "id": 330,
-    "name": "WWIINNEE TTWWIIRRLLEE CCOOSSTT",
+    "name": "WINE TWIRLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3004,7 +3004,7 @@
   },
   {
     "id": 331,
-    "name": "WWIINNEE TTWWIIRRLLEE CCOOSSTT",
+    "name": "WINE TWIRLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3082,7 +3082,7 @@
   },
   {
     "id": 337,
-    "name": "BO PEEP",
+    "name": "BO PEEPCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3095,7 +3095,7 @@
   },
   {
     "id": 338,
-    "name": "GG WWHHIISSPPEERR",
+    "name": "G WHISPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3108,7 +3108,7 @@
   },
   {
     "id": 339,
-    "name": "GG WWHHIISSPPEERR",
+    "name": "G WHISPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3121,7 +3121,7 @@
   },
   {
     "id": 340,
-    "name": "GG WWHHIISSPPEERR",
+    "name": "G WHISPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3134,7 +3134,7 @@
   },
   {
     "id": 341,
-    "name": "GG-- OOIILL SSAALLEESSMM CCOOSSTT",
+    "name": "G- OILSALESM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3147,7 +3147,7 @@
   },
   {
     "id": 342,
-    "name": "WWIINNEE TTWWIIRRLLEE CCOOSSTT",
+    "name": "WINE TWIRLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3186,7 +3186,7 @@
   },
   {
     "id": 345,
-    "name": "PPIIGGLLEETT CCOOSSTT",
+    "name": "PIGLET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3199,7 +3199,7 @@
   },
   {
     "id": 346,
-    "name": "PPIIGGLLEETT CCOOSSTT",
+    "name": "PIGLET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3212,7 +3212,7 @@
   },
   {
     "id": 347,
-    "name": "PPIIGGLLEETT CCOOSSTT",
+    "name": "PIGLET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3225,7 +3225,7 @@
   },
   {
     "id": 348,
-    "name": "PPIIGGLLEETT CCOOSSTT",
+    "name": "PIGLET",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3238,7 +3238,7 @@
   },
   {
     "id": 349,
-    "name": "SSLL OOPP HHAAUULLEERR CCOOSSTT",
+    "name": "SL OPHAULER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3251,7 +3251,7 @@
   },
   {
     "id": 350,
-    "name": "SSLL OOPP HHAAUULLEERR CCOOSSTT",
+    "name": "SL OPHAULER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3303,7 +3303,7 @@
   },
   {
     "id": 354,
-    "name": "WWIINNEE TTWWIIRRLLEE CCOOSSTT",
+    "name": "WINE TWIRLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3316,7 +3316,7 @@
   },
   {
     "id": 355,
-    "name": "THE SOW",
+    "name": "THE SOWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3329,7 +3329,7 @@
   },
   {
     "id": 356,
-    "name": "UULLIIXX TTUURRNNEERR CCOOSSTT",
+    "name": "ULIX TURNERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3342,7 +3342,7 @@
   },
   {
     "id": 357,
-    "name": "UULLIIXX TTUURRNNEERR CCOOSSTT",
+    "name": "ULIX TURNERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3355,7 +3355,7 @@
   },
   {
     "id": 358,
-    "name": "WAR PIG",
+    "name": "WAR PIGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3368,7 +3368,7 @@
   },
   {
     "id": 359,
-    "name": "WAR PIG",
+    "name": "WAR PIGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3381,7 +3381,7 @@
   },
   {
     "id": 360,
-    "name": "WILD BOAR",
+    "name": "WILD BOARCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3394,7 +3394,7 @@
   },
   {
     "id": 361,
-    "name": "WILD BOAR",
+    "name": "WILD BOARCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3407,7 +3407,7 @@
   },
   {
     "id": 362,
-    "name": "WILD BOAR",
+    "name": "WILD BOARCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3446,7 +3446,7 @@
   },
   {
     "id": 365,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3459,7 +3459,7 @@
   },
   {
     "id": 366,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3472,7 +3472,7 @@
   },
   {
     "id": 367,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3485,7 +3485,7 @@
   },
   {
     "id": 368,
-    "name": "SSTTUUMMPPYY CCOOSSTT",
+    "name": "STUMPY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3537,7 +3537,7 @@
   },
   {
     "id": 372,
-    "name": "LLEEEECCHH KKIINN GG CCOOSSTT",
+    "name": "LEECH KING",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3550,7 +3550,7 @@
   },
   {
     "id": 373,
-    "name": "AADDZZEE CCOOSSTT",
+    "name": "ADZE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3563,7 +3563,7 @@
   },
   {
     "id": 374,
-    "name": "BBAADD JJUUJJUU CCOOSSTT",
+    "name": "BAD JUJUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3654,7 +3654,7 @@
   },
   {
     "id": 381,
-    "name": "WILL O\u2019THE W",
+    "name": "WWIILLLL OO\u2019\u2019 TTHHEE WW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3667,7 +3667,7 @@
   },
   {
     "id": 382,
-    "name": "WILL O\u2019THE W",
+    "name": "WWIILLLL OO\u2019\u2019 TTHHEE WW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3680,7 +3680,7 @@
   },
   {
     "id": 383,
-    "name": "WILL O\u2019THE W",
+    "name": "WWIILLLL OO\u2019\u2019 TTHHEE WW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3849,7 +3849,7 @@
   },
   {
     "id": 396,
-    "name": "NNIIAA CCOOSSTT",
+    "name": "NIA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3862,7 +3862,7 @@
   },
   {
     "id": 397,
-    "name": "NNIIAA CCOOSSTT",
+    "name": "NIA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3875,7 +3875,7 @@
   },
   {
     "id": 398,
-    "name": "CORN TUR",
+    "name": "CORN TURCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3888,7 +3888,7 @@
   },
   {
     "id": 399,
-    "name": "SSHHOOJJOO CCOOSSTT",
+    "name": "SHOJO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3901,7 +3901,7 @@
   },
   {
     "id": 400,
-    "name": "TTAANNUUKKII CCOOSSTT",
+    "name": "TANUKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3914,7 +3914,7 @@
   },
   {
     "id": 401,
-    "name": "TTAANNUUKKII CCOOSSTT",
+    "name": "TANUKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3927,7 +3927,7 @@
   },
   {
     "id": 402,
-    "name": "TTAANNUUKKII CCOOSSTT",
+    "name": "TANUKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3966,7 +3966,7 @@
   },
   {
     "id": 405,
-    "name": "HISKEY GAM",
+    "name": "HISKEY GAMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3979,7 +3979,7 @@
   },
   {
     "id": 406,
-    "name": "HISKEY GAM",
+    "name": "HISKEY GAMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4005,7 +4005,7 @@
   },
   {
     "id": 408,
-    "name": "HH OOOOCCHHDDIINN II CCOOSSTT",
+    "name": "H OOCHDINI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4135,7 +4135,7 @@
   },
   {
     "id": 418,
-    "name": "MMAAHH TTUUCCKKEETT CCOOSSTT",
+    "name": "MAH TUCKETCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4148,7 +4148,7 @@
   },
   {
     "id": 419,
-    "name": "MMAAHH TTUUCCKKEETT CCOOSSTT",
+    "name": "MAH TUCKETCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4161,7 +4161,7 @@
   },
   {
     "id": 420,
-    "name": "NIZED PORK",
+    "name": "NIZED PORKCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4213,7 +4213,7 @@
   },
   {
     "id": 424,
-    "name": "AARRKKSS LLeeBBLLAA",
+    "name": "ARKS LeBLA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4265,7 +4265,7 @@
   },
   {
     "id": 428,
-    "name": "EESSTT SSUUBBJJEECC CCOOSSTT",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4278,7 +4278,7 @@
   },
   {
     "id": 429,
-    "name": "EESSTT SSUUBBJJEECC CCOOSSTT",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4291,7 +4291,7 @@
   },
   {
     "id": 430,
-    "name": "EESSTT SSUUBBJJEECC CCOOSSTT",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4304,7 +4304,7 @@
   },
   {
     "id": 431,
-    "name": "HHEE LLIITTTTLLEE LLAA",
+    "name": "HE LITTLELA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4369,7 +4369,7 @@
   },
   {
     "id": 436,
-    "name": "BBAASSHHEE CCOOSSTT",
+    "name": "BASHE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4382,7 +4382,7 @@
   },
   {
     "id": 437,
-    "name": "GGUUPPPPSS CCOOSSTT",
+    "name": "GUPPS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4395,7 +4395,7 @@
   },
   {
     "id": 438,
-    "name": "GGUUPPPPSS CCOOSSTT",
+    "name": "GUPPS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4408,7 +4408,7 @@
   },
   {
     "id": 439,
-    "name": "GGUUPPPPSS CCOOSSTT",
+    "name": "GUPPS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4447,7 +4447,7 @@
   },
   {
     "id": 442,
-    "name": "TTOOAASSTT CCOOSSTT",
+    "name": "TOAST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4473,7 +4473,7 @@
   },
   {
     "id": 444,
-    "name": "UCKY FATE",
+    "name": "UCKY FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4486,7 +4486,7 @@
   },
   {
     "id": 445,
-    "name": "UCKY FATE",
+    "name": "UCKY FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4538,7 +4538,7 @@
   },
   {
     "id": 449,
-    "name": "BO PEEP",
+    "name": "BO PEEPCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4564,7 +4564,7 @@
   },
   {
     "id": 451,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4577,7 +4577,7 @@
   },
   {
     "id": 452,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4590,7 +4590,7 @@
   },
   {
     "id": 453,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4603,7 +4603,7 @@
   },
   {
     "id": 454,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4616,7 +4616,7 @@
   },
   {
     "id": 455,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4629,7 +4629,7 @@
   },
   {
     "id": 456,
-    "name": "UUFFFFEEDD PPIIGGLLEE CCOOSSTT",
+    "name": "UFFED PIGLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4642,7 +4642,7 @@
   },
   {
     "id": 457,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4655,7 +4655,7 @@
   },
   {
     "id": 458,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4668,7 +4668,7 @@
   },
   {
     "id": 459,
-    "name": "AYOU GATO",
+    "name": "AYOU GATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4681,7 +4681,7 @@
   },
   {
     "id": 460,
-    "name": "SSTTUUMMPPYY CCOOSSTT",
+    "name": "STUMPY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4824,7 +4824,7 @@
   },
   {
     "id": 471,
-    "name": "FFLLYYIINNGG PPIIGGLLEE",
+    "name": "FLYING PIGLE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4837,7 +4837,7 @@
   },
   {
     "id": 472,
-    "name": "FFLLYYIINNGG PPIIGGLLEE",
+    "name": "FLYING PIGLE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4850,7 +4850,7 @@
   },
   {
     "id": 473,
-    "name": "FFLLYYIINNGG PPIIGGLLEE",
+    "name": "FLYING PIGLE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4863,7 +4863,7 @@
   },
   {
     "id": 474,
-    "name": "TRAEUX BO",
+    "name": "TRAEUX BOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4876,7 +4876,7 @@
   },
   {
     "id": 475,
-    "name": "TRAEUX BO",
+    "name": "TRAEUX BOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4889,7 +4889,7 @@
   },
   {
     "id": 476,
-    "name": "TRAEUX BO",
+    "name": "TRAEUX BOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4902,7 +4902,7 @@
   },
   {
     "id": 477,
-    "name": "GG HHTTNNIINNGG BBUU CCOOSSTT",
+    "name": "G HTNINGBU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4915,7 +4915,7 @@
   },
   {
     "id": 478,
-    "name": "GG HHTTNNIINNGG BBUU CCOOSSTT",
+    "name": "G HTNINGBU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4928,7 +4928,7 @@
   },
   {
     "id": 479,
-    "name": "GG HHTTNNIINNGG BBUU CCOOSSTT",
+    "name": "G HTNINGBU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4941,7 +4941,7 @@
   },
   {
     "id": 480,
-    "name": "VVIIAA BBEERRNNAA",
+    "name": "VIA BERNA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4993,7 +4993,7 @@
   },
   {
     "id": 484,
-    "name": "HH OOOOCCHHDDIINN II CCOOSSTT",
+    "name": "H OOCHDINI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5019,7 +5019,7 @@
   },
   {
     "id": 486,
-    "name": "WWOONNGG CCOOSSTT",
+    "name": "WONG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5032,7 +5032,7 @@
   },
   {
     "id": 487,
-    "name": "WWOONNGG CCOOSSTT",
+    "name": "WONG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5045,7 +5045,7 @@
   },
   {
     "id": 488,
-    "name": "CC AAYYCCEE JJOONN EESS CCOOSSTT",
+    "name": "C AYCEJON ESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5149,7 +5149,7 @@
   },
   {
     "id": 496,
-    "name": "ORD COOPE",
+    "name": "ORD COOPECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5162,7 +5162,7 @@
   },
   {
     "id": 497,
-    "name": "ORD COOPE",
+    "name": "ORD COOPECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5175,7 +5175,7 @@
   },
   {
     "id": 498,
-    "name": "MODEL",
+    "name": "MODEL 9COST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5227,7 +5227,7 @@
   },
   {
     "id": 502,
-    "name": "UULLLLRR CCOOSSTT",
+    "name": "ULLR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5240,7 +5240,7 @@
   },
   {
     "id": 503,
-    "name": "AAGGII HHUUNNTTSSMM CCOOSSTT",
+    "name": "AGI HUNTSMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5253,7 +5253,7 @@
   },
   {
     "id": 504,
-    "name": "AAGGII HHUUNNTTSSMM CCOOSSTT",
+    "name": "AGI HUNTSMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5266,7 +5266,7 @@
   },
   {
     "id": 505,
-    "name": "AAGGII HHUUNNTTSSMM CCOOSSTT",
+    "name": "AGI HUNTSMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5279,7 +5279,7 @@
   },
   {
     "id": 506,
-    "name": "AAHHOOOOLL CCOOSSTT",
+    "name": "AHOOL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5370,7 +5370,7 @@
   },
   {
     "id": 513,
-    "name": "UUAA WWAARRRRIIOO CCOOSSTT",
+    "name": "UA WARRIOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5383,7 +5383,7 @@
   },
   {
     "id": 514,
-    "name": "UUAA WWAARRRRIIOO CCOOSSTT",
+    "name": "UA WARRIOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5396,7 +5396,7 @@
   },
   {
     "id": 515,
-    "name": "UUAA WWAARRRRIIOO CCOOSSTT",
+    "name": "UA WARRIOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5435,7 +5435,7 @@
   },
   {
     "id": 518,
-    "name": "KKEETTTT CCOOSSTT",
+    "name": "KETT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5461,7 +5461,7 @@
   },
   {
     "id": 520,
-    "name": "PPAARRSSOONN CCOOSSTT",
+    "name": "PARSON",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5474,7 +5474,7 @@
   },
   {
     "id": 521,
-    "name": "HHEE FFIIRRSSTT LLIIGG HH CCOOSSTT",
+    "name": "HE FIRSTLIG HCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5500,7 +5500,7 @@
   },
   {
     "id": 523,
-    "name": "TTIIRRII CCOOSSTT",
+    "name": "TIRI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5513,7 +5513,7 @@
   },
   {
     "id": 524,
-    "name": "TTIIRRII CCOOSSTT",
+    "name": "TIRI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5578,7 +5578,7 @@
   },
   {
     "id": 529,
-    "name": "AAHHOOOOLL CCOOSSTT",
+    "name": "AHOOL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5656,7 +5656,7 @@
   },
   {
     "id": 535,
-    "name": "REDITH STA",
+    "name": "REDITH STACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5669,7 +5669,7 @@
   },
   {
     "id": 536,
-    "name": "YYEESS AANNDD EEAA",
+    "name": "YES ANDEA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5682,7 +5682,7 @@
   },
   {
     "id": 537,
-    "name": "YYEESS AANNDD EEAA",
+    "name": "YES ANDEA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5695,7 +5695,7 @@
   },
   {
     "id": 538,
-    "name": "YYEESS AANNDD EEAA",
+    "name": "YES ANDEA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5708,7 +5708,7 @@
   },
   {
     "id": 539,
-    "name": "YYEESS AANNDD EEAA",
+    "name": "YES ANDEA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5721,7 +5721,7 @@
   },
   {
     "id": 540,
-    "name": "YYEESS AANNDD EEAA",
+    "name": "YES ANDEA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5734,7 +5734,7 @@
   },
   {
     "id": 541,
-    "name": "NNEEXXUUSS CCOOSSTT",
+    "name": "NEXUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5747,7 +5747,7 @@
   },
   {
     "id": 542,
-    "name": "NNEEXXUUSS CCOOSSTT",
+    "name": "NEXUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5760,7 +5760,7 @@
   },
   {
     "id": 543,
-    "name": "NNEEXXUUSS CCOOSSTT",
+    "name": "NEXUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5773,7 +5773,7 @@
   },
   {
     "id": 544,
-    "name": "NNEEXXUUSS CCOOSSTT",
+    "name": "NEXUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5786,7 +5786,7 @@
   },
   {
     "id": 545,
-    "name": "HTSILK CREE",
+    "name": "HTSILK CREECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5799,7 +5799,7 @@
   },
   {
     "id": 546,
-    "name": "H AMBLING NE S",
+    "name": "HH AA MMBBLLIINNGG NN EE SS CCOOSSTT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5812,7 +5812,7 @@
   },
   {
     "id": 547,
-    "name": "H AMBLING NE S",
+    "name": "HH AA MMBBLLIINNGG NN EE SS CCOOSSTT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5890,7 +5890,7 @@
   },
   {
     "id": 553,
-    "name": "CCKKEENN SSPPEECC",
+    "name": "CKEN SPEC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5903,7 +5903,7 @@
   },
   {
     "id": 554,
-    "name": "CCKKEENN SSPPEECC",
+    "name": "CKEN SPEC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5916,7 +5916,7 @@
   },
   {
     "id": 555,
-    "name": "DDAAEEVVAA CCOOSSTT",
+    "name": "DAEVA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5929,7 +5929,7 @@
   },
   {
     "id": 556,
-    "name": "DDAAEEVVAA CCOOSSTT",
+    "name": "DAEVA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5942,7 +5942,7 @@
   },
   {
     "id": 557,
-    "name": "DDAAEEVVAA CCOOSSTT",
+    "name": "DAEVA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5994,7 +5994,7 @@
   },
   {
     "id": 561,
-    "name": "BBSSOONN DDeeWW",
+    "name": "BSON DeW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6007,7 +6007,7 @@
   },
   {
     "id": 562,
-    "name": "NN BBAACCCCAARR CCOOSSTT",
+    "name": "N BACCARCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6046,7 +6046,7 @@
   },
   {
     "id": 565,
-    "name": "NOCTURN E",
+    "name": "NOCTURN ECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6059,7 +6059,7 @@
   },
   {
     "id": 566,
-    "name": "NOCTURN E",
+    "name": "NOCTURN ECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6072,7 +6072,7 @@
   },
   {
     "id": 567,
-    "name": "NOCTURN E",
+    "name": "NOCTURN ECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6098,7 +6098,7 @@
   },
   {
     "id": 569,
-    "name": "OOSSTT DDUUCCAA",
+    "name": "OST DUCA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6163,7 +6163,7 @@
   },
   {
     "id": 574,
-    "name": "UU FFIISSHHBBOOCC CCOOSSTT",
+    "name": "U FISHBOCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6189,7 +6189,7 @@
   },
   {
     "id": 576,
-    "name": "DR. BEEBE",
+    "name": "DR. BEEBECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6202,7 +6202,7 @@
   },
   {
     "id": 577,
-    "name": "AATTAA NNGGAAAATTOO CCOOSSTT",
+    "name": "ATA NGAATOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6241,7 +6241,7 @@
   },
   {
     "id": 580,
-    "name": "KKIIYYAA MMAANNIIMM",
+    "name": "KIYA MANIM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6293,7 +6293,7 @@
   },
   {
     "id": 584,
-    "name": "XINE AGASS",
+    "name": "XINE AGASSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6306,7 +6306,7 @@
   },
   {
     "id": 585,
-    "name": "XINE AGASS",
+    "name": "XINE AGASSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6319,7 +6319,7 @@
   },
   {
     "id": 586,
-    "name": "VILLE AGASS",
+    "name": "VILLE AGASSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6397,7 +6397,7 @@
   },
   {
     "id": 592,
-    "name": "JJEEDDZZAA CCOOSSTT",
+    "name": "JEDZA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6410,7 +6410,7 @@
   },
   {
     "id": 593,
-    "name": "JJEEDDZZAA CCOOSSTT",
+    "name": "JEDZA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6423,7 +6423,7 @@
   },
   {
     "id": 594,
-    "name": "AA MMPPLLIIGGHHTTEE CCOOSSTT",
+    "name": "A MPLIGHTECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6436,7 +6436,7 @@
   },
   {
     "id": 595,
-    "name": "AA MMPPLLIIGGHHTTEE CCOOSSTT",
+    "name": "A MPLIGHTECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6449,7 +6449,7 @@
   },
   {
     "id": 596,
-    "name": "AA MMPPLLIIGGHHTTEE CCOOSSTT",
+    "name": "A MPLIGHTECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6514,7 +6514,7 @@
   },
   {
     "id": 601,
-    "name": "SSOOPPHHIIEE CCOOSSTT",
+    "name": "SOPHIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6527,7 +6527,7 @@
   },
   {
     "id": 602,
-    "name": "HHEE DDAAMMNNEEDD CCOOSSTT",
+    "name": "HE DAMNEDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6540,7 +6540,7 @@
   },
   {
     "id": 603,
-    "name": "HHEE KKUURRGGAA",
+    "name": "HE KURGA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6553,7 +6553,7 @@
   },
   {
     "id": 604,
-    "name": "YYAAKKSSHHAA CCOOSSTT",
+    "name": "YAKSHA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6566,7 +6566,7 @@
   },
   {
     "id": 605,
-    "name": "YYAAKKSSHHAA CCOOSSTT",
+    "name": "YAKSHA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6579,7 +6579,7 @@
   },
   {
     "id": 606,
-    "name": "YYAAKKSSHHAA CCOOSSTT",
+    "name": "YAKSHA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6592,7 +6592,7 @@
   },
   {
     "id": 607,
-    "name": "CC AAYYCCEE JJOONN EESS CCOOSSTT",
+    "name": "C AYCEJON ESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6670,7 +6670,7 @@
   },
   {
     "id": 613,
-    "name": "YYAA LLYYCCAARRAAYY CCOOSSTT",
+    "name": "YA LYCARAYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6683,7 +6683,7 @@
   },
   {
     "id": 614,
-    "name": "YYAA LLYYCCAARRAAYY CCOOSSTT",
+    "name": "YA LYCARAYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6696,7 +6696,7 @@
   },
   {
     "id": 615,
-    "name": "ALAN BRAW",
+    "name": "ALAN BRAWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6709,7 +6709,7 @@
   },
   {
     "id": 616,
-    "name": "AALLAANN RRIIFFLLEEMM CCOOSSTT",
+    "name": "ALAN RIFLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6722,7 +6722,7 @@
   },
   {
     "id": 617,
-    "name": "AALLAANN RRIIFFLLEEMM CCOOSSTT",
+    "name": "ALAN RIFLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6735,7 +6735,7 @@
   },
   {
     "id": 618,
-    "name": "ORVIS ROO",
+    "name": "ORVIS ROOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6748,7 +6748,7 @@
   },
   {
     "id": 619,
-    "name": "DDRRUUDDGGEE CCOOSSTT",
+    "name": "DRUDGE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6761,7 +6761,7 @@
   },
   {
     "id": 620,
-    "name": "DDRRUUDDGGEE CCOOSSTT",
+    "name": "DRUDGE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6774,7 +6774,7 @@
   },
   {
     "id": 621,
-    "name": "DDRRUUDDGGEE CCOOSSTT",
+    "name": "DRUDGE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6813,7 +6813,7 @@
   },
   {
     "id": 624,
-    "name": "CC AAYYCCEE JJOONN EESS CCOOSSTT",
+    "name": "C AYCEJON ESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6878,7 +6878,7 @@
   },
   {
     "id": 629,
-    "name": "HHEE BBRRAASSSS BBUU",
+    "name": "HE BRASSBU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6904,7 +6904,7 @@
   },
   {
     "id": 631,
-    "name": "NNIC WALLE",
+    "name": "NNIC WALLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6930,7 +6930,7 @@
   },
   {
     "id": 633,
-    "name": "LLLLHHOOPP PPOORRTT",
+    "name": "LLHOP PORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6995,7 +6995,7 @@
   },
   {
     "id": 638,
-    "name": "NTREPID FAT",
+    "name": "NTREPID FATCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7008,7 +7008,7 @@
   },
   {
     "id": 639,
-    "name": "NTREPID FAT",
+    "name": "NTREPID FATCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7034,7 +7034,7 @@
   },
   {
     "id": 641,
-    "name": "PPEEFFUULL PPRROOSSPP",
+    "name": "PEFUL PROSP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7047,7 +7047,7 @@
   },
   {
     "id": 642,
-    "name": "PPEEFFUULL PPRROOSSPP",
+    "name": "PEFUL PROSP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7060,7 +7060,7 @@
   },
   {
     "id": 643,
-    "name": "RR.. NNGGAAAATTOO RR CCOOSSTT",
+    "name": "R. NGAATOR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7203,7 +7203,7 @@
   },
   {
     "id": 654,
-    "name": "EESSPPEERR LLaaRRAAUU CCOOSSTT",
+    "name": "ESPER LaRAUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7229,7 +7229,7 @@
   },
   {
     "id": 656,
-    "name": "OOSSTT DDUUCCAA",
+    "name": "OST DUCA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7281,7 +7281,7 @@
   },
   {
     "id": 660,
-    "name": "UUCCAASS MMccCCAA",
+    "name": "UCAS McCA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7294,7 +7294,7 @@
   },
   {
     "id": 661,
-    "name": "UUCCAASS MMccCCAA",
+    "name": "UCAS McCA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7307,7 +7307,7 @@
   },
   {
     "id": 662,
-    "name": "UUCCAASS MMccCCAA",
+    "name": "UCAS McCA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7320,7 +7320,7 @@
   },
   {
     "id": 663,
-    "name": "LLUUNNAA CCOOSSTT",
+    "name": "LUNA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7333,7 +7333,7 @@
   },
   {
     "id": 664,
-    "name": "OUGH RIDE",
+    "name": "OUGH RIDECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7346,7 +7346,7 @@
   },
   {
     "id": 665,
-    "name": "OUGH RIDE",
+    "name": "OUGH RIDECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7398,7 +7398,7 @@
   },
   {
     "id": 669,
-    "name": "DDIIRR AALLCCHHIIBB",
+    "name": "DIR ALCHIB",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7476,7 +7476,7 @@
   },
   {
     "id": 675,
-    "name": "RLES HOFFM",
+    "name": "RLES HOFFMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7489,7 +7489,7 @@
   },
   {
     "id": 676,
-    "name": "RLES HOFFM",
+    "name": "RLES HOFFMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7502,7 +7502,7 @@
   },
   {
     "id": 677,
-    "name": "DDIIEE CCLLAARRKK CCOOSSTT",
+    "name": "DIE CLARKCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7554,7 +7554,7 @@
   },
   {
     "id": 681,
-    "name": "HHUUNNTTEERR CCOOSSTT",
+    "name": "HUNTER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7567,7 +7567,7 @@
   },
   {
     "id": 682,
-    "name": "HHUUNNTTEERR CCOOSSTT",
+    "name": "HUNTER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7580,7 +7580,7 @@
   },
   {
     "id": 683,
-    "name": "HHUUNNTTEERR CCOOSSTT",
+    "name": "HUNTER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7593,7 +7593,7 @@
   },
   {
     "id": 684,
-    "name": "NICAL ATTEN",
+    "name": "NICAL ATTENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7606,7 +7606,7 @@
   },
   {
     "id": 685,
-    "name": "EELLIISSSSAA KK..OO..RR",
+    "name": "ELISSA K.O.R",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7723,7 +7723,7 @@
   },
   {
     "id": 694,
-    "name": "VVEELL OORRTTEEGG CCOOSSTT",
+    "name": "VEL ORTEGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7775,7 +7775,7 @@
   },
   {
     "id": 698,
-    "name": "HEX BOW",
+    "name": "HEX BOWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7788,7 +7788,7 @@
   },
   {
     "id": 699,
-    "name": "HEX BOW",
+    "name": "HEX BOWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7801,7 +7801,7 @@
   },
   {
     "id": 700,
-    "name": "HEX BOW",
+    "name": "HEX BOWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7814,7 +7814,7 @@
   },
   {
     "id": 701,
-    "name": "ASPER GRAY",
+    "name": "ASPER GRAYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7840,7 +7840,7 @@
   },
   {
     "id": 703,
-    "name": "KKII NNGG''SS WWAALLLL CCOOSSTT",
+    "name": "KI NG'SWALL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7853,7 +7853,7 @@
   },
   {
     "id": 704,
-    "name": "OUISA FUSI",
+    "name": "OUISA FUSICOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7866,7 +7866,7 @@
   },
   {
     "id": 705,
-    "name": "RRIIYYAA DDYYAATTLLOO CCOOSSTT",
+    "name": "RIYA DYATLOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7879,7 +7879,7 @@
   },
   {
     "id": 706,
-    "name": "RR OOCCKKEETTEEEERR CCOOSSTT",
+    "name": "R OCKETEERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7892,7 +7892,7 @@
   },
   {
     "id": 707,
-    "name": "RR OOCCKKEETTEEEERR CCOOSSTT",
+    "name": "R OCKETEERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7905,7 +7905,7 @@
   },
   {
     "id": 708,
-    "name": "ROSIE HILL",
+    "name": "ROSIE HILLCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7918,7 +7918,7 @@
   },
   {
     "id": 709,
-    "name": "SSAAPPPPEERR CCOOSSTT",
+    "name": "SAPPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7931,7 +7931,7 @@
   },
   {
     "id": 710,
-    "name": "SSAAPPPPEERR CCOOSSTT",
+    "name": "SAPPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7944,7 +7944,7 @@
   },
   {
     "id": 711,
-    "name": "SSAAPPPPEERR CCOOSSTT",
+    "name": "SAPPER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7970,7 +7970,7 @@
   },
   {
     "id": 713,
-    "name": "KKIINNGG CCAANN",
+    "name": "KING CAN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7983,7 +7983,7 @@
   },
   {
     "id": 714,
-    "name": "KKIINNGG CCAANN",
+    "name": "KING CAN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8022,7 +8022,7 @@
   },
   {
     "id": 717,
-    "name": "AGENT",
+    "name": "AGENT 46COST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8035,7 +8035,7 @@
   },
   {
     "id": 718,
-    "name": "ALAN REID",
+    "name": "ALAN REIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8126,7 +8126,7 @@
   },
   {
     "id": 725,
-    "name": "AALLSSEE WWIITTNNEESS CCOOSSTT",
+    "name": "ALSE WITNESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8139,7 +8139,7 @@
   },
   {
     "id": 726,
-    "name": "AALLSSEE WWIITTNNEESS CCOOSSTT",
+    "name": "ALSE WITNESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8152,7 +8152,7 @@
   },
   {
     "id": 727,
-    "name": "AALLSSEE WWIITTNNEESS CCOOSSTT",
+    "name": "ALSE WITNESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8165,7 +8165,7 @@
   },
   {
     "id": 728,
-    "name": "UUIILLDD LLAAWW YY",
+    "name": "UILD LAWY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8178,7 +8178,7 @@
   },
   {
     "id": 729,
-    "name": "UUIILLDD LLAAWW YY",
+    "name": "UILD LAWY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8191,7 +8191,7 @@
   },
   {
     "id": 730,
-    "name": "UUIILLDD LLAAWW YY",
+    "name": "UILD LAWY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8230,7 +8230,7 @@
   },
   {
     "id": 733,
-    "name": "JANE DOE",
+    "name": "JANE DOECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8269,7 +8269,7 @@
   },
   {
     "id": 736,
-    "name": "TT HHEE SSCCRRIIBBEE CCOOSSTT",
+    "name": "T HESCRIBE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8347,7 +8347,7 @@
   },
   {
     "id": 742,
-    "name": "VVEELL OORRTTEEGG CCOOSSTT",
+    "name": "VEL ORTEGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8373,7 +8373,7 @@
   },
   {
     "id": 744,
-    "name": "UUEELLAA OORRTTEEGG CCOOSSTT",
+    "name": "UELA ORTEGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8386,7 +8386,7 @@
   },
   {
     "id": 745,
-    "name": "NCISCO ORT",
+    "name": "NCISCO ORTCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8399,7 +8399,7 @@
   },
   {
     "id": 746,
-    "name": "NSTER HUN",
+    "name": "NSTER HUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8412,7 +8412,7 @@
   },
   {
     "id": 747,
-    "name": "NSTER HUN",
+    "name": "NSTER HUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8425,7 +8425,7 @@
   },
   {
     "id": 748,
-    "name": "\u00d1\u00d1OO OORRTTEEGG",
+    "name": "\u00d1O ORTEG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8438,7 +8438,7 @@
   },
   {
     "id": 749,
-    "name": "PAP\u00c1 LOCO",
+    "name": "PAP\u00c1 LOCOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8516,7 +8516,7 @@
   },
   {
     "id": 755,
-    "name": "NTIAGO ORTE",
+    "name": "NTIAGO ORTECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8607,7 +8607,7 @@
   },
   {
     "id": 762,
-    "name": "AASSHHEELL BBAARRKK",
+    "name": "ASHEL BARK",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8620,7 +8620,7 @@
   },
   {
     "id": 763,
-    "name": "AASSHHEELL BBAARRKK",
+    "name": "ASHEL BARK",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8672,7 +8672,7 @@
   },
   {
     "id": 767,
-    "name": "UILD HOUN",
+    "name": "UILD HOUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8685,7 +8685,7 @@
   },
   {
     "id": 768,
-    "name": "UILD HOUN",
+    "name": "UILD HOUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8698,7 +8698,7 @@
   },
   {
     "id": 769,
-    "name": "UILD HOUN",
+    "name": "UILD HOUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8711,7 +8711,7 @@
   },
   {
     "id": 770,
-    "name": "UILD HOUN",
+    "name": "UILD HOUNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8828,7 +8828,7 @@
   },
   {
     "id": 779,
-    "name": "HHEE DDIISSPPAATTCCHH",
+    "name": "HE DISPATCH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8841,7 +8841,7 @@
   },
   {
     "id": 780,
-    "name": "WWAARRDDEENN CCOOSSTT",
+    "name": "WARDEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8854,7 +8854,7 @@
   },
   {
     "id": 781,
-    "name": "WWAARRDDEENN CCOOSSTT",
+    "name": "WARDEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8984,7 +8984,7 @@
   },
   {
     "id": 791,
-    "name": "EELLDD RREEPPOORRTT",
+    "name": "ELD REPORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8997,7 +8997,7 @@
   },
   {
     "id": 792,
-    "name": "EELLDD RREEPPOORRTT",
+    "name": "ELD REPORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9010,7 +9010,7 @@
   },
   {
     "id": 793,
-    "name": "EELLDD RREEPPOORRTT",
+    "name": "ELD REPORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9062,7 +9062,7 @@
   },
   {
     "id": 797,
-    "name": "LLLLIIEE CCOOCCHHRR",
+    "name": "LLIE COCHR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9075,7 +9075,7 @@
   },
   {
     "id": 798,
-    "name": "LLLLIIEE CCOOCCHHRR",
+    "name": "LLIE COCHR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9088,7 +9088,7 @@
   },
   {
     "id": 799,
-    "name": "NNEEWWSSIIEE CCOOSSTT",
+    "name": "NEWSIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9101,7 +9101,7 @@
   },
   {
     "id": 800,
-    "name": "NNEEWWSSIIEE CCOOSSTT",
+    "name": "NEWSIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9114,7 +9114,7 @@
   },
   {
     "id": 801,
-    "name": "NNEEWWSSIIEE CCOOSSTT",
+    "name": "NEWSIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9127,7 +9127,7 @@
   },
   {
     "id": 802,
-    "name": "HIONA GAG",
+    "name": "HIONA GAGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9192,7 +9192,7 @@
   },
   {
     "id": 807,
-    "name": "ASSET",
+    "name": "ASSET 17COST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9205,7 +9205,7 @@
   },
   {
     "id": 808,
-    "name": "AATTHH MMAARRSSHH CCOOSSTT",
+    "name": "ATH MARSHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9218,7 +9218,7 @@
   },
   {
     "id": 809,
-    "name": "AATTHH MMAARRSSHH CCOOSSTT",
+    "name": "ATH MARSHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9231,7 +9231,7 @@
   },
   {
     "id": 810,
-    "name": "AATTHH MMAARRSSHH CCOOSSTT",
+    "name": "ATH MARSHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9296,7 +9296,7 @@
   },
   {
     "id": 815,
-    "name": "AADDYY JJUUSSTTIICC CCOOSSTT",
+    "name": "ADY JUSTICCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9309,7 +9309,7 @@
   },
   {
     "id": 816,
-    "name": "AADDYY JJUUSSTTIICC CCOOSSTT",
+    "name": "ADY JUSTICCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9335,7 +9335,7 @@
   },
   {
     "id": 818,
-    "name": "TTHHEE JJUUDDGGEE CCOOSSTT",
+    "name": "THE JUDGECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9348,7 +9348,7 @@
   },
   {
     "id": 819,
-    "name": "TTHHEE JJUURRYY CCOOSSTT",
+    "name": "THE JURYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9361,7 +9361,7 @@
   },
   {
     "id": 820,
-    "name": "LL OONNEE MMAARRSS",
+    "name": "L ONEMARS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9413,7 +9413,7 @@
   },
   {
     "id": 824,
-    "name": "RUTAL FATE",
+    "name": "RUTAL FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9426,7 +9426,7 @@
   },
   {
     "id": 825,
-    "name": "RUTAL FATE",
+    "name": "RUTAL FATECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9439,7 +9439,7 @@
   },
   {
     "id": 826,
-    "name": "GGRREEEEDD CCOOSSTT",
+    "name": "GREED",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9491,7 +9491,7 @@
   },
   {
     "id": 830,
-    "name": "UUIILLDD MMAAGG",
+    "name": "UILD MAG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9504,7 +9504,7 @@
   },
   {
     "id": 831,
-    "name": "UUIILLDD MMAAGG",
+    "name": "UILD MAG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9517,7 +9517,7 @@
   },
   {
     "id": 832,
-    "name": "UUIILLDD MMAAGG",
+    "name": "UILD MAG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9530,7 +9530,7 @@
   },
   {
     "id": 833,
-    "name": "PPAALLEE RRIIDDEERR CCOOSSTT",
+    "name": "PALE RIDERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9582,7 +9582,7 @@
   },
   {
     "id": 837,
-    "name": "BBRRAACCEERR CCOOSSTT",
+    "name": "BRACER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9595,7 +9595,7 @@
   },
   {
     "id": 838,
-    "name": "MM MMAANNDDEERR BB UU CCOOSSTT",
+    "name": "M MANDERB UCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9712,7 +9712,7 @@
   },
   {
     "id": 847,
-    "name": "RIFYING FLA",
+    "name": "RIFYING FLACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9725,7 +9725,7 @@
   },
   {
     "id": 848,
-    "name": "MMAAEELL HHOOPPKK",
+    "name": "MAEL HOPK",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9738,7 +9738,7 @@
   },
   {
     "id": 849,
-    "name": "ONNIA CRIID",
+    "name": "ONNIA CRIIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9751,7 +9751,7 @@
   },
   {
     "id": 850,
-    "name": "ONNIA CRIID",
+    "name": "ONNIA CRIIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9790,7 +9790,7 @@
   },
   {
     "id": 853,
-    "name": "HLING HAN",
+    "name": "HLING HANCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9803,7 +9803,7 @@
   },
   {
     "id": 854,
-    "name": "HLING HAN",
+    "name": "HLING HANCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9920,7 +9920,7 @@
   },
   {
     "id": 863,
-    "name": "YSSAL ANCH",
+    "name": "YSSAL ANCHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9998,7 +9998,7 @@
   },
   {
     "id": 869,
-    "name": "BOUND SEN",
+    "name": "BOUND SENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10011,7 +10011,7 @@
   },
   {
     "id": 870,
-    "name": "BOUND SEN",
+    "name": "BOUND SENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10024,7 +10024,7 @@
   },
   {
     "id": 871,
-    "name": "BOUND SEN",
+    "name": "BOUND SENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10037,7 +10037,7 @@
   },
   {
     "id": 872,
-    "name": "SILENT SIREN",
+    "name": "SILENT SIRENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10076,7 +10076,7 @@
   },
   {
     "id": 875,
-    "name": "HHEE CCOOLLOONN",
+    "name": "HE COLON",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10128,7 +10128,7 @@
   },
   {
     "id": 879,
-    "name": "UURRCCHHIINN CCOOSSTT",
+    "name": "URCHIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10232,7 +10232,7 @@
   },
   {
     "id": 887,
-    "name": "OOOODD HHUUNNTTEE CCOOSSTT",
+    "name": "OOD HUNTECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10297,7 +10297,7 @@
   },
   {
     "id": 892,
-    "name": "CCRRUUMMBB CCOOSSTT",
+    "name": "CRUMB",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10323,7 +10323,7 @@
   },
   {
     "id": 894,
-    "name": "LLEELLUU CCOOSSTT",
+    "name": "LELU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10336,7 +10336,7 @@
   },
   {
     "id": 895,
-    "name": "LLIILLIITTUU CCOOSSTT",
+    "name": "LILITU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10349,7 +10349,7 @@
   },
   {
     "id": 896,
-    "name": "UURREE NNEEPPHH CCOOSSTT",
+    "name": "URE NEPHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10362,7 +10362,7 @@
   },
   {
     "id": 897,
-    "name": "UURREE NNEEPPHH CCOOSSTT",
+    "name": "URE NEPHCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10375,7 +10375,7 @@
   },
   {
     "id": 898,
-    "name": "NNEEKKIIMMAA CCOOSSTT",
+    "name": "NEKIMA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10388,7 +10388,7 @@
   },
   {
     "id": 899,
-    "name": "NNEEKKIIMMAA CCOOSSTT",
+    "name": "NEKIMA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10492,7 +10492,7 @@
   },
   {
     "id": 907,
-    "name": "NI V",
+    "name": "NNII VV",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10544,7 +10544,7 @@
   },
   {
     "id": 911,
-    "name": "CCOOJJOO CCOOSSTT",
+    "name": "COJO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10557,7 +10557,7 @@
   },
   {
     "id": 912,
-    "name": "DINAND VO",
+    "name": "DINAND VOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10570,7 +10570,7 @@
   },
   {
     "id": 913,
-    "name": "DINAND VO",
+    "name": "DINAND VOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10596,7 +10596,7 @@
   },
   {
     "id": 915,
-    "name": "MMAARRCCUUSS CCOOSSTT",
+    "name": "MARCUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10609,7 +10609,7 @@
   },
   {
     "id": 916,
-    "name": "MMAARRCCUUSS CCOOSSTT",
+    "name": "MARCUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10726,7 +10726,7 @@
   },
   {
     "id": 925,
-    "name": "RT OOTHCER B",
+    "name": "RT OOTHCER BCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10739,7 +10739,7 @@
   },
   {
     "id": 926,
-    "name": "T ERIDGE MA U",
+    "name": "TT EE RRIIDDGGEE MM AA UU CCOOSSTT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10752,7 +10752,7 @@
   },
   {
     "id": 927,
-    "name": "CCEEDDDDRRAA CCOOSSTT",
+    "name": "CEDDRA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10765,7 +10765,7 @@
   },
   {
     "id": 928,
-    "name": "CCEEDDDDRRAA CCOOSSTT",
+    "name": "CEDDRA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10869,7 +10869,7 @@
   },
   {
     "id": 936,
-    "name": "AAEESSLLIINN CCOOSSTT",
+    "name": "AESLIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10921,7 +10921,7 @@
   },
   {
     "id": 940,
-    "name": "NI V",
+    "name": "NNII VV",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10947,7 +10947,7 @@
   },
   {
     "id": 942,
-    "name": "BB UULLTTUUNNGGIINN CCOOSSTT",
+    "name": "B ULTUNGINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10960,7 +10960,7 @@
   },
   {
     "id": 943,
-    "name": "BB UULLTTUUNNGGIINN CCOOSSTT",
+    "name": "B ULTUNGINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10973,7 +10973,7 @@
   },
   {
     "id": 944,
-    "name": "BB UULLTTUUNNGGIINN CCOOSSTT",
+    "name": "B ULTUNGINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10999,7 +10999,7 @@
   },
   {
     "id": 946,
-    "name": "GGOORRAARR CCOOSSTT",
+    "name": "GORAR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11103,7 +11103,7 @@
   },
   {
     "id": 954,
-    "name": "AALLPP CCOOSSTT",
+    "name": "ALP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11116,7 +11116,7 @@
   },
   {
     "id": 955,
-    "name": "AALLPP CCOOSSTT",
+    "name": "ALP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11129,7 +11129,7 @@
   },
   {
     "id": 956,
-    "name": "AALLPP CCOOSSTT",
+    "name": "ALP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11272,7 +11272,7 @@
   },
   {
     "id": 967,
-    "name": "DD CCHHOOMMPPYY",
+    "name": "D CHOMPY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11285,7 +11285,7 @@
   },
   {
     "id": 968,
-    "name": "DD CCHHOOMMPPYY",
+    "name": "D CHOMPY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11311,7 +11311,7 @@
   },
   {
     "id": 970,
-    "name": "HHEEDD TTOOGGEETT CCOOSSTT",
+    "name": "HED TOGETCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11324,7 +11324,7 @@
   },
   {
     "id": 971,
-    "name": "HHEEDD TTOOGGEETT CCOOSSTT",
+    "name": "HED TOGETCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11337,7 +11337,7 @@
   },
   {
     "id": 972,
-    "name": "HHEEDD TTOOGGEETT CCOOSSTT",
+    "name": "HED TOGETCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11350,7 +11350,7 @@
   },
   {
     "id": 973,
-    "name": "TTEEDDDDYY CCOOSSTT",
+    "name": "TEDDY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11493,7 +11493,7 @@
   },
   {
     "id": 984,
-    "name": "BARBARO S",
+    "name": "BARBARO SCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11506,7 +11506,7 @@
   },
   {
     "id": 985,
-    "name": "OOOODD VVEESSSSEE",
+    "name": "OOD VESSE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11519,7 +11519,7 @@
   },
   {
     "id": 986,
-    "name": "OOOODD VVEESSSSEE",
+    "name": "OOD VESSE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11532,7 +11532,7 @@
   },
   {
     "id": 987,
-    "name": "OOOODD VVEESSSSEE",
+    "name": "OOD VESSE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11545,7 +11545,7 @@
   },
   {
     "id": 988,
-    "name": "VVEERRNN NNEEPPHH",
+    "name": "VERN NEPH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11558,7 +11558,7 @@
   },
   {
     "id": 989,
-    "name": "VVEERRNN NNEEPPHH",
+    "name": "VERN NEPH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11571,7 +11571,7 @@
   },
   {
     "id": 990,
-    "name": "GGWWYYLLLL CCOOSSTT",
+    "name": "GWYLL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11649,7 +11649,7 @@
   },
   {
     "id": 996,
-    "name": "LLEEEECCHH KKIINN GG CCOOSSTT",
+    "name": "LEECH KING",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11688,7 +11688,7 @@
   },
   {
     "id": 999,
-    "name": "WHITE EYES",
+    "name": "WHITE EYESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11805,7 +11805,7 @@
   },
   {
     "id": 1008,
-    "name": "GGEERRYYOONN CCOOSSTT",
+    "name": "GERYON",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11818,7 +11818,7 @@
   },
   {
     "id": 1009,
-    "name": "GGEERRYYOONN CCOOSSTT",
+    "name": "GERYON",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11831,7 +11831,7 @@
   },
   {
     "id": 1010,
-    "name": "GGIIGGAANNTT CCOOSSTT",
+    "name": "GIGANT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11844,7 +11844,7 @@
   },
   {
     "id": 1011,
-    "name": "GGIIGGAANNTT CCOOSSTT",
+    "name": "GIGANT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11857,7 +11857,7 @@
   },
   {
     "id": 1012,
-    "name": "GGIIGGAANNTT CCOOSSTT",
+    "name": "GIGANT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11870,7 +11870,7 @@
   },
   {
     "id": 1013,
-    "name": "ORDIAL M",
+    "name": "ORDIAL MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11883,7 +11883,7 @@
   },
   {
     "id": 1014,
-    "name": "SSTTRRYYXX CCOOSSTT",
+    "name": "STRYX",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11896,7 +11896,7 @@
   },
   {
     "id": 1015,
-    "name": "TTHHOOOONN CCOOSSTT",
+    "name": "THOON",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11935,7 +11935,7 @@
   },
   {
     "id": 1018,
-    "name": "WWRRAATTHH CCOOSSTT",
+    "name": "WRATH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11974,7 +11974,7 @@
   },
   {
     "id": 1021,
-    "name": "RED CAP",
+    "name": "RED CAPCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11987,7 +11987,7 @@
   },
   {
     "id": 1022,
-    "name": "RED CAP",
+    "name": "RED CAPCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12039,7 +12039,7 @@
   },
   {
     "id": 1026,
-    "name": "SSYYZZYYGGYY SSIISSTT",
+    "name": "SYZYGY SIST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12195,7 +12195,7 @@
   },
   {
     "id": 1038,
-    "name": "BABY KADE",
+    "name": "BABY KADECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12208,7 +12208,7 @@
   },
   {
     "id": 1039,
-    "name": "CCAANNDDYY CCOOSSTT",
+    "name": "CANDY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12221,7 +12221,7 @@
   },
   {
     "id": 1040,
-    "name": "IIGGGGYY CCOOSSTT",
+    "name": "IGGY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12234,7 +12234,7 @@
   },
   {
     "id": 1041,
-    "name": "LLYYSSSSAA CCOOSSTT",
+    "name": "LYSSA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12247,7 +12247,7 @@
   },
   {
     "id": 1042,
-    "name": "LLYYSSSSAA CCOOSSTT",
+    "name": "LYSSA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12260,7 +12260,7 @@
   },
   {
     "id": 1043,
-    "name": "LLYYSSSSAA CCOOSSTT",
+    "name": "LYSSA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12364,7 +12364,7 @@
   },
   {
     "id": 1051,
-    "name": "SSOORRRROOWW CCOOSSTT",
+    "name": "SORROW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12377,7 +12377,7 @@
   },
   {
     "id": 1052,
-    "name": "SSOORRRROOWW CCOOSSTT",
+    "name": "SORROW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12390,7 +12390,7 @@
   },
   {
     "id": 1053,
-    "name": "SSOORRRROOWW CCOOSSTT",
+    "name": "SORROW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12403,7 +12403,7 @@
   },
   {
     "id": 1054,
-    "name": "HHEE CCAARRVVEERR CCOOSSTT",
+    "name": "HE CARVERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12520,7 +12520,7 @@
   },
   {
     "id": 1063,
-    "name": "HHEESS AANNDD DD",
+    "name": "HES ANDD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12546,7 +12546,7 @@
   },
   {
     "id": 1065,
-    "name": "UUSSTT SSTTOORRMM CCOOSSTT",
+    "name": "UST STORMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12598,7 +12598,7 @@
   },
   {
     "id": 1069,
-    "name": "UUSSTTYY AALLYYCC",
+    "name": "USTY ALYC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12611,7 +12611,7 @@
   },
   {
     "id": 1070,
-    "name": "UUSSTTYY AALLYYCC",
+    "name": "USTY ALYC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12663,7 +12663,7 @@
   },
   {
     "id": 1074,
-    "name": "OO UULL BBAATTTTEERR CCOOSSTT",
+    "name": "O ULBATTER",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12689,7 +12689,7 @@
   },
   {
     "id": 1076,
-    "name": "PPAALLEE RRIIDDEERR CCOOSSTT",
+    "name": "PALE RIDERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12728,7 +12728,7 @@
   },
   {
     "id": 1079,
-    "name": "VVEEEE CCOOSSTT",
+    "name": "VEE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12741,7 +12741,7 @@
   },
   {
     "id": 1080,
-    "name": "DDEEAADD RRIIDDEERR CCOOSSTT",
+    "name": "DEAD RIDERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12780,7 +12780,7 @@
   },
   {
     "id": 1083,
-    "name": "UCKET BO",
+    "name": "UCKET BOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12819,7 +12819,7 @@
   },
   {
     "id": 1086,
-    "name": "GGOOOOPP CCOOSSTT",
+    "name": "GOOP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12832,7 +12832,7 @@
   },
   {
     "id": 1087,
-    "name": "HANICAL M",
+    "name": "HANICAL MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12845,7 +12845,7 @@
   },
   {
     "id": 1088,
-    "name": "HANICAL M",
+    "name": "HANICAL MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12858,7 +12858,7 @@
   },
   {
     "id": 1089,
-    "name": "HANICAL M",
+    "name": "HANICAL MCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12871,7 +12871,7 @@
   },
   {
     "id": 1090,
-    "name": "M R.AMBRO SE",
+    "name": "M R.AMBRO SECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12949,7 +12949,7 @@
   },
   {
     "id": 1096,
-    "name": "EE KKIITTCCHHEENN SSIINN CCOOSSTT",
+    "name": "E KITCHENSIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13040,7 +13040,7 @@
   },
   {
     "id": 1103,
-    "name": "VVIICCTT GGUUNNSSLLIINN CCOOSSTT",
+    "name": "VICT GUNSLINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13053,7 +13053,7 @@
   },
   {
     "id": 1104,
-    "name": "VVIICCTT GGUUNNSSLLIINN CCOOSSTT",
+    "name": "VICT GUNSLINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13105,7 +13105,7 @@
   },
   {
     "id": 1108,
-    "name": "OOCC MMIITTCCHHEELL",
+    "name": "OC MITCHEL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13118,7 +13118,7 @@
   },
   {
     "id": 1109,
-    "name": "AAEE CCHHEESSTTEERR CCOOSSTT",
+    "name": "AE CHESTERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13131,7 +13131,7 @@
   },
   {
     "id": 1110,
-    "name": "DDOOGG BBRRAACC",
+    "name": "DOG BRAC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13170,7 +13170,7 @@
   },
   {
     "id": 1113,
-    "name": "RRLL MMUUSSGGRROO CCOOSSTT",
+    "name": "RL MUSGROCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13183,7 +13183,7 @@
   },
   {
     "id": 1114,
-    "name": "MMEEDD SSIIXX--SSHH",
+    "name": "MED SIX-SH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13196,7 +13196,7 @@
   },
   {
     "id": 1115,
-    "name": "SSUUEE CCOOSSTT",
+    "name": "SUE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13235,7 +13235,7 @@
   },
   {
     "id": 1118,
-    "name": "KK SSCCHH\u00d6\u00d6TTTTEEMM",
+    "name": "K SCH\u00d6TTEM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13313,7 +13313,7 @@
   },
   {
     "id": 1124,
-    "name": "OORRPPSS EENNGG",
+    "name": "ORPS ENG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13326,7 +13326,7 @@
   },
   {
     "id": 1125,
-    "name": "OORRPPSS EENNGG",
+    "name": "ORPS ENG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13378,7 +13378,7 @@
   },
   {
     "id": 1129,
-    "name": "NNAAHH LLOOVVEELL",
+    "name": "NAH LOVEL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13404,7 +13404,7 @@
   },
   {
     "id": 1131,
-    "name": "MS. WEISS",
+    "name": "MS. WEISSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13417,7 +13417,7 @@
   },
   {
     "id": 1132,
-    "name": "FF UUMMIIGGAATTOO RR CCOOSSTT",
+    "name": "F UMIGATOR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13430,7 +13430,7 @@
   },
   {
     "id": 1133,
-    "name": "UNNEL RATS",
+    "name": "UNNEL RATSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13443,7 +13443,7 @@
   },
   {
     "id": 1134,
-    "name": "TTEEAAMM TTRRUUNN",
+    "name": "TEAM TRUN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13456,7 +13456,7 @@
   },
   {
     "id": 1135,
-    "name": "VV OONN SSCCHHIILLLL CCOOSSTT",
+    "name": "V ONSCHILL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13469,7 +13469,7 @@
   },
   {
     "id": 1136,
-    "name": "VV OONN SSCCHHIILLLL CCOOSSTT",
+    "name": "V ONSCHILL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13599,7 +13599,7 @@
   },
   {
     "id": 1146,
-    "name": "TTOOAASSTT CCOOSSTT",
+    "name": "TOAST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13612,7 +13612,7 @@
   },
   {
     "id": 1147,
-    "name": "MM OOSSSSBBEEAARRDD CCOOSSTT",
+    "name": "M OSSBEARDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13638,7 +13638,7 @@
   },
   {
     "id": 1149,
-    "name": "UURRTT JJEEBBSSEENN CCOOSSTT",
+    "name": "URT JEBSENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13677,7 +13677,7 @@
   },
   {
     "id": 1152,
-    "name": "AARRLL BBUURRNN CCOOSSTT",
+    "name": "ARL BURNCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13690,7 +13690,7 @@
   },
   {
     "id": 1153,
-    "name": "GGRRAACCIIEE CCOOSSTT",
+    "name": "GRACIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13703,7 +13703,7 @@
   },
   {
     "id": 1154,
-    "name": "II RROONN WWIINN GG CCOOSSTT",
+    "name": "I RONWIN GCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13716,7 +13716,7 @@
   },
   {
     "id": 1155,
-    "name": "II RROONN WWIINN GG CCOOSSTT",
+    "name": "I RONWIN GCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13729,7 +13729,7 @@
   },
   {
     "id": 1156,
-    "name": "II RROONN WWIINN GG CCOOSSTT",
+    "name": "I RONWIN GCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13885,7 +13885,7 @@
   },
   {
     "id": 1168,
-    "name": "AAEE CCHHEESSTTEERR CCOOSSTT",
+    "name": "AE CHESTERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13898,7 +13898,7 @@
   },
   {
     "id": 1169,
-    "name": "MMEEDD SSIIXX--SSHH",
+    "name": "MED SIX-SH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13911,7 +13911,7 @@
   },
   {
     "id": 1170,
-    "name": "BBIIGG JJAAKKEE CCOOSSTT",
+    "name": "BIG JAKECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13924,7 +13924,7 @@
   },
   {
     "id": 1171,
-    "name": "BBIISSHHOOPP CCOOSSTT",
+    "name": "BISHOP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13976,7 +13976,7 @@
   },
   {
     "id": 1175,
-    "name": "RROONNIINN CCOOSSTT",
+    "name": "RONIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13989,7 +13989,7 @@
   },
   {
     "id": 1176,
-    "name": "RROONNIINN CCOOSSTT",
+    "name": "RONIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14002,7 +14002,7 @@
   },
   {
     "id": 1177,
-    "name": "RROONNIINN CCOOSSTT",
+    "name": "RONIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14028,7 +14028,7 @@
   },
   {
     "id": 1179,
-    "name": "TTAAEELLOORR CCOOSSTT",
+    "name": "TAELOR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14041,7 +14041,7 @@
   },
   {
     "id": 1180,
-    "name": "EESSSSAA CCHHAAMM",
+    "name": "ESSA CHAM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14054,7 +14054,7 @@
   },
   {
     "id": 1181,
-    "name": "ORIA CHAM",
+    "name": "ORIA CHAMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14067,7 +14067,7 @@
   },
   {
     "id": 1182,
-    "name": "ORIA CHAM",
+    "name": "ORIA CHAMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14106,7 +14106,7 @@
   },
   {
     "id": 1185,
-    "name": "AAIIOONNUUSS CCOOSSTT",
+    "name": "AIONUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14132,7 +14132,7 @@
   },
   {
     "id": 1187,
-    "name": "VVEEEE CCOOSSTT",
+    "name": "VEE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14145,7 +14145,7 @@
   },
   {
     "id": 1188,
-    "name": "KKAARRIINNAA CCOOSSTT",
+    "name": "KARINA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14171,7 +14171,7 @@
   },
   {
     "id": 1190,
-    "name": "TTAALLOOSS CCOOSSTT",
+    "name": "TALOS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14184,7 +14184,7 @@
   },
   {
     "id": 1191,
-    "name": "TTAARRAA CCOOSSTT",
+    "name": "TARA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14197,7 +14197,7 @@
   },
   {
     "id": 1192,
-    "name": "TTAARRAA CCOOSSTT",
+    "name": "TARA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14236,7 +14236,7 @@
   },
   {
     "id": 1195,
-    "name": "OOIIDD HHUUNNTTEE",
+    "name": "OID HUNTE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14249,7 +14249,7 @@
   },
   {
     "id": 1196,
-    "name": "OOIIDD HHUUNNTTEE",
+    "name": "OID HUNTE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14262,7 +14262,7 @@
   },
   {
     "id": 1197,
-    "name": "OOIIDD HHUUNNTTEE",
+    "name": "OID HUNTE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14275,7 +14275,7 @@
   },
   {
     "id": 1198,
-    "name": "OOIIDD WWRREETTCC CCOOSSTT",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14288,7 +14288,7 @@
   },
   {
     "id": 1199,
-    "name": "OOIIDD WWRREETTCC CCOOSSTT",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14301,7 +14301,7 @@
   },
   {
     "id": 1200,
-    "name": "OOIIDD WWRREETTCC CCOOSSTT",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14340,7 +14340,7 @@
   },
   {
     "id": 1203,
-    "name": "FF UUMMIIGGAATTOO RR CCOOSSTT",
+    "name": "F UMIGATOR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14353,7 +14353,7 @@
   },
   {
     "id": 1204,
-    "name": "UNNEL RATS",
+    "name": "UNNEL RATSCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14509,7 +14509,7 @@
   },
   {
     "id": 1216,
-    "name": "NNIIXX CCOOSSTT",
+    "name": "NIX",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14535,7 +14535,7 @@
   },
   {
     "id": 1218,
-    "name": "AATT CCAATTCCHHEERR CCOOSSTT",
+    "name": "AT CATCHERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14548,7 +14548,7 @@
   },
   {
     "id": 1219,
-    "name": "AATT CCAATTCCHHEERR CCOOSSTT",
+    "name": "AT CATCHERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14561,7 +14561,7 @@
   },
   {
     "id": 1220,
-    "name": "RRAATT KKIINNGG CCOOSSTT",
+    "name": "RAT KINGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14574,7 +14574,7 @@
   },
   {
     "id": 1221,
-    "name": "RRAATT KKIINNGG CCOOSSTT",
+    "name": "RAT KINGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14587,7 +14587,7 @@
   },
   {
     "id": 1222,
-    "name": "SSTTOOLLEENN CCOOSSTT",
+    "name": "STOLEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14600,7 +14600,7 @@
   },
   {
     "id": 1223,
-    "name": "SSTTOOLLEENN CCOOSSTT",
+    "name": "STOLEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14613,7 +14613,7 @@
   },
   {
     "id": 1224,
-    "name": "SSTTOOLLEENN CCOOSSTT",
+    "name": "STOLEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14626,7 +14626,7 @@
   },
   {
     "id": 1225,
-    "name": "PPRRIIDDEE CCOOSSTT",
+    "name": "PRIDE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14639,7 +14639,7 @@
   },
   {
     "id": 1226,
-    "name": "AA NNGGEELL EEYYEESS CCOOSSTT",
+    "name": "A NGELEYES",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14691,7 +14691,7 @@
   },
   {
     "id": 1230,
-    "name": "UUCCOO OORRTTEEGG CCOOSSTT",
+    "name": "UCO ORTEGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14704,7 +14704,7 @@
   },
   {
     "id": 1231,
-    "name": "HHAANNSS CCOOSSTT",
+    "name": "HANS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14795,7 +14795,7 @@
   },
   {
     "id": 1238,
-    "name": "HHEE BBAADD OOMM EE CCOOSSTT",
+    "name": "HE BADOM ECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14808,7 +14808,7 @@
   },
   {
     "id": 1239,
-    "name": "DNIGHT STA",
+    "name": "DNIGHT STACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14951,7 +14951,7 @@
   },
   {
     "id": 1250,
-    "name": "CCHHIIAAKKII CCOOSSTT",
+    "name": "CHIAKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14964,7 +14964,7 @@
   },
   {
     "id": 1251,
-    "name": "GGOOKKUUDDOO CCOOSSTT",
+    "name": "GOKUDO",
     "cost": 8,
     "stats": {
       "sp": 0,
@@ -14977,7 +14977,7 @@
   },
   {
     "id": 1252,
-    "name": "GGOOKKUUDDOO CCOOSSTT",
+    "name": "GOKUDO",
     "cost": 8,
     "stats": {
       "sp": 0,
@@ -14990,7 +14990,7 @@
   },
   {
     "id": 1253,
-    "name": "GGOOKKUUDDOO CCOOSSTT",
+    "name": "GOKUDO",
     "cost": 8,
     "stats": {
       "sp": 0,
@@ -15003,7 +15003,7 @@
   },
   {
     "id": 1254,
-    "name": "IIZZAAMMUU CCOOSSTT",
+    "name": "IZAMU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15016,7 +15016,7 @@
   },
   {
     "id": 1255,
-    "name": "MMAANNOOSS CCOOSSTT",
+    "name": "MANOS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15042,7 +15042,7 @@
   },
   {
     "id": 1257,
-    "name": "HHOOSSTT EEAATTEERR CCOOSSTT",
+    "name": "HOST EATERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15055,7 +15055,7 @@
   },
   {
     "id": 1258,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15068,7 +15068,7 @@
   },
   {
     "id": 1259,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15081,7 +15081,7 @@
   },
   {
     "id": 1260,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15094,7 +15094,7 @@
   },
   {
     "id": 1261,
-    "name": "OOUULL PPOORRTTEERR CCOOSSTT",
+    "name": "OUL PORTERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15107,7 +15107,7 @@
   },
   {
     "id": 1262,
-    "name": "UUNN QQUUIIAANN",
+    "name": "UN QUIAN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15172,7 +15172,7 @@
   },
   {
     "id": 1267,
-    "name": "YAN LO",
+    "name": "YAN LOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15185,7 +15185,7 @@
   },
   {
     "id": 1268,
-    "name": "YAN LO",
+    "name": "YAN LOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15198,7 +15198,7 @@
   },
   {
     "id": 1269,
-    "name": "YYIINN CCOOSSTT",
+    "name": "YIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15289,7 +15289,7 @@
   },
   {
     "id": 1276,
-    "name": "RRPPSSEE CCUURRAATT CCOOSSTT",
+    "name": "RPSE CURATCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15432,7 +15432,7 @@
   },
   {
     "id": 1287,
-    "name": "RRAAFFKKIINN CCOOSSTT",
+    "name": "RAFKIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15445,7 +15445,7 @@
   },
   {
     "id": 1288,
-    "name": "UUEE NNEECCRROOMM",
+    "name": "UE NECROM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15497,7 +15497,7 @@
   },
   {
     "id": 1292,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15510,7 +15510,7 @@
   },
   {
     "id": 1293,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15523,7 +15523,7 @@
   },
   {
     "id": 1294,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15536,7 +15536,7 @@
   },
   {
     "id": 1295,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15562,7 +15562,7 @@
   },
   {
     "id": 1297,
-    "name": "BBIIEE CCHHIIHHUUAA CCOOSSTT",
+    "name": "BIE CHIHUACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15601,7 +15601,7 @@
   },
   {
     "id": 1300,
-    "name": "AARRCCHHIIEE CCOOSSTT",
+    "name": "ARCHIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15653,7 +15653,7 @@
   },
   {
     "id": 1304,
-    "name": "LLYY SSQQUUIIDDPPIIDD CCOOSSTT",
+    "name": "LY SQUIDPIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15666,7 +15666,7 @@
   },
   {
     "id": 1305,
-    "name": "LLYY SSQQUUIIDDPPIIDD CCOOSSTT",
+    "name": "LY SQUIDPIDCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15692,7 +15692,7 @@
   },
   {
     "id": 1307,
-    "name": "GGHHTT TTEERRRROO",
+    "name": "GHT TERRO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15705,7 +15705,7 @@
   },
   {
     "id": 1308,
-    "name": "GGHHTT TTEERRRROO",
+    "name": "GHT TERRO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15718,7 +15718,7 @@
   },
   {
     "id": 1309,
-    "name": "XXII OOUUSS NNEEPPHH",
+    "name": "XI OUSNEPH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15731,7 +15731,7 @@
   },
   {
     "id": 1310,
-    "name": "LI P",
+    "name": "LLII PP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15744,7 +15744,7 @@
   },
   {
     "id": 1311,
-    "name": "AABBBBLLEE RRIISSEERR CCOOSSTT",
+    "name": "ABBLE RISERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15757,7 +15757,7 @@
   },
   {
     "id": 1312,
-    "name": "AABBBBLLEE RRIISSEERR CCOOSSTT",
+    "name": "ABBLE RISERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15770,7 +15770,7 @@
   },
   {
     "id": 1313,
-    "name": "AABBBBLLEE RRIISSEERR CCOOSSTT",
+    "name": "ABBLE RISERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15783,7 +15783,7 @@
   },
   {
     "id": 1314,
-    "name": "PPSSIIDDEE SSTTRRAANN",
+    "name": "PSIDE STRAN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15796,7 +15796,7 @@
   },
   {
     "id": 1315,
-    "name": "STRANGE LA",
+    "name": "STRANGE LACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15848,7 +15848,7 @@
   },
   {
     "id": 1319,
-    "name": "PPSSIIDDEE SSTTRRAANN",
+    "name": "PSIDE STRAN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15861,7 +15861,7 @@
   },
   {
     "id": 1320,
-    "name": "STRANGE LA",
+    "name": "STRANGE LACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15874,7 +15874,7 @@
   },
   {
     "id": 1321,
-    "name": "BB\u00ca\u00caTTEE NNOOIIRREE CCOOSSTT",
+    "name": "B\u00caTE NOIRECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15887,7 +15887,7 @@
   },
   {
     "id": 1322,
-    "name": "OPYCAT KILLE",
+    "name": "OPYCAT KILLECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15900,7 +15900,7 @@
   },
   {
     "id": 1323,
-    "name": "DDEEAADD DDAANNDD",
+    "name": "DEAD DAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15913,7 +15913,7 @@
   },
   {
     "id": 1324,
-    "name": "DDEEAADD DDAANNDD",
+    "name": "DEAD DAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15926,7 +15926,7 @@
   },
   {
     "id": 1325,
-    "name": "DDEEAADD DDAANNDD",
+    "name": "DEAD DAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15978,7 +15978,7 @@
   },
   {
     "id": 1329,
-    "name": "DAME SYBE",
+    "name": "DAME SYBECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16017,7 +16017,7 @@
   },
   {
     "id": 1332,
-    "name": "SSEEAAMMUUSS CCOOSSTT",
+    "name": "SEAMUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16030,7 +16030,7 @@
   },
   {
     "id": 1333,
-    "name": "SSEEAAMMUUSS CCOOSSTT",
+    "name": "SEAMUS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16043,7 +16043,7 @@
   },
   {
     "id": 1334,
-    "name": "HHIITTEE RRAABBBBIITT",
+    "name": "HITE RABBIT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16082,7 +16082,7 @@
   },
   {
     "id": 1337,
-    "name": "HHOOSSTT EEAATTEERR CCOOSSTT",
+    "name": "HOST EATERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16095,7 +16095,7 @@
   },
   {
     "id": 1338,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16108,7 +16108,7 @@
   },
   {
     "id": 1339,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16121,7 +16121,7 @@
   },
   {
     "id": 1340,
-    "name": "HHOOSSTT LLIIGGHH",
+    "name": "HOST LIGH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16160,7 +16160,7 @@
   },
   {
     "id": 1343,
-    "name": "DDRRAAUUGGRR CCOOSSTT",
+    "name": "DRAUGR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16173,7 +16173,7 @@
   },
   {
     "id": 1344,
-    "name": "DDRRAAUUGGRR CCOOSSTT",
+    "name": "DRAUGR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16186,7 +16186,7 @@
   },
   {
     "id": 1345,
-    "name": "LLAAMMPPAADD CCOOSSTT",
+    "name": "LAMPAD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16199,7 +16199,7 @@
   },
   {
     "id": 1346,
-    "name": "LLAAMMPPAADD CCOOSSTT",
+    "name": "LAMPAD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16212,7 +16212,7 @@
   },
   {
     "id": 1347,
-    "name": "LLAAMMPPAADD CCOOSSTT",
+    "name": "LAMPAD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16238,7 +16238,7 @@
   },
   {
     "id": 1349,
-    "name": "VVAA CCOORRTTIINN CCOOSSTT",
+    "name": "VA CORTINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16251,7 +16251,7 @@
   },
   {
     "id": 1350,
-    "name": "VVAA CCOORRTTIINN CCOOSSTT",
+    "name": "VA CORTINCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16303,7 +16303,7 @@
   },
   {
     "id": 1354,
-    "name": "EE MMPPEERRAANNCC CCOOSSTT",
+    "name": "E MPERANCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16316,7 +16316,7 @@
   },
   {
     "id": 1355,
-    "name": "CCEENNTT SSTT.. CCLL",
+    "name": "CENT ST.CL",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16355,7 +16355,7 @@
   },
   {
     "id": 1358,
-    "name": "RR OOOOKKEEDD MM AA CCOOSSTT",
+    "name": "R OOKEDM ACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16368,7 +16368,7 @@
   },
   {
     "id": 1359,
-    "name": "RR OOOOKKEEDD MM AA CCOOSSTT",
+    "name": "R OOKEDM ACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16381,7 +16381,7 @@
   },
   {
     "id": 1360,
-    "name": "RR OOOOKKEEDD MM AA CCOOSSTT",
+    "name": "R OOKEDM ACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16433,7 +16433,7 @@
   },
   {
     "id": 1364,
-    "name": "GGUUIILLTTYY CCOOSSTT",
+    "name": "GUILTY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16446,7 +16446,7 @@
   },
   {
     "id": 1365,
-    "name": "GGUUIILLTTYY CCOOSSTT",
+    "name": "GUILTY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16459,7 +16459,7 @@
   },
   {
     "id": 1366,
-    "name": "GGUUIILLTTYY CCOOSSTT",
+    "name": "GUILTY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16472,7 +16472,7 @@
   },
   {
     "id": 1367,
-    "name": "HHAANNGGEEDD CCOOSSTT",
+    "name": "HANGED",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16485,7 +16485,7 @@
   },
   {
     "id": 1368,
-    "name": "HHAANNGGEEDD CCOOSSTT",
+    "name": "HANGED",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16511,7 +16511,7 @@
   },
   {
     "id": 1370,
-    "name": "JACK DAW",
+    "name": "JACK DAWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16524,7 +16524,7 @@
   },
   {
     "id": 1371,
-    "name": "JACK DAW",
+    "name": "JACK DAWCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16537,7 +16537,7 @@
   },
   {
     "id": 1372,
-    "name": "AARRII ZZOOTTIIKKOO CCOOSSTT",
+    "name": "ARI ZOTIKOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16550,7 +16550,7 @@
   },
   {
     "id": 1373,
-    "name": "AADDYY LLIIGGEEIIAA CCOOSSTT",
+    "name": "ADY LIGEIACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16563,7 +16563,7 @@
   },
   {
     "id": 1374,
-    "name": "MM OONNTTRREESSOO RR CCOOSSTT",
+    "name": "M ONTRESOR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16576,7 +16576,7 @@
   },
   {
     "id": 1375,
-    "name": "HHEE FFEERRRRYYMM AA CCOOSSTT",
+    "name": "HE FERRYMA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16706,7 +16706,7 @@
   },
   {
     "id": 1385,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16719,7 +16719,7 @@
   },
   {
     "id": 1386,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16732,7 +16732,7 @@
   },
   {
     "id": 1387,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16745,7 +16745,7 @@
   },
   {
     "id": 1388,
-    "name": "LAST BITE",
+    "name": "LAST BITECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16771,7 +16771,7 @@
   },
   {
     "id": 1390,
-    "name": "NNAA LLOOVVEELLAA",
+    "name": "NA LOVELA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16784,7 +16784,7 @@
   },
   {
     "id": 1391,
-    "name": "KKUUPP AASSSSIISSTTAA CCOOSSTT",
+    "name": "KUP ASSISTACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16836,7 +16836,7 @@
   },
   {
     "id": 1395,
-    "name": "FF.. VVOONN SSCCHH TTOO CCOOSSTT",
+    "name": "F. VONSCH TOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16849,7 +16849,7 @@
   },
   {
     "id": 1396,
-    "name": "FF.. VVOONN SSCCHH TTOO CCOOSSTT",
+    "name": "F. VONSCH TOCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16875,7 +16875,7 @@
   },
   {
     "id": 1398,
-    "name": "DDEENNTT OOFF SSIINN CCOOSSTT",
+    "name": "DENT OFSIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16888,7 +16888,7 @@
   },
   {
     "id": 1399,
-    "name": "DDEENNTT OOFF SSIINN CCOOSSTT",
+    "name": "DENT OFSIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16927,7 +16927,7 @@
   },
   {
     "id": 1402,
-    "name": "DDEENNTT OOFF VVIISSCC CCOOSSTT",
+    "name": "DENT OFVISC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17018,7 +17018,7 @@
   },
   {
     "id": 1409,
-    "name": "DATSUE BA",
+    "name": "DATSUE BACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17031,7 +17031,7 @@
   },
   {
     "id": 1410,
-    "name": "NSLAVED SPIR",
+    "name": "NSLAVED SPIRCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17044,7 +17044,7 @@
   },
   {
     "id": 1411,
-    "name": "NSLAVED SPIR",
+    "name": "NSLAVED SPIRCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17057,7 +17057,7 @@
   },
   {
     "id": 1412,
-    "name": "NSLAVED SPIR",
+    "name": "NSLAVED SPIRCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17070,7 +17070,7 @@
   },
   {
     "id": 1413,
-    "name": "GGAAKKII CCOOSSTT",
+    "name": "GAKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17083,7 +17083,7 @@
   },
   {
     "id": 1414,
-    "name": "GGAAKKII CCOOSSTT",
+    "name": "GAKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17096,7 +17096,7 @@
   },
   {
     "id": 1415,
-    "name": "GGAAKKII CCOOSSTT",
+    "name": "GAKI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17109,7 +17109,7 @@
   },
   {
     "id": 1416,
-    "name": "GGOORRYYOO CCOOSSTT",
+    "name": "GORYO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17122,7 +17122,7 @@
   },
   {
     "id": 1417,
-    "name": "GGOORRYYOO CCOOSSTT",
+    "name": "GORYO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17135,7 +17135,7 @@
   },
   {
     "id": 1418,
-    "name": "GGWWIISSIINN CCOOSSTT",
+    "name": "GWISIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17148,7 +17148,7 @@
   },
   {
     "id": 1419,
-    "name": "GGWWIISSIINN CCOOSSTT",
+    "name": "GWISIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17161,7 +17161,7 @@
   },
   {
     "id": 1420,
-    "name": "GGWWIISSIINN CCOOSSTT",
+    "name": "GWISIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17174,7 +17174,7 @@
   },
   {
     "id": 1421,
-    "name": "IIKKIIRRYYOO CCOOSSTT",
+    "name": "IKIRYO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17187,7 +17187,7 @@
   },
   {
     "id": 1422,
-    "name": "IIKKIIRRYYOO CCOOSSTT",
+    "name": "IKIRYO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17239,7 +17239,7 @@
   },
   {
     "id": 1426,
-    "name": "LOST LOVE",
+    "name": "LOST LOVECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17317,7 +17317,7 @@
   },
   {
     "id": 1432,
-    "name": "AASS UURRAA RROOTTEENN CCOOSSTT",
+    "name": "AS URAROTEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17330,7 +17330,7 @@
   },
   {
     "id": 1433,
-    "name": "BONE PILE",
+    "name": "BONE PILECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17343,7 +17343,7 @@
   },
   {
     "id": 1434,
-    "name": "BONE PILE",
+    "name": "BONE PILECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17356,7 +17356,7 @@
   },
   {
     "id": 1435,
-    "name": "BONE PILE",
+    "name": "BONE PILECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17395,7 +17395,7 @@
   },
   {
     "id": 1438,
-    "name": "SSLLOOTTHH CCOOSSTT",
+    "name": "SLOTH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17421,7 +17421,7 @@
   },
   {
     "id": 1440,
-    "name": "ATSCH &AM A",
+    "name": "AATTSSCCHH && AAMM AA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17460,7 +17460,7 @@
   },
   {
     "id": 1443,
-    "name": "OOSSKKAARR CCOOSSTT",
+    "name": "OSKAR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17499,7 +17499,7 @@
   },
   {
     "id": 1446,
-    "name": "RRAAVVEE GGOOLLEEMM CCOOSSTT",
+    "name": "RAVE GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17512,7 +17512,7 @@
   },
   {
     "id": 1447,
-    "name": "DDEEAADD RRIIDDEERR CCOOSSTT",
+    "name": "DEAD RIDERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17525,7 +17525,7 @@
   },
   {
     "id": 1448,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17538,7 +17538,7 @@
   },
   {
     "id": 1449,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17551,7 +17551,7 @@
   },
   {
     "id": 1450,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17564,7 +17564,7 @@
   },
   {
     "id": 1451,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17577,7 +17577,7 @@
   },
   {
     "id": 1452,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17590,7 +17590,7 @@
   },
   {
     "id": 1453,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17603,7 +17603,7 @@
   },
   {
     "id": 1454,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17616,7 +17616,7 @@
   },
   {
     "id": 1455,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17629,7 +17629,7 @@
   },
   {
     "id": 1456,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17642,7 +17642,7 @@
   },
   {
     "id": 1457,
-    "name": "MI N",
+    "name": "MMII NN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17668,7 +17668,7 @@
   },
   {
     "id": 1459,
-    "name": "OLD HOB",
+    "name": "OLD HOBCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17993,7 +17993,7 @@
   },
   {
     "id": 1484,
-    "name": "FF OORRGGEELLIINNGG CCOOSSTT",
+    "name": "F ORGELINGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18006,7 +18006,7 @@
   },
   {
     "id": 1485,
-    "name": "KKAANNGG CCOOSSTT",
+    "name": "KANG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18019,7 +18019,7 @@
   },
   {
     "id": 1486,
-    "name": "MMEEII FFEENNGG CCOOSSTT",
+    "name": "MEI FENGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18032,7 +18032,7 @@
   },
   {
     "id": 1487,
-    "name": "MMEEII FFEENNGG CCOOSSTT",
+    "name": "MEI FENGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18045,7 +18045,7 @@
   },
   {
     "id": 1488,
-    "name": "MMEETTAALL GGAAMM IINN CCOOSSTT",
+    "name": "METAL GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18058,7 +18058,7 @@
   },
   {
     "id": 1489,
-    "name": "MMEETTAALL GGAAMM IINN CCOOSSTT",
+    "name": "METAL GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18071,7 +18071,7 @@
   },
   {
     "id": 1490,
-    "name": "MMEETTAALL GGAAMM IINN CCOOSSTT",
+    "name": "METAL GAMIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18084,7 +18084,7 @@
   },
   {
     "id": 1491,
-    "name": "MMEETTAALL GGOOLLEEMM CCOOSSTT",
+    "name": "METAL GOLEMCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18097,7 +18097,7 @@
   },
   {
     "id": 1492,
-    "name": "NNEEIILL HHEENNRRYY CCOOSSTT",
+    "name": "NEIL HENRYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18110,7 +18110,7 @@
   },
   {
     "id": 1493,
-    "name": "OCK HOPPE",
+    "name": "OCK HOPPECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18162,7 +18162,7 @@
   },
   {
     "id": 1497,
-    "name": "WWIILLLLIIEE CCOOSSTT",
+    "name": "WILLIE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18344,7 +18344,7 @@
   },
   {
     "id": 1511,
-    "name": "AAKKOOBB LLYYNNCC",
+    "name": "AKOB LYNC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18357,7 +18357,7 @@
   },
   {
     "id": 1512,
-    "name": "AAKKOOBB LLYYNNCC",
+    "name": "AKOB LYNC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18370,7 +18370,7 @@
   },
   {
     "id": 1513,
-    "name": "KKIITTTTYY DDUUMMOO",
+    "name": "KITTY DUMO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18383,7 +18383,7 @@
   },
   {
     "id": 1514,
-    "name": "MMRR.. GGRRAAVVEESS CCOOSSTT",
+    "name": "MR. GRAVESCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18396,7 +18396,7 @@
   },
   {
     "id": 1515,
-    "name": "MMRR.. TTAANNNNEENN CCOOSSTT",
+    "name": "MR. TANNENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18422,7 +18422,7 @@
   },
   {
     "id": 1517,
-    "name": "SSEENN CCOOSSTT",
+    "name": "SEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18461,7 +18461,7 @@
   },
   {
     "id": 1520,
-    "name": "AAKKAA CCRRIIMM",
+    "name": "AKA CRIM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18474,7 +18474,7 @@
   },
   {
     "id": 1521,
-    "name": "AAKKAA CCRRIIMM",
+    "name": "AKA CRIM",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18513,7 +18513,7 @@
   },
   {
     "id": 1524,
-    "name": "MI S",
+    "name": "MMII SS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18526,7 +18526,7 @@
   },
   {
     "id": 1525,
-    "name": "MI S",
+    "name": "MMII SS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18552,7 +18552,7 @@
   },
   {
     "id": 1527,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18565,7 +18565,7 @@
   },
   {
     "id": 1528,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18578,7 +18578,7 @@
   },
   {
     "id": 1529,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18591,7 +18591,7 @@
   },
   {
     "id": 1530,
-    "name": "OOTTOOTTOO CCOOSSTT",
+    "name": "OTOTO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18604,7 +18604,7 @@
   },
   {
     "id": 1531,
-    "name": "SSHHAANNGG CCOOSSTT",
+    "name": "SHANG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18617,7 +18617,7 @@
   },
   {
     "id": 1532,
-    "name": "TT OORRAAKKAAGGEE CCOOSSTT",
+    "name": "T ORAKAGECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18630,7 +18630,7 @@
   },
   {
     "id": 1533,
-    "name": "TT OORRAAKKAAGGEE CCOOSSTT",
+    "name": "T ORAKAGECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18643,7 +18643,7 @@
   },
   {
     "id": 1534,
-    "name": "TT OORRAAKKAAGGEE CCOOSSTT",
+    "name": "T ORAKAGECOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18721,7 +18721,7 @@
   },
   {
     "id": 1540,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18734,7 +18734,7 @@
   },
   {
     "id": 1541,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18747,7 +18747,7 @@
   },
   {
     "id": 1542,
-    "name": "UNLESS SELF",
+    "name": "UNLESS SELFCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18760,7 +18760,7 @@
   },
   {
     "id": 1543,
-    "name": "RRIINNGG SSTTUUDD",
+    "name": "RING STUD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18773,7 +18773,7 @@
   },
   {
     "id": 1544,
-    "name": "OOTTUUSS EEAATTEERR CCOOSSTT",
+    "name": "OTUS EATERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18786,7 +18786,7 @@
   },
   {
     "id": 1545,
-    "name": "OOTTUUSS EEAATTEERR CCOOSSTT",
+    "name": "OTUS EATERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18799,7 +18799,7 @@
   },
   {
     "id": 1546,
-    "name": "OOTTUUSS EEAATTEERR CCOOSSTT",
+    "name": "OTUS EATERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18812,7 +18812,7 @@
   },
   {
     "id": 1547,
-    "name": "MMUU LLOONNGG CCOOSSTT",
+    "name": "MU LONGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18864,7 +18864,7 @@
   },
   {
     "id": 1551,
-    "name": "SENSEI YU",
+    "name": "SENSEI YUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18877,7 +18877,7 @@
   },
   {
     "id": 1552,
-    "name": "SS HHEENNLLOONNGG CCOOSSTT",
+    "name": "S HENLONGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18890,7 +18890,7 @@
   },
   {
     "id": 1553,
-    "name": "SS HHEENNLLOONNGG CCOOSSTT",
+    "name": "S HENLONGCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18903,7 +18903,7 @@
   },
   {
     "id": 1554,
-    "name": "NNDDEERR AARRCC",
+    "name": "NDER ARC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18916,7 +18916,7 @@
   },
   {
     "id": 1555,
-    "name": "NNDDEERR AARRCC",
+    "name": "NDER ARC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18929,7 +18929,7 @@
   },
   {
     "id": 1556,
-    "name": "NNDDEERR AARRCC",
+    "name": "NDER ARC",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19059,7 +19059,7 @@
   },
   {
     "id": 1566,
-    "name": "AA MMAANNJJAAKKUU CCOOSSTT",
+    "name": "A MANJAKUCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19085,7 +19085,7 @@
   },
   {
     "id": 1568,
-    "name": "AAMMII TTAANNAAKK CCOOSSTT",
+    "name": "AMI TANAKCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19098,7 +19098,7 @@
   },
   {
     "id": 1569,
-    "name": "AAMMII TTAANNAAKK CCOOSSTT",
+    "name": "AMI TANAKCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19215,7 +19215,7 @@
   },
   {
     "id": 1578,
-    "name": "GURO BETTA",
+    "name": "GURO BETTACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19241,7 +19241,7 @@
   },
   {
     "id": 1580,
-    "name": "TTEENNGGUU CCOOSSTT",
+    "name": "TENGU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19254,7 +19254,7 @@
   },
   {
     "id": 1581,
-    "name": "TTEENNGGUU CCOOSSTT",
+    "name": "TENGU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19267,7 +19267,7 @@
   },
   {
     "id": 1582,
-    "name": "TTEENNGGUU CCOOSSTT",
+    "name": "TENGU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19280,7 +19280,7 @@
   },
   {
     "id": 1583,
-    "name": "YYOOKKAAII CCOOSSTT",
+    "name": "YOKAI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19293,7 +19293,7 @@
   },
   {
     "id": 1584,
-    "name": "YYOOKKAAII CCOOSSTT",
+    "name": "YOKAI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19306,7 +19306,7 @@
   },
   {
     "id": 1585,
-    "name": "YYOOKKAAII CCOOSSTT",
+    "name": "YOKAI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19358,7 +19358,7 @@
   },
   {
     "id": 1589,
-    "name": "SSEENN CCOOSSTT",
+    "name": "SEN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19371,7 +19371,7 @@
   },
   {
     "id": 1590,
-    "name": "BBIILLLL AALLGGRREENN CCOOSSTT",
+    "name": "BILL ALGRENCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19423,7 +19423,7 @@
   },
   {
     "id": 1594,
-    "name": "AARRMM WWAARRDD",
+    "name": "ARM WARD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19436,7 +19436,7 @@
   },
   {
     "id": 1595,
-    "name": "AARRMM WWAARRDD",
+    "name": "ARM WARD",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19449,7 +19449,7 @@
   },
   {
     "id": 1596,
-    "name": "YYOO HHAAMMAASSAA",
+    "name": "YO HAMASA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19540,7 +19540,7 @@
   },
   {
     "id": 1603,
-    "name": "KUNOICH I",
+    "name": "KUNOICH ICOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19553,7 +19553,7 @@
   },
   {
     "id": 1604,
-    "name": "KUNOICH I",
+    "name": "KUNOICH ICOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19566,7 +19566,7 @@
   },
   {
     "id": 1605,
-    "name": "KUNOICH I",
+    "name": "KUNOICH ICOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19735,7 +19735,7 @@
   },
   {
     "id": 1618,
-    "name": "AADDEE RRAABBBBIITT CCOOSSTT",
+    "name": "ADE RABBITCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19748,7 +19748,7 @@
   },
   {
     "id": 1619,
-    "name": "LINH LY",
+    "name": "LINH LYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19761,7 +19761,7 @@
   },
   {
     "id": 1620,
-    "name": "LINH LY",
+    "name": "LINH LYCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19774,7 +19774,7 @@
   },
   {
     "id": 1621,
-    "name": "MAP MAP",
+    "name": "MMAAPP MMAAPP CCOOSSTT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19787,7 +19787,7 @@
   },
   {
     "id": 1622,
-    "name": "YYAA MMUURRAAKKAA CCOOSSTT",
+    "name": "YA MURAKACOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19800,7 +19800,7 @@
   },
   {
     "id": 1623,
-    "name": "PPAAPPEERR TTIIGGEERR CCOOSSTT",
+    "name": "PAPER TIGERCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19813,7 +19813,7 @@
   },
   {
     "id": 1624,
-    "name": "OORRYY OOFF RRAAIIJJIINN CCOOSSTT",
+    "name": "ORY OFRAIJIN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19839,7 +19839,7 @@
   },
   {
     "id": 1626,
-    "name": "OOFF TTHHAANNHH",
+    "name": "OF THANH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19904,7 +19904,7 @@
   },
   {
     "id": 1631,
-    "name": "LLUUSSTT CCOOSSTT",
+    "name": "LUST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19982,7 +19982,7 @@
   },
   {
     "id": 1637,
-    "name": "MINAKO REI",
+    "name": "MINAKO REICOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20008,7 +20008,7 @@
   },
   {
     "id": 1639,
-    "name": "AAMMAAII CCOOSSTT",
+    "name": "AMAI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20021,7 +20021,7 @@
   },
   {
     "id": 1640,
-    "name": "AAMMAAII CCOOSSTT",
+    "name": "AMAI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20034,7 +20034,7 @@
   },
   {
     "id": 1641,
-    "name": "KKAARRAA CCOOSSTT",
+    "name": "KARA",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20047,7 +20047,7 @@
   },
   {
     "id": 1642,
-    "name": "KKOOJJII CCOOSSTT",
+    "name": "KOJI",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20060,7 +20060,7 @@
   },
   {
     "id": 1643,
-    "name": "HADOW FAT",
+    "name": "HADOW FATCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20073,7 +20073,7 @@
   },
   {
     "id": 1644,
-    "name": "HADOW FAT",
+    "name": "HADOW FATCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -20125,7 +20125,7 @@
   },
   {
     "id": 1648,
-    "name": "ZZHHEENNGG CCOOSSTT",
+    "name": "ZHENG",
     "cost": 0,
     "stats": {
       "sp": 0,
