@@ -3,7 +3,6 @@ import json
 import re
 import os
 import urllib.parse
-from difflib import SequenceMatcher
 from typing import List, Dict, Any
 
 # --- CONFIGURATION ---
@@ -19,76 +18,65 @@ IGNORED_NAMES = {
 }
 
 def clean_text(text: str) -> str:
+    if not text: return ""
     return " ".join(text.split())
 
 def fix_shadow_text(text: str) -> str:
     """
-    Handles 2x (FFIIRREE) and 3x (FFFIIIRRREEE) shadow text artifacts.
+    Advanced Shadow Fixer: Uses 'Pair Density' instead of rigid slicing.
+    Handles 'NNCCEE OOFF PPOO' -> 'NCE OF PO' correctly even if spaces aren't doubled.
     """
-    if not text or len(text) < 4: return text
+    if not text or len(text) < 3: return text
 
-    # 1. Check for Triples (Common in deep shadows like 'cccooosssttt')
-    # If index 0 == 1 == 2, it's a triple.
-    triples = text[::3]
-    if len(triples) > 1:
-        # Check similarity between the slices
-        slice1 = text[0::3]
-        slice2 = text[1::3]
-        slice3 = text[2::3]
-        
-        # Safe length for comparison
-        min_len = min(len(slice1), len(slice2), len(slice3))
-        if min_len > 0:
-            m1 = SequenceMatcher(None, slice1[:min_len], slice2[:min_len]).ratio()
-            m2 = SequenceMatcher(None, slice1[:min_len], slice3[:min_len]).ratio()
-            
-            if m1 > 0.8 and m2 > 0.8:
-                return slice1
-
-    # 2. Check for Doubles (FFIIRREE)
-    evens = text[::2]
-    odds = text[1::2]
-    min_len = min(len(evens), len(odds))
+    # 1. Calculate 'Pair Density' (Percentage of chars that are identical to their neighbor)
+    matches = 0
+    # We strip spaces for the density check to avoid false negatives on undoubled spaces
+    check_text = text.replace(" ", "")
+    if len(check_text) < 2: return text
     
-    if min_len > 0:
-        ratio = SequenceMatcher(None, evens[:min_len], odds[:min_len]).ratio()
-        if ratio > 0.85:
-            return evens
+    for i in range(len(check_text) - 1):
+        if check_text[i] == check_text[i+1]:
+            matches += 1
+            
+    # If > 60% of non-space characters are identical to their neighbor, it's shadow text.
+    # (e.g. "MMoonn" -> 4/6 matches = 66%. "Moon" -> 1/4 matches = 25%)
+    density = matches / len(check_text)
+    
+    if density > 0.60:
+        # 2. Reconstruct the string
+        result = []
+        i = 0
+        while i < len(text):
+            char = text[i]
+            
+            # If next char exists and matches current, skip the next one
+            if i + 1 < len(text) and text[i+1] == char:
+                result.append(char)
+                i += 2
+            else:
+                # No match (likely a space or typo), keep it and move 1
+                result.append(char)
+                i += 1
+        return "".join(result)
         
     return text
-
-def collapse_consecutive(text: str) -> str:
-    """
-    Fallback: Collapses "GGoolleemm" -> "Golem" if standard unshadowing failed.
-    Only runs if the string looks highly repetitive.
-    """
-    if not text: return ""
-    result = []
-    i = 0
-    while i < len(text):
-        char = text[i]
-        result.append(char)
-        # Skip identical next chars (case insensitive to catch Gg)
-        j = i + 1
-        while j < len(text) and text[j].lower() == char.lower():
-            j += 1
-        i = j
-    return "".join(result)
 
 def clean_name_line(text: str) -> str:
     """
     Aggressively cleans the Name line.
     """
-    # 1. Strip 'Ghost' Labels (CCOOSSTT, SSTTNN)
-    # This regex looks for C repeated 1+ times, O repeated 1+ times, etc.
-    # It catches "COST", "CCOOSSTT", "CC OOSSTT", etc.
-    text = re.sub(r"\s*(C+\s*O+\s*S+\s*T+|S+\s*T+\s*N+|S+\s*Z+).*$", "", text, flags=re.IGNORECASE)
-    
-    # 2. Fix Shadow Text (FFIIRREE -> FIRE)
+    # 1. Fix Shadow Text FIRST (NNCCEE -> NCE)
     text = fix_shadow_text(text)
+    
+    # 2. Strip standard labels appearing at the end
+    # Now that text is clean, we can look for "COST" or "STN"
+    text = re.sub(r"\s+(COST|STN|SZ|HZ).*$", "", text, flags=re.IGNORECASE)
     
     # 3. Strip trailing numbers (The cost value)
     text = re.sub(r"\s+\d+$", "", text)
+    
+    # 4. Strip non-alphanumeric noise from start (e.g. bullet points)
+    text = re.sub(r"^[^a-zA-Z0-9]+", "", text)
     
     return text.strip()
 
@@ -97,7 +85,7 @@ def is_valid_name(line: str) -> bool:
     if not clean: return False
     # Reject pure numbers
     if re.match(r"^\d+$", clean): return False 
-    # Reject Stat patterns
+    # Reject Stat patterns like "Df 5" or "Df: 5"
     if re.match(r"^(Sp|Mv|Df|Wp|Sz|Hz|Cost|Stn)[:\s]*\d+", clean, re.IGNORECASE): return False
     
     # Check against known headers
@@ -127,8 +115,11 @@ def extract_attacks_verbatim(text: str) -> str:
         if capturing:
             if "Tactical Actions" in clean or "Abilities" in clean:
                 break
+            # Skip empty lines or table headers
             if not clean or "Rg Skl" in clean:
                 continue
+            # Basic shadow text fix for attacks too, to make them readable
+            clean = fix_shadow_text(clean)
             attack_text.append(clean)
             
     return " ".join(attack_text)
