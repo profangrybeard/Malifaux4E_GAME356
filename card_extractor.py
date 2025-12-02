@@ -23,41 +23,69 @@ def clean_text(text: str) -> str:
 
 def fix_shadow_text(text: str) -> str:
     """
-    Robust fix for 'FFIIRREE GGOOLLEEMM'.
-    Logic: If the characters at even indices match the characters at odd indices
-    (e.g. index 0 matches 1, 2 matches 3), it's shadow text.
+    Handles 2x (FFIIRREE) and 3x (FFFIIIRRREEE) shadow text artifacts.
     """
     if not text or len(text) < 4: return text
 
-    # Split into evens and odds
+    # 1. Check for Triples (Common in deep shadows like 'cccooosssttt')
+    # If index 0 == 1 == 2, it's a triple.
+    triples = text[::3]
+    if len(triples) > 1:
+        # Check similarity between the slices
+        slice1 = text[0::3]
+        slice2 = text[1::3]
+        slice3 = text[2::3]
+        
+        # Safe length for comparison
+        min_len = min(len(slice1), len(slice2), len(slice3))
+        if min_len > 0:
+            m1 = SequenceMatcher(None, slice1[:min_len], slice2[:min_len]).ratio()
+            m2 = SequenceMatcher(None, slice1[:min_len], slice3[:min_len]).ratio()
+            
+            if m1 > 0.8 and m2 > 0.8:
+                return slice1
+
+    # 2. Check for Doubles (FFIIRREE)
     evens = text[::2]
     odds = text[1::2]
-    
-    # If string length is odd, the slices won't match length, so trim to compare
     min_len = min(len(evens), len(odds))
     
-    # Calculate similarity ratio
-    matcher = SequenceMatcher(None, evens[:min_len], odds[:min_len])
-    ratio = matcher.ratio()
-    
-    # If > 85% similar, it's definitely shadow text. 
-    # (We use 85% because sometimes a space or punctuation isn't perfectly doubled in OCR)
-    if ratio > 0.85:
-        return evens
+    if min_len > 0:
+        ratio = SequenceMatcher(None, evens[:min_len], odds[:min_len]).ratio()
+        if ratio > 0.85:
+            return evens
         
     return text
 
+def collapse_consecutive(text: str) -> str:
+    """
+    Fallback: Collapses "GGoolleemm" -> "Golem" if standard unshadowing failed.
+    Only runs if the string looks highly repetitive.
+    """
+    if not text: return ""
+    result = []
+    i = 0
+    while i < len(text):
+        char = text[i]
+        result.append(char)
+        # Skip identical next chars (case insensitive to catch Gg)
+        j = i + 1
+        while j < len(text) and text[j].lower() == char.lower():
+            j += 1
+        i = j
+    return "".join(result)
+
 def clean_name_line(text: str) -> str:
     """
-    Cleans up the Name line specifically.
+    Aggressively cleans the Name line.
     """
-    # 1. Fix Shadow Text (FFIIRREE -> FIRE)
-    text = fix_shadow_text(text)
+    # 1. Strip 'Ghost' Labels (CCOOSSTT, SSTTNN)
+    # This regex looks for C repeated 1+ times, O repeated 1+ times, etc.
+    # It catches "COST", "CCOOSSTT", "CC OOSSTT", etc.
+    text = re.sub(r"\s*(C+\s*O+\s*S+\s*T+|S+\s*T+\s*N+|S+\s*Z+).*$", "", text, flags=re.IGNORECASE)
     
-    # 2. Strip standard labels appearing at the end
-    # "Fire Golem COST" -> "Fire Golem"
-    # "Fire Golem STN" -> "Fire Golem"
-    text = re.sub(r"\s+(COST|STN|SZ).*$", "", text, flags=re.IGNORECASE)
+    # 2. Fix Shadow Text (FFIIRREE -> FIRE)
+    text = fix_shadow_text(text)
     
     # 3. Strip trailing numbers (The cost value)
     text = re.sub(r"\s+\d+$", "", text)
@@ -124,9 +152,10 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             # --- 1. EXTRACT NAME ---
             name = "Unknown"
             
+            # Scan for the first valid text line
             for line in lines:
                 if is_valid_name(line):
-                    # Clean the line (De-Shadow, remove COST)
+                    # Clean the line
                     cleaned_line = clean_name_line(line)
                     
                     # Double check validity after cleaning
