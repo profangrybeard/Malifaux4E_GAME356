@@ -12,7 +12,7 @@ ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 # 2. Your GitHub Raw Content URL (Ends with a slash)
 # This points to the root of where you pushed this code/images.
-IMAGE_BASE_URL = "https://raw.githubusercontent.com/profangrybeard/Malifaux4E_GAME356/main/" 
+IMAGE_BASE_URL = "https://raw.githubusercontent.com/profangrybeard/Malifaux4E_GAME356/main/blob/" 
 
 # --- DEFINITIONS ---
 KNOWN_FACTIONS = [
