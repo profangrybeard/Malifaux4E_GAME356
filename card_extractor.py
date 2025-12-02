@@ -6,143 +6,189 @@ import urllib.parse
 from typing import List, Dict, Any
 
 # --- CONFIGURATION ---
-
-# 1. ROOT_FOLDER: The script looks in the folder it is running in, and all subfolders.
+# The script will look in the folder it is currently running in, and all subfolders.
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-# 2. IMAGE_BASE_URL: Your GitHub Pages URL (Ends with a slash)
-# This allows the App to fetch the PDF (and the PNG) via the fast CDN.
+# Points to your GitHub Pages URL (Ends with a slash)
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
-# --- DEFINITIONS ---
+# --- GAME DEFINITIONS (Based on M4E Rulebook) ---
 KNOWN_FACTIONS = [
     "Guild", "Resurrectionist", "Arcanist", "Neverborn", 
     "Outcast", "Bayou", "Ten Thunders", "Explorer's Society"
 ]
 
+# Stations often appear with limits now, e.g. "Minion (3)"
 KNOWN_STATIONS = [
     "Master", "Henchman", "Enforcer", "Minion", "Peon"
 ]
 
 def clean_text(text: str) -> str:
+    """Standardizes text for easier parsing."""
     return " ".join(text.split())
 
-def extract_stat(text: str, stat_name: str) -> int:
-    # Regex to find "Stat 5" or "Stat: 5"
+def extract_stat(text: str, stat_name: str, default: int = 0) -> int:
+    """
+    Extracts stats like 'Sp 5', 'Df 6'.
+    Allows flexible spacing: 'Sp: 5' or 'Sp5'
+    """
     pattern = re.compile(rf"{stat_name}[:\s]*(\d+)", re.IGNORECASE)
     match = pattern.search(text)
+    return int(match.group(1)) if match else default
+
+def extract_base_size(text: str) -> int:
+    """
+    Looks for standard base sizes: 30mm, 40mm, 50mm.
+    """
+    match = re.search(r"(\d{2})\s*mm", text, re.IGNORECASE)
+    if match:
+        return int(match.group(1))
+    return 30 # Default to 30mm if undefined
+
+def extract_stn(text: str) -> int:
+    """
+    Looks for Summon Target Number (STN).
+    """
+    match = re.search(r"STN[:\s]*(\d+)", text, re.IGNORECASE)
     return int(match.group(1)) if match else 0
 
-def generate_github_url(file_path: str) -> str:
+def extract_station_and_limit(text: str) -> Dict[str, Any]:
     """
-    Calculates the URL based on the file's location relative to this script.
+    Parses 'Minion (3)' into {'station': 'Minion', 'limit': 3}
     """
-    # Get path relative to the script's location (e.g., "Guild/Marshals/LadyJ.pdf")
-    relative_path = os.path.relpath(file_path, ROOT_FOLDER)
-    
-    # Normalize slashes for URL (Windows uses \, Web uses /)
-    safe_path = relative_path.replace("\\", "/")
-    
-    # URL Encode parts (handles spaces, special chars)
-    # We split by / to encode each folder/filename individually, then rejoin
-    # e.g. "Guild/Lady Justice.pdf" -> "Guild/Lady%20Justice.pdf"
-    encoded_path = "/".join([urllib.parse.quote(part) for part in safe_path.split("/")])
-    
-    return f"{IMAGE_BASE_URL}{encoded_path}"
+    for station in KNOWN_STATIONS:
+        if station in text:
+            # Look for limit in parenthesis immediately following
+            limit_match = re.search(rf"{station}\s*\((\d+)\)", text)
+            limit = int(limit_match.group(1)) if limit_match else 0
+            
+            # Masters and Henchmen usually imply limit 1 if not stated
+            if limit == 0 and station in ["Master", "Henchman"]:
+                limit = 1
+            elif limit == 0:
+                limit = 99 # Unlimited/Unknown
 
-def auto_tag_card(card: Dict[str, Any]) -> List[str]:
+            return {"station": station, "limit": limit}
+    return {"station": "Minion", "limit": 99}
+
+def generate_github_url(file_path: str) -> str:
+    relative_path = os.path.relpath(file_path, ROOT_FOLDER)
+    safe_path = relative_path.replace("\\", "/")
+    # Determine the "companion" png path (assuming .pdf -> .png)
+    # But keep link as .pdf for consistency with data contract
+    # The React app will auto-swap to .png for thumbnails
+    base_path = os.path.splitext(safe_path)[0]
+    encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
+    return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
+
+def auto_tag_card(card: Dict[str, Any], full_text: str) -> List[str]:
     """
-    Scans the card text/stats to apply automatic tags for filtering.
+    Generates filter tags based on Rulebook concepts.
     """
     tags = []
     stats = card.get("stats", {})
-    full_text = str(card).lower()
-
-    # Stat-based Tags
-    if stats.get("mv", 0) >= 6: tags.append("Fast")
-    if stats.get("df", 0) >= 6: tags.append("High Defense")
-    if stats.get("wp", 0) >= 7: tags.append("High Willpower")
-    if card.get("cost", 0) <= 5: tags.append("Cheap")
     
-    # Text-based Tags
-    if "armor" in full_text: tags.append("Armored")
-    if "terrifying" in full_text: tags.append("Terrifying")
-    if "hard to kill" in full_text: tags.append("Durable")
-    if "incorporeal" in full_text: tags.append("Ghost")
-    if "heal" in full_text: tags.append("Healer")
-    if "scheme marker" in full_text: tags.append("Schemer")
-    if "blast" in full_text: tags.append("Blast")
-    if "pulse" in full_text: tags.append("Pulse")
-    if "summon" in full_text: tags.append("Summoner")
+    # --- Stat-Based Tags ---
+    if stats.get("sp", 0) >= 6: tags.append("Fast (Sp 6+)")
+    if stats.get("df", 0) >= 6: tags.append("High Defense (Df 6+)")
+    if stats.get("wp", 0) >= 7: tags.append("High Willpower (Wp 7+)")
+    if stats.get("sz", 0) >= 3: tags.append("Large (Sz 3+)")
+    if card.get("stn", 0) > 0: tags.append("Summonable")
 
+    # --- Ability Tags (Keywords from Rules) ---
+    text_lower = full_text.lower()
+    
+    if "armor" in text_lower: tags.append("Armor")
+    if "shielded" in text_lower: tags.append("Shielded")
+    if "terrifying" in text_lower: tags.append("Terrifying")
+    if "hard to kill" in text_lower: tags.append("Hard to Kill")
+    if "flight" in text_lower: tags.append("Flight")
+    if "incorporeal" in text_lower: tags.append("Incorporeal")
+    if "don't mind me" in text_lower: tags.append("Schemer")
+    if "heals" in text_lower or "regeneration" in text_lower: tags.append("Healer/Regen")
+    
+    # --- Attack Types (Heuristic based on text) ---
+    if 'rg' in text_lower and '"' in text_lower: # Has ranged attacks
+        tags.append("Ranged Attacks")
+        
     return list(set(tags))
 
 def parse_pdf(file_path: str, file_id: int) -> Dict[str, Any]:
     try:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
-            
-            first_page = pdf.pages[0]
-            text = first_page.extract_text()
-            
-            if not text:
-                return None
+            text = pdf.pages[0].extract_text()
+            if not text: return None
 
+            clean_t = clean_text(text)
             lines = [line for line in text.split('\n') if line.strip()]
+            
+            # 1. Identity
             name = lines[0].strip() if lines else "Unknown"
+            # Title is often the second line if it looks like a title (simple heuristic)
+            title = ""
+            if len(lines) > 1 and len(lines[1]) < 40 and "Hp" not in lines[1]:
+                title = lines[1].strip()
 
-            # Parse Faction/Station
+            # 2. Faction & Station
             faction = "Unknown"
-            station = "Minion"
             for f in KNOWN_FACTIONS:
                 if f in text: faction = f; break
-            for s in KNOWN_STATIONS:
-                if s in text: station = s; break
+            
+            station_info = extract_station_and_limit(text)
 
-            # Parse Stats
+            # 3. Stats (M4E Rules: Sp, Df, Wp, Sz)
             stats = {
-                "mv": extract_stat(text, "Mv"),
+                "sp": extract_stat(text, "Sp"), # UPDATED from Mv
                 "df": extract_stat(text, "Df"),
                 "wp": extract_stat(text, "Wp"),
                 "sz": extract_stat(text, "Sz"),
-                "base": extract_stat(text, "Base") or 30
             }
 
+            # 4. Physicality
+            base_size = extract_base_size(text)
+            health = extract_stat(text, "Health", default=extract_stat(text, "Hp", default=0))
+            
+            # 5. Hiring
             cost = extract_stat(text, "Cost")
-            # Logic: If it's a Master and cost reads 0 (often true in PDFs), default to 15 for sorting
-            if station == "Master" and cost == 0: cost = 15
+            if station_info["station"] == "Master" and cost == 0: cost = 15
+            
+            # 6. Gameplay
+            stn = extract_stn(text)
 
-            # Keywords (Heuristic: grab 2nd line of text)
-            keywords = [] 
-            if len(lines) > 1:
-                potential_keywords = lines[1].split(',')
-                keywords = [k.strip() for k in potential_keywords if len(k) < 20]
-
-            # Characteristics
+            # 7. Keywords & Characteristics
+            keywords = []
+            # Manual enrichment required for complex keywords, 
+            # but we scan for common ones in text
+            
             characteristics = []
-            for char in ["Living", "Undead", "Construct", "Spirit", "Beast", "Human", "Nightmare"]:
+            for char in ["Living", "Undead", "Construct", "Spirit", "Beast", "Human", "Nightmare", "Cavalry"]:
                 if char in text: characteristics.append(char)
 
-            # Generate Link (This links to the PDF, the App will guess the PNG from this)
+            # 8. Links
             pdf_url = generate_github_url(file_path)
 
             card_data = {
                 "id": file_id,
                 "name": name,
+                "title": title,
                 "faction": faction,
-                "station": station,
-                "keywords": keywords,
+                "station": station_info["station"],
+                "limit": station_info["limit"],
+                "keywords": keywords, 
                 "cost": cost,
+                "health": health,
+                "base": base_size,
+                "stn": stn,
                 "characteristics": characteristics,
                 "imageUrl": pdf_url, 
                 "stats": stats,
                 "actions": [],   
                 "abilities": [], 
-                "flavor": "Imported from PDF"
+                "flavor": "M4E Rules Compliant"
             }
             
-            auto_tags = auto_tag_card(card_data)
-            card_data["keywords"].extend(auto_tags)
+            card_data["tags"] = auto_tag_card(card_data, clean_t)
 
             return card_data
 
@@ -158,13 +204,10 @@ def main():
     print(f"Base GitHub URL: {IMAGE_BASE_URL}")
     print("-" * 50)
 
-    # os.walk automatically visits every subfolder
     for root, dirs, files in os.walk(ROOT_FOLDER):
         for filename in files:
             if filename.lower().endswith(".pdf"):
                 full_path = os.path.join(root, filename)
-                
-                # Calculate relative path just for console logging
                 rel_display = os.path.relpath(full_path, ROOT_FOLDER)
                 print(f"Processing: {rel_display}")
                 
