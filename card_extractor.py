@@ -10,60 +10,91 @@ ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
 # --- CONSTANTS ---
+# Words that appear in headers that we definitely don't want as names
 IGNORED_NAMES = {
     "Guild", "Resurrectionist", "Arcanist", "Neverborn", 
     "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", 
-    "Dead Man's Hand", "Cost", "Stn", "Sz", "Df", "Wp", "Sp", "Mv"
+    "Dead Man's Hand", "Cost", "Stn", "Sz", "Df", "Wp", "Sp", "Mv",
+    "Minion", "Master", "Henchman", "Enforcer", "Peon"
 }
 
 def clean_text(text: str) -> str:
     return " ".join(text.split())
 
+def fix_shadow_text(text: str) -> str:
+    """
+    Fixes 'FFIIRREE GGOOLLEEMM' -> 'FIRE GOLEM'
+    This happens when PDF text layers are duplicated for bold/shadow effects.
+    """
+    if not text or len(text) < 2: return text
+
+    # Check for perfect doubling: "FFii"
+    # If > 60% of pairs match (text[i] == text[i+1]), it's likely shadow text
+    matches = 0
+    pairs = len(text) // 2
+    if pairs == 0: return text
+    
+    for i in range(0, pairs * 2, 2):
+        if text[i] == text[i+1]:
+            matches += 1
+            
+    if matches / pairs > 0.6:
+        # It's shadow text, return every 2nd char
+        return text[::2]
+        
+    return text
+
+def clean_name_line(text: str) -> str:
+    """
+    Removes artifacts like "CCOOSSTT" or "COST" from the end of a name.
+    """
+    # 1. First fix the shadow doubling
+    text = fix_shadow_text(text)
+    
+    # 2. Strip standard labels that might appear on the same line
+    # Remove "COST" or "STN" appearing at the end
+    text = re.sub(r"\s*(C\s*O\s*S\s*T|S\s*T\s*N)\s*.*$", "", text, flags=re.IGNORECASE)
+    
+    # 3. Strip trailing numbers (the cost value itself)
+    text = re.sub(r"\s*\d+$", "", text)
+    
+    return text.strip()
+
 def is_valid_name(line: str) -> bool:
-    """
-    Strict filter for the Name field.
-    """
     clean = line.strip()
     if not clean: return False
-    # Reject pure numbers (Cost/Stats often appear first)
     if re.match(r"^\d+$", clean): return False 
-    # Reject Stat-like patterns (e.g., "Df 5")
     if re.match(r"^(Sp|Mv|Df|Wp|Sz|Hz|Cost|Stn)[:\s]*\d+", clean, re.IGNORECASE): return False
-    # Reject known headers
-    if clean in IGNORED_NAMES: return False
-    # Name must be at least 3 chars
+    
+    # Check against known headers (case insensitive)
+    clean_upper = clean.upper()
+    for ignored in IGNORED_NAMES:
+        if ignored.upper() == clean_upper: return False
+        
     if len(clean) < 3: return False
     return True
 
 def extract_stat(text: str, stat_name: str) -> int:
-    """
-    Finds a stat value (e.g., "Df 5") anywhere in the text.
-    """
-    # Regex looks for the Stat Name followed by digits, allowing for colons or spaces
+    # Looks for "Df 5" or "Df: 5" or "Df. 5"
+    # Also handles shadow text "DDff 55" by ignoring the extra chars in regex if needed,
+    # but usually numbers extract fine.
     pattern = re.compile(rf"{stat_name}[:\.\s]*(\d+)", re.IGNORECASE)
     match = pattern.search(text)
     return int(match.group(1)) if match else 0
 
 def extract_attacks_verbatim(text: str) -> str:
-    """
-    Captures all text between 'Attack Actions' and the next section.
-    """
     lines = text.split('\n')
     capturing = False
     attack_text = []
     
     for line in lines:
         clean = line.strip()
-        # Start capturing
         if "Attack Actions" in clean:
             capturing = True
             continue
-        
-        # Stop capturing if we hit another header
         if capturing:
             if "Tactical Actions" in clean or "Abilities" in clean:
                 break
-            # Skip empty lines or table headers like "Rg Skl Rst"
             if not clean or "Rg Skl" in clean:
                 continue
             attack_text.append(clean)
@@ -87,25 +118,25 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             lines = [line.strip() for line in text.split('\n') if line.strip()]
             
             # --- 1. EXTRACT NAME ---
-            # Scan top-down. The first line that passes validation is the Name.
             name = "Unknown"
+            
+            # Scan for the first valid text line
             for line in lines:
                 if is_valid_name(line):
-                    name = line
-                    break
+                    # Clean it immediately to handle FFIIRREE
+                    cleaned_line = clean_name_line(line)
+                    if len(cleaned_line) > 2:
+                        name = cleaned_line
+                        break
             
-            # Fallback: If extractor fails, use filename
             if name == "Unknown":
                 name = os.path.splitext(filename)[0].replace("_", " ")
 
-            # --- 2. EXTRACT CORE STATS ---
-            # M4E Stats: Cost, Sp, Df, Wp, Sz
+            # --- 2. EXTRACT STATS ---
             cost = extract_stat(text, "Cost")
-            # Heuristic: Masters usually have Cost 0 printed, but effectively cost 15 for pool calc
-            # We will keep raw extract for now.
             
             stats = {
-                "sp": extract_stat(text, "Sp"), # M4E uses Sp (Speed)
+                "sp": extract_stat(text, "Sp"),
                 "df": extract_stat(text, "Df"),
                 "wp": extract_stat(text, "Wp"),
                 "sz": extract_stat(text, "Sz")
@@ -120,7 +151,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": name,
                 "cost": cost,
                 "stats": stats,
-                "attacks": attacks_raw, # Searchable metadata
+                "attacks": attacks_raw,
                 "imageUrl": generate_github_url(file_path)
             }
 
