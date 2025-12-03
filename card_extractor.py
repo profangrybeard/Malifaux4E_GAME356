@@ -3,6 +3,7 @@ import json
 import re
 import os
 import urllib.parse
+from operator import itemgetter
 from typing import List, Dict, Any
 
 # --- CONFIGURATION ---
@@ -16,119 +17,133 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-def get_cost_from_zone(page, width, height) -> int:
+def dedupe_chars_spatial(chars: List[Dict]) -> str:
     """
-    Looks specifically in the Top-Right corner (Cost Bubble) for a number.
+    Solves 'Shadow Text' by checking physical coordinates.
+    If two identical characters are within 2 points of each other,
+    they are the same letter (Shadow/Bold effect). Keep only one.
     """
-    # Define a box: Top 15% of height, Right-most 20% of width
-    # bbox = (x0, top, x1, bottom)
-    cost_zone = (width * 0.80, 0, width, height * 0.15)
+    if not chars: return ""
     
-    # Crop the page to just that corner
-    try:
-        crop = page.crop(cost_zone)
-        words = crop.extract_words()
-        for w in words:
-            # Check if text is a digit
-            clean = w['text'].strip()
-            if clean.isdigit():
-                return int(clean)
-    except Exception:
-        pass
-    return 0
-
-def get_name_spatial(page, width, height) -> str:
-    """
-    Finds the Name by looking for the LARGEST text in the Top Header area.
-    """
-    # Header Zone: Top 20% of the card, full width
-    header_zone = (0, 0, width, height * 0.22)
+    # Sort by vertical position (top) then horizontal (x0)
+    chars.sort(key=itemgetter('top', 'x0'))
     
-    try:
-        crop = page.crop(header_zone)
-        # extract_words uses spatial clustering, which fixes the "F F I I R R E E" issue
-        # keep_blank_chars=False removes the spaces inserted by kerning
-        words = crop.extract_words(x_tolerance=3, y_tolerance=3, keep_blank_chars=False)
+    clean_text = ""
+    last_char = None
+    
+    for char in chars:
+        text = char['text']
         
-        # Filter out garbage
-        valid_words = []
-        for w in words:
-            text = w['text']
-            # Ignore numbers (Cost) and tiny text
-            if text.isdigit(): continue
-            if len(text) < 2: continue 
-            # Ignore Faction labels if they appear
-            if text in ["Guild", "Arcanist", "Neverborn", "Outcast", "Bayou", "Resurrectionist", "Thunders", "Society"]: continue
+        # Skip weird empty objects
+        if not text.strip(): 
+            clean_text += " "
+            continue
             
-            valid_words.append(w)
-
-        if not valid_words: return "Unknown"
-
-        # Find the largest font size among valid words
-        # Note: pdfplumber word dict doesn't strictly have 'size', 
-        # but the 'bottom' - 'top' height is a good proxy for font size.
-        max_height = 0
-        for w in valid_words:
-            h = w['bottom'] - w['top']
-            if h > max_height:
-                max_height = h
-        
-        # Collect all words that are roughly that large (Title case)
-        name_parts = []
-        for w in valid_words:
-            h = w['bottom'] - w['top']
-            # Tolerance of 2 points
-            if abs(h - max_height) < 2:
-                name_parts.append(w['text'])
+        if last_char:
+            # Check overlap
+            # If same character AND x position is extremely close (< 2 pts)
+            if text == last_char['text'] and abs(char['x0'] - last_char['x0']) < 2.5:
+                continue # Skip this shadow copy
                 
-        return " ".join(name_parts)
+        clean_text += text
+        last_char = char
+        
+    # Collapse multiple spaces
+    return re.sub(r'\s+', ' ', clean_text).strip()
 
-    except Exception as e:
-        return "Unknown"
+def get_text_in_zone(page, x_range, y_range) -> str:
+    """
+    Extracts text from a specific percentage zone of the card.
+    x_range: (min_percent, max_percent)
+    y_range: (min_percent, max_percent)
+    """
+    width = page.width
+    height = page.height
+    
+    x0 = width * x_range[0]
+    x1 = width * x_range[1]
+    top = height * y_range[0]
+    bottom = height * y_range[1]
+    
+    target_box = (x0, top, x1, bottom)
+    
+    try:
+        # Get all chars in this box
+        chars = page.crop(target_box).chars
+        # Use spatial dedupe to clean them
+        text = dedupe_chars_spatial(chars)
+        return text
+    except Exception:
+        return ""
 
-def extract_searchable_text(page) -> str:
-    """
-    Dumps all text on the card into a single string for searching.
-    """
-    text = page.extract_text()
-    if not text: return ""
-    # Clean up newlines and excessive spaces
-    return re.sub(r'\s+', ' ', text).strip()
+def extract_number(text: str) -> int:
+    """Finds the first integer in a string."""
+    match = re.search(r'\d+', text)
+    return int(match.group(0)) if match else 0
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
     try:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
             page = pdf.pages[0]
-            width = page.width
-            height = page.height
             
-            # 1. Spatial Name Extraction
-            name = get_name_spatial(page, width, height)
+            # --- 1. SPATIAL EXTRACTION (Based on Rulebook Page 4 Layout) ---
             
-            # Fallback for Name
-            if not name or name == "Unknown":
-                name = os.path.splitext(filename)[0].replace("_", " ")
+            # Name: Top Center-ish (15% to 85% width, Top 15% height)
+            raw_name = get_text_in_zone(page, (0.15, 0.85), (0.0, 0.15))
+            
+            # Cleanup Name: Remove trailing "COST" or "STN" labels that might clip in
+            clean_name = re.sub(r"(COST|STN|SZ|HZ).*$", "", raw_name, flags=re.IGNORECASE).strip()
+            # Fallback
+            if len(clean_name) < 3:
+                clean_name = os.path.splitext(filename)[0].replace("_", " ")
 
-            # 2. Zone-Based Cost Extraction
-            cost = get_cost_from_zone(page, width, height)
-            
-            # 3. Searchable Text Blob (Verbatim)
-            # We treat the whole card text as "Attacks" for search purposes 
-            # because parsing specific sections is failing due to layout.
-            full_text = extract_searchable_text(page)
+            # Cost: Top Right Corner (85% to 100% width, Top 15% height)
+            raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
+            cost = extract_number(raw_cost)
 
-            # 4. Stats (Default to 0 because "Sp" is an image)
-            # We leave these as 0. The app will hide them or show "-" 
-            # This is better than showing random wrong numbers.
-            stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
+            # --- STAT BUBBLES ---
+            # Based on visual inspection of Malifaux Cards:
+            
+            # Df (Defense): Left Side, roughly 20-35% down
+            raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
+            
+            # Wp (Willpower): Left Side, roughly 38-50% down
+            raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
+            
+            # Sp (Speed): Right Side, roughly 20-35% down
+            raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
+            
+            # Sz (Size): Right Side, roughly 38-50% down
+            raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
+
+            # Attack Text: Grab lower 60% of card for search indexing
+            search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
+
+            # --- DEBUG LOGGING ---
+            # This helps you see exactly what the spatial scanner is grabbing
+            print(f"File: {filename}")
+            print(f"  Name Zone: '{raw_name}' -> '{clean_name}'")
+            print(f"  Cost Zone: '{raw_cost}' -> {cost}")
+            print(f"  Df Zone:   '{raw_df}'")
+            print(f"  Wp Zone:   '{raw_wp}'")
+            print(f"  Sp Zone:   '{raw_sp}'")
+            print(f"  Sz Zone:   '{raw_sz}'")
+            print("-" * 30)
 
             return {
                 "id": file_id,
-                "name": name,
+                "name": clean_name,
                 "cost": cost,
-                "stats": stats,
-                "attacks": full_text, # Used for the search bar
+                "stats": {
+                    "sp": extract_number(raw_sp),
+                    "df": extract_number(raw_df),
+                    "wp": extract_number(raw_wp),
+                    "sz": extract_number(raw_sz)
+                },
+                "health": 0, # Health bar is usually graphical ticks, hard to read without OCR
+                "base": 30,  # Default
+                "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
 
@@ -147,11 +162,9 @@ def main():
         for filename in files:
             if filename.lower().endswith(".pdf"):
                 full_path = os.path.join(root, filename)
-                print(f"Processing: {filename}...")
                 
                 card = process_file(full_path, filename, file_id_counter)
                 if card:
-                    print(f"   -> Found: {card['name']} (Cost: {card['cost']})")
                     all_cards.append(card)
                     file_id_counter += 1
 
