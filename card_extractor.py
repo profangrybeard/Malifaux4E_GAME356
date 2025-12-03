@@ -17,45 +17,55 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-def dedupe_chars_spatial(chars: List[Dict]) -> str:
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
     """
-    Solves 'Shadow Text' by checking physical coordinates.
-    If two identical characters are within 2 points of each other,
-    they are the same letter (Shadow/Bold effect). Keep only one.
+    Advanced Spatial Deduplication.
+    Instead of just checking the immediate neighbor in a sorted list,
+    we check if THIS character is physically close to ANY character 
+    we have already decided to keep.
     """
     if not chars: return ""
     
-    # Sort by vertical position (top) then horizontal (x0)
+    # Sort by vertical position (top) then horizontal (x0) to establish reading order
     chars.sort(key=itemgetter('top', 'x0'))
     
-    clean_text = ""
-    last_char = None
+    accepted_chars = []
     
     for char in chars:
         text = char['text']
         
-        # Skip weird empty objects
+        # Skip empty text
         if not text.strip(): 
-            clean_text += " "
+            # If it's a space, only add if the last added wasn't a space
+            if accepted_chars and accepted_chars[-1]['text'] != " ":
+                # Create a fake char dict for the space to keep structure
+                accepted_chars.append(char) 
             continue
-            
-        if last_char:
-            # Check overlap
-            # If same character AND x position is extremely close (< 2 pts)
-            if text == last_char['text'] and abs(char['x0'] - last_char['x0']) < 2.5:
-                continue # Skip this shadow copy
+
+        is_shadow = False
+        # Check against recent accepted chars (optimization: only look at last 5)
+        # If we find an identical character that is physically very close, it's a shadow.
+        for kept in accepted_chars[-5:]:
+            if kept['text'] == text:
+                # Calculate distance
+                dx = abs(char['x0'] - kept['x0'])
+                dy = abs(char['top'] - kept['top'])
                 
-        clean_text += text
-        last_char = char
+                # If it's within 3 points in either direction, it's likely a shadow/bold layer
+                if dx < 3 and dy < 3:
+                    is_shadow = True
+                    break
         
-    # Collapse multiple spaces
+        if not is_shadow:
+            accepted_chars.append(char)
+            
+    # Reassemble string
+    clean_text = "".join([c['text'] for c in accepted_chars])
     return re.sub(r'\s+', ' ', clean_text).strip()
 
 def get_text_in_zone(page, x_range, y_range) -> str:
     """
     Extracts text from a specific percentage zone of the card.
-    x_range: (min_percent, max_percent)
-    y_range: (min_percent, max_percent)
     """
     width = page.width
     height = page.height
@@ -70,16 +80,33 @@ def get_text_in_zone(page, x_range, y_range) -> str:
     try:
         # Get all chars in this box
         chars = page.crop(target_box).chars
-        # Use spatial dedupe to clean them
-        text = dedupe_chars_spatial(chars)
+        # Use PROXIMITY dedupe to clean them
+        text = dedupe_chars_proximity(chars)
         return text
     except Exception:
         return ""
 
 def extract_number(text: str) -> int:
-    """Finds the first integer in a string."""
+    """Finds the first integer in a string. Handles '33' -> 3 logic if dedupe failed."""
+    if not text: return 0
+    
+    # First, try to find a standard number
     match = re.search(r'\d+', text)
-    return int(match.group(0)) if match else 0
+    if not match: return 0
+    
+    raw_num = match.group(0)
+    
+    # Safety Check: If we got "1100" or "33" despite our best efforts,
+    # and the number is unreasonably large for Malifaux stats (> 20 usually),
+    # try to see if it's a doubled string.
+    val = int(raw_num)
+    if val > 20: 
+        # Check for perfect pattern like "33" -> "3"
+        mid = len(raw_num) // 2
+        if raw_num[:mid] == raw_num[mid:]:
+            return int(raw_num[:mid])
+            
+    return val
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
     try:
@@ -92,57 +119,39 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             # Name: Top Center-ish (15% to 85% width, Top 15% height)
             raw_name = get_text_in_zone(page, (0.15, 0.85), (0.0, 0.15))
             
-            # Cleanup Name: Remove trailing "COST" or "STN" labels that might clip in
+            # Cleanup Name
             clean_name = re.sub(r"(COST|STN|SZ|HZ).*$", "", raw_name, flags=re.IGNORECASE).strip()
-            # Fallback
             if len(clean_name) < 3:
                 clean_name = os.path.splitext(filename)[0].replace("_", " ")
 
             # Cost: Top Right Corner (85% to 100% width, Top 15% height)
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
-            cost = extract_number(raw_cost)
-
+            
             # --- STAT BUBBLES ---
-            # Based on visual inspection of Malifaux Cards:
-            
-            # Df (Defense): Left Side, roughly 20-35% down
+            # Df: Left Side, 20-35% down
             raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
-            
-            # Wp (Willpower): Left Side, roughly 38-50% down
+            # Wp: Left Side, 38-50% down
             raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
-            
-            # Sp (Speed): Right Side, roughly 20-35% down
+            # Sp: Right Side, 20-35% down
             raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
-            
-            # Sz (Size): Right Side, roughly 38-50% down
+            # Sz: Right Side, 38-50% down
             raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
 
-            # Attack Text: Grab lower 60% of card for search indexing
+            # Attack Text: Lower 60%
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
-
-            # --- DEBUG LOGGING ---
-            # This helps you see exactly what the spatial scanner is grabbing
-            print(f"File: {filename}")
-            print(f"  Name Zone: '{raw_name}' -> '{clean_name}'")
-            print(f"  Cost Zone: '{raw_cost}' -> {cost}")
-            print(f"  Df Zone:   '{raw_df}'")
-            print(f"  Wp Zone:   '{raw_wp}'")
-            print(f"  Sp Zone:   '{raw_sp}'")
-            print(f"  Sz Zone:   '{raw_sz}'")
-            print("-" * 30)
 
             return {
                 "id": file_id,
                 "name": clean_name,
-                "cost": cost,
+                "cost": extract_number(raw_cost),
                 "stats": {
                     "sp": extract_number(raw_sp),
                     "df": extract_number(raw_df),
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 },
-                "health": 0, # Health bar is usually graphical ticks, hard to read without OCR
-                "base": 30,  # Default
+                "health": 0,
+                "base": 30,
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
@@ -162,7 +171,7 @@ def main():
         for filename in files:
             if filename.lower().endswith(".pdf"):
                 full_path = os.path.join(root, filename)
-                
+                print(f"Processing: {filename}...")
                 card = process_file(full_path, filename, file_id_counter)
                 if card:
                     all_cards.append(card)
