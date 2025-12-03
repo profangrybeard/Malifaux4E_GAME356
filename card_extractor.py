@@ -21,61 +21,84 @@ def clean_text(text: str) -> str:
     if not text: return ""
     return " ".join(text.split())
 
-def fix_shadow_text(text: str) -> str:
+def fix_shadow_text_greedy(text: str) -> str:
     """
-    Advanced Shadow Fixer: Uses 'Pair Density' instead of rigid slicing.
-    Handles 'NNCCEE OOFF PPOO' -> 'NCE OF PO' correctly even if spaces aren't doubled.
+    Step 1: Reduce doubled characters.
+    "AA SS TT AARR" -> "A S T AR"
     """
-    if not text or len(text) < 3: return text
-
-    # 1. Calculate 'Pair Density' (Percentage of chars that are identical to their neighbor)
-    matches = 0
-    # We strip spaces for the density check to avoid false negatives on undoubled spaces
-    check_text = text.replace(" ", "")
-    if len(check_text) < 2: return text
+    if not text or len(text) < 2: return text
     
-    for i in range(len(check_text) - 1):
-        if check_text[i] == check_text[i+1]:
-            matches += 1
-            
-    # If > 60% of non-space characters are identical to their neighbor, it's shadow text.
-    # (e.g. "MMoonn" -> 4/6 matches = 66%. "Moon" -> 1/4 matches = 25%)
-    density = matches / len(check_text)
-    
-    if density > 0.60:
-        # 2. Reconstruct the string
-        result = []
-        i = 0
-        while i < len(text):
-            char = text[i]
-            
-            # If next char exists and matches current, skip the next one
-            if i + 1 < len(text) and text[i+1] == char:
-                result.append(char)
-                i += 2
-            else:
-                # No match (likely a space or typo), keep it and move 1
-                result.append(char)
-                i += 1
-        return "".join(result)
+    result = []
+    i = 0
+    while i < len(text):
+        char = text[i]
         
-    return text
+        # Check adjacent character for duplication
+        if i + 1 < len(text):
+            next_char = text[i+1]
+            if char.lower() == next_char.lower() and char.strip() != "":
+                # Prefer uppercase
+                if char.isupper():
+                    result.append(char)
+                else:
+                    result.append(next_char)
+                i += 2 
+                continue
+                
+        result.append(char)
+        i += 1
+        
+    return "".join(result)
+
+def merge_exploded_words(text: str) -> str:
+    """
+    Step 2: Merge fragmented tokens.
+    "A S T AR" -> "ASTAR"
+    "Fire Golem" -> "Fire Golem" (Longer words are preserved)
+    """
+    if not text: return ""
+    
+    parts = text.split()
+    if not parts: return ""
+    
+    merged = []
+    current_word = parts[0]
+    
+    for next_part in parts[1:]:
+        # If both the accumulating word and the next part are short (<3 chars), merge them.
+        # "A" + "S" -> "AS" (Len 2). 
+        # "AS" + "T" -> "AST" (Len 3).
+        # "AST" + "AR" -> "ASTAR" (Len 5).
+        # We check length of next_part to pull it in, and length of current_word to verify it's fragile.
+        # Heuristic: If next_part is short (1-2 chars), it's likely a fragment.
+        # Exception: "of", "to", "in" are short real words, but usually appear between Long words.
+        
+        if len(next_part) < 3 or (len(current_word) < 3):
+            current_word += next_part
+        else:
+            merged.append(current_word)
+            current_word = next_part
+            
+    merged.append(current_word)
+    return " ".join(merged)
 
 def clean_name_line(text: str) -> str:
     """
     Aggressively cleans the Name line.
     """
-    # 1. Fix Shadow Text FIRST (NNCCEE -> NCE)
-    text = fix_shadow_text(text)
+    # 1. Fix Shadow Text (Reduces duplicates)
+    text = fix_shadow_text_greedy(text)
     
-    # 2. Strip standard labels appearing at the end
-    # Now that text is clean, we can look for "COST" or "STN"
+    # 2. Merge Exploded Words (Removes gaps)
+    text = merge_exploded_words(text)
+    
+    # 3. Strip standard labels
     text = re.sub(r"\s+(COST|STN|SZ|HZ).*$", "", text, flags=re.IGNORECASE)
     
-    # 3. Strip trailing numbers (The cost value)
+    # 4. Strip trailing numbers
     text = re.sub(r"\s+\d+$", "", text)
     
-    # 4. Strip non-alphanumeric noise from start (e.g. bullet points)
+    # 5. Strip non-alphanumeric noise from start
     text = re.sub(r"^[^a-zA-Z0-9]+", "", text)
     
     return text.strip()
@@ -83,12 +106,9 @@ def clean_name_line(text: str) -> str:
 def is_valid_name(line: str) -> bool:
     clean = line.strip()
     if not clean: return False
-    # Reject pure numbers
     if re.match(r"^\d+$", clean): return False 
-    # Reject Stat patterns like "Df 5" or "Df: 5"
     if re.match(r"^(Sp|Mv|Df|Wp|Sz|Hz|Cost|Stn)[:\s]*\d+", clean, re.IGNORECASE): return False
     
-    # Check against known headers
     clean_upper = clean.upper()
     for ignored in IGNORED_NAMES:
         if ignored.upper() == clean_upper: return False
@@ -97,7 +117,6 @@ def is_valid_name(line: str) -> bool:
     return True
 
 def extract_stat(text: str, stat_name: str) -> int:
-    # Pattern: Stat Name -> Optional Colon -> Optional Space -> Number
     pattern = re.compile(rf"{stat_name}[:\.\s]*(\d+)", re.IGNORECASE)
     match = pattern.search(text)
     return int(match.group(1)) if match else 0
@@ -115,11 +134,12 @@ def extract_attacks_verbatim(text: str) -> str:
         if capturing:
             if "Tactical Actions" in clean or "Abilities" in clean:
                 break
-            # Skip empty lines or table headers
             if not clean or "Rg Skl" in clean:
                 continue
-            # Basic shadow text fix for attacks too, to make them readable
-            clean = fix_shadow_text(clean)
+            
+            # Apply same cleaning to attacks to make them readable
+            clean = fix_shadow_text_greedy(clean)
+            clean = merge_exploded_words(clean)
             attack_text.append(clean)
             
     return " ".join(attack_text)
@@ -135,7 +155,9 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
     try:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
-            text = pdf.pages[0].extract_text()
+            
+            # x_tolerance=2 merges letters that are spaced out (helps pre-cleaning)
+            text = pdf.pages[0].extract_text(x_tolerance=2, y_tolerance=3)
             if not text: return None
             
             lines = [line.strip() for line in text.split('\n') if line.strip()]
@@ -143,18 +165,13 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             # --- 1. EXTRACT NAME ---
             name = "Unknown"
             
-            # Scan for the first valid text line
             for line in lines:
                 if is_valid_name(line):
-                    # Clean the line
                     cleaned_line = clean_name_line(line)
-                    
-                    # Double check validity after cleaning
                     if len(cleaned_line) > 2 and not cleaned_line.isdigit():
                         name = cleaned_line
                         break
             
-            # Fallback
             if name == "Unknown":
                 name = os.path.splitext(filename)[0].replace("_", " ")
 
