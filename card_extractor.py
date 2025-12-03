@@ -6,29 +6,41 @@ import urllib.parse
 from operator import itemgetter
 from typing import List, Dict, Any
 
+print("--- v8.0 STARTING: EXPLICIT EXCEPTIONS + STANDARD CLEANING ---")
+
 # --- CONFIGURATION ---
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# --- EXPLICIT EXCEPTIONS ---
+# If a filename contains these specific patterns, we force the name immediately.
+# This fixes the "Model 9" -> "9" and "Hunter A" -> "A" issues without breaking the main logic.
+NAME_EXCEPTIONS = {
+    "Model_9": "Model 9",
+    "Hunter_A": "Hunter A",
+    "Hunter_B": "Hunter B",
+    "Hunter_C": "Hunter C",
+    "Director_Rodriguez": "Director Rodriguez", # Often gets cut by "Director" or "Witch Hunter"
+    "M4E_Stat_Witch-Hunter_Marshal_Ashbringer": "Ashbringer" # Edge case cleanup
+}
+
 # --- STRIP LIST ---
-# Words to aggressively strip from the START of filenames.
-# Note: "Big", "Red", "Dark", "Pale" are INTENTIONALLY OMITTED to protect 
-# Big Jake, Red Cap, Dark Debts, Pale Rider, etc.
+# Standard noise words to strip from the start of filenames.
 STRIP_LIST = {
     # System Terms
-    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "UNIT", "MODEL", "VERSATILE", "REFERENCE",
+    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "UNIT", "MODEL", "VERSATILE", "REFERENCE", "CLAM",
     
-    # Faction Codes & Names
-    "ARC", "GLD", "RES", "NVB", "OUT", "BYU", "TT", "EXS",
+    # Faction Codes
+    "ARC", "GLD", "RES", "NVB", "OUT", "BYU", "TT", "EXS", "BOH",
     "GUILD", "RESURRECTIONIST", "RESURRECTIONISTS", "ARCANIST", "ARCANISTS", 
     "NEVERBORN", "OUTCAST", "OUTCASTS", "BAYOU", "TEN", "THUNDERS", "EXPLORER", 
     "EXPLORERS", "SOCIETY", "DEAD", "MAN", "MANS", "HAND",
 
-    # Specific Keywords (Long List)
+    # Keywords
     "ACADEMIC", "AMALGAM", "AMPERSAND", "ANCESTOR", "ANGLER", "APEX", "AUGMENTED", 
     "BANDIT", "BROOD", "BYGONE", "CADMUS", "CAVALIER", "CHIMERA", "DECEMBER", "DUA", 
     "ELITE", "EVS", "EXPERIMENTAL", "FAE", "FAMILY", "FORGOTTEN", "FOUNDRY", "FREIKORPS", 
-    "FRONTIER", "GUARD", "HONEYPOT", "INFAMOUS", "JOURNALIST", "KIN", "LAST", "BLOSSOM", 
+    "FRONTIER", "HONEYPOT", "INFAMOUS", "JOURNALIST", "KIN", "LAST", "BLOSSOM", 
     "MARSHAL", "MERCENARY", "MONK", "MSU", "NIGHTMARE", "OBLITERATION", "ONI", 
     "PERFORMER", "PLAGUE", "QI", "GONG", "REDCHAPEL", "RETURNED", "REVENANT", 
     "SAVAGE", "SEEKER", "SOOEY", "SWAMPFIEND", "SYNDICATE", "TORMENTED", "TRANSMORTIS", 
@@ -45,30 +57,38 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
+def clean_string_for_matching(text: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9]", "", text).upper()
+
 def get_name_from_filename(filename: str) -> str:
     """
-    Intelligently strips prefixes from the filename to find the true Model Name.
+    Extracts the clean name.
+    1. Checks Explicit Exceptions.
+    2. If no match, runs standard Prefix Stripping.
     """
-    # 1. Remove Extension
     base = os.path.splitext(filename)[0]
-    
-    # 2. Replace dividers with spaces
-    clean_str = base.replace("_", " ").replace("-", " ")
-    
-    # 3. CamelCase Split (if no spaces existed)
-    if " " not in clean_str:
-         clean_str = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean_str)
 
-    # 4. Tokenize and Eat Prefixes
-    # We split into words and eat from the left as long as they are in the STRIP_LIST.
-    words = clean_str.split()
+    # 1. EXPLICIT EXCEPTIONS CHECK
+    for key, value in NAME_EXCEPTIONS.items():
+        if key in base:
+            return value
+
+    # 2. STANDARD CLEANING (The "Eat Prefixes" Logic)
+    # Replace separators with spaces
+    clean = base.replace("_", " ").replace("-", " ")
+    
+    # CamelCase Split (if no spaces existed)
+    if " " not in clean:
+         clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
+
+    # Tokenize and Eat Prefixes
+    words = clean.split()
     start_index = 0
     
     for i, word in enumerate(words):
-        # Clean punctuation for matching
-        check_word = re.sub(r"[^\w\s]", "", word).upper()
+        check_word = clean_string_for_matching(word)
         
-        # Special Case: "M&SU"
+        # Special Case: M&SU
         if "M&SU" in word.upper():
             start_index = i + 1
             continue
@@ -76,7 +96,7 @@ def get_name_from_filename(filename: str) -> str:
         if check_word in STRIP_LIST:
             start_index = i + 1
         else:
-            # We hit a word NOT in the strip list (like "Fire" or "Lady"), stop eating.
+            # We hit a real word (like "Fire" or "Lady"), stop eating.
             break
             
     final_name = " ".join(words[start_index:])
@@ -169,9 +189,9 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # NAME EXTRACTION: Filename Stripper
+            # NAME EXTRACTION: Standard cleaning + Explicit Exceptions
             name = get_name_from_filename(filename)
-            
+
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
@@ -205,7 +225,6 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
-
     except Exception as e:
         print(f"Error parsing {filename}: {e}")
         return None

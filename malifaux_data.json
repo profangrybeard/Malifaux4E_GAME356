@@ -7168,7 +7168,7 @@
     "type": "Model",
     "faction": "Explorer's Society",
     "subfaction": "Apex",
-    "name": "9",
+    "name": "Model 9",
     "cost": 8,
     "stats": {
       "sp": 7,
@@ -10462,7 +10462,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Augmented",
-    "name": "A",
+    "name": "Hunter A",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -10480,7 +10480,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Augmented",
-    "name": "B",
+    "name": "Hunter B",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -10498,7 +10498,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Augmented",
-    "name": "C",
+    "name": "Hunter C",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -11632,7 +11632,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Family",
-    "name": "Monster Hunter A",
+    "name": "Hunter A",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -11650,7 +11650,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Family",
-    "name": "Monster Hunter B",
+    "name": "Hunter B",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -11884,7 +11884,7 @@
     "type": "Crew",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Dashel Barker Butcher",
+    "name": "Guard Dashel Barker Butcher",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11902,7 +11902,7 @@
     "type": "Crew",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Dashel Barker The Old Guard",
+    "name": "Guard Dashel Barker The Old Guard",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11920,7 +11920,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Dashel Barker Butcher",
+    "name": "Guard Dashel Barker Butcher",
     "cost": 0,
     "stats": {
       "sp": 6,
@@ -11938,7 +11938,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Dashel Barker The Old Guard",
+    "name": "Guard Dashel Barker The Old Guard",
     "cost": 0,
     "stats": {
       "sp": 6,
@@ -11956,7 +11956,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Disease Containment Unit",
+    "name": "Guard Disease Containment Unit",
     "cost": 0,
     "stats": {
       "sp": 6,
@@ -11974,7 +11974,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Executioner A",
+    "name": "Guard Executioner A",
     "cost": 9,
     "stats": {
       "sp": 6,
@@ -11992,7 +11992,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Executioner B",
+    "name": "Guard Executioner B",
     "cost": 9,
     "stats": {
       "sp": 6,
@@ -12010,7 +12010,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Hound A",
+    "name": "Guard Guild Hound A",
     "cost": 3,
     "stats": {
       "sp": 7,
@@ -12028,7 +12028,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Hound B",
+    "name": "Guard Guild Hound B",
     "cost": 3,
     "stats": {
       "sp": 7,
@@ -12046,7 +12046,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Hound C",
+    "name": "Guard Guild Hound C",
     "cost": 3,
     "stats": {
       "sp": 7,
@@ -12064,7 +12064,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Hound D",
+    "name": "Guard Guild Hound D",
     "cost": 3,
     "stats": {
       "sp": 7,
@@ -12082,7 +12082,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Mounted Guard A",
+    "name": "Guard Mounted Guard A",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -12100,7 +12100,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Mounted Guard B",
+    "name": "Guard Mounted Guard B",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -12118,7 +12118,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Rifleman A",
+    "name": "Guard Rifleman A",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -12136,7 +12136,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Rifleman B",
+    "name": "Guard Rifleman B",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -12154,7 +12154,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Rifleman C",
+    "name": "Guard Rifleman C",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -12172,7 +12172,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Sergeant A",
+    "name": "Guard Sergeant A",
     "cost": 7,
     "stats": {
       "sp": 6,
@@ -12190,7 +12190,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Sergeant B",
+    "name": "Guard Sergeant B",
     "cost": 7,
     "stats": {
       "sp": 6,
@@ -12208,7 +12208,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Taggart Queeg",
+    "name": "Guard Taggart Queeg",
     "cost": 8,
     "stats": {
       "sp": 5,
@@ -12226,7 +12226,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "The Dispatcher",
+    "name": "Guard The Dispatcher",
     "cost": 0,
     "stats": {
       "sp": 5,
@@ -12244,7 +12244,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Warden A",
+    "name": "Guard Warden A",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -12262,7 +12262,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Warden B",
+    "name": "Guard Warden B",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -12298,7 +12298,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Camerabot A",
+    "name": "Guard Camerabot A",
     "cost": 2,
     "stats": {
       "sp": 0,
@@ -12316,7 +12316,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Camerabot B",
+    "name": "Guard Camerabot B",
     "cost": 2,
     "stats": {
       "sp": 0,
@@ -12334,7 +12334,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Guard",
-    "name": "Nightcrawler Network",
+    "name": "Guard Nightcrawler Network",
     "cost": 8,
     "stats": {
       "sp": 6,
@@ -12496,7 +12496,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Journalist",
-    "name": "Camerabot A",
+    "name": "Guard Camerabot A",
     "cost": 2,
     "stats": {
       "sp": 0,
@@ -12514,7 +12514,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Journalist",
-    "name": "Camerabot B",
+    "name": "Guard Camerabot B",
     "cost": 2,
     "stats": {
       "sp": 0,
@@ -12532,7 +12532,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Journalist",
-    "name": "Nightcrawler Network",
+    "name": "Guard Nightcrawler Network",
     "cost": 8,
     "stats": {
       "sp": 6,
@@ -12982,7 +12982,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Marshal",
-    "name": "Ashbringer A",
+    "name": "Ashbringer",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13000,7 +13000,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Marshal",
-    "name": "Ashbringer B",
+    "name": "Ashbringer",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13396,7 +13396,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Witch Hunter",
-    "name": "Ashbringer A",
+    "name": "Ashbringer",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13414,7 +13414,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Witch Hunter",
-    "name": "Ashbringer B",
+    "name": "Ashbringer",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -19714,7 +19714,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Void Hunter A",
+    "name": "Hunter A",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -19732,7 +19732,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Void Hunter B",
+    "name": "Hunter B",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -19750,7 +19750,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Void Hunter C",
+    "name": "Hunter C",
     "cost": 6,
     "stats": {
       "sp": 7,
