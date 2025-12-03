@@ -10,12 +10,40 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# Known Factions for validation
+KNOWN_FACTIONS = {
+    "Guild", "Resurrectionist", "Arcanist", "Neverborn", 
+    "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", 
+    "Dead Man's Hand"
+}
+
 def generate_github_url(file_path: str) -> str:
     relative_path = os.path.relpath(file_path, ROOT_FOLDER)
     safe_path = relative_path.replace("\\", "/")
     base_path = os.path.splitext(safe_path)[0]
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
+
+def get_faction_from_path(file_path: str) -> str:
+    """
+    Determines Faction based on the folder structure.
+    e.g. /Malifaux/Guild/Marshals/LadyJ.pdf -> returns "Guild"
+    """
+    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
+    parts = rel_path.replace("\\", "/").split("/")
+    
+    # Scan path parts for a known faction name
+    for part in parts:
+        # Handle case-insensitivity match against known list
+        for known in KNOWN_FACTIONS:
+            if part.lower() == known.lower():
+                return known
+                
+    # If no known faction found, verify if the top-level folder is meaningful
+    if len(parts) > 1:
+        return parts[0] # Default to parent folder name
+        
+    return "Unknown"
 
 def dedupe_chars_proximity(chars: List[Dict]) -> str:
     if not chars: return ""
@@ -61,32 +89,15 @@ def get_text_in_zone(page, x_range, y_range) -> str:
         return ""
 
 def get_health_spatial(page, width, height) -> int:
-    """
-    Scans the bottom 15% of the card.
-    Finds all numbers < 30.
-    Returns the LAST one found (which corresponds to Max Health in the 1-2-3-4-5 track).
-    """
-    # Footer Zone: Bottom 15%
     footer_zone = (0, height * 0.85, width, height)
-    
     try:
         crop = page.crop(footer_zone)
-        # Using simple extraction to get reading order
         text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
-        
-        # Find all integers
         numbers = [int(n) for n in re.findall(r'\d+', text)]
-        
         if not numbers: return 0
-        
-        # Filter out Base Sizes (30, 40, 50)
-        # Health is rarely above 20.
         valid_health = [n for n in numbers if n < 30]
-        
         if valid_health:
-            # Return the last number in the sequence
             return valid_health[-1]
-            
     except Exception:
         pass
     return 0
@@ -96,7 +107,6 @@ def extract_number(text: str) -> int:
     match = re.search(r'\d+', text)
     if not match: return 0
     val = int(match.group(0))
-    # Sanity check for double-scanning errors (e.g. "1010" -> 10)
     if val > 30 and val % 11 == 0 and val < 100: 
          return val // 11
     if val > 100: 
@@ -121,13 +131,19 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
+            # 1. Faction (From Folder Path)
+            faction = get_faction_from_path(file_path)
+
+            # 2. Card Type
             card_type = get_card_type(page)
             
+            # 3. Name
             raw_name = get_text_in_zone(page, (0.15, 0.85), (0.0, 0.15))
             clean_name = re.sub(r"(COST|STN|SZ|HZ).*$", "", raw_name, flags=re.IGNORECASE).strip()
             if len(clean_name) < 3:
                 clean_name = os.path.splitext(filename)[0].replace("_", " ")
 
+            # 4. Cost
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
@@ -145,17 +161,17 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 }
-                
-                # UPDATED: Get Health via simple last-numeral check
                 health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
-            print(f"File: {filename} -> Type: {card_type} | Name: {clean_name} | Hp: {health}")
+            print(f"File: {filename}")
+            print(f"   Type: {card_type} | Faction: {faction} | Name: {clean_name}")
 
             return {
                 "id": file_id,
                 "type": card_type,
+                "faction": faction, # New Field populated by Folder Name
                 "name": clean_name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
