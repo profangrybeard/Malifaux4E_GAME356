@@ -6,33 +6,32 @@ import urllib.parse
 from operator import itemgetter
 from typing import List, Dict, Any
 
-print("--- v9.0 STARTING: SURGICAL PHRASE REMOVAL ---")
+print("--- v11.0 STARTING: PATTERN MATCHING PRIORITY ---")
 
 # --- CONFIGURATION ---
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
-# --- EXPLICIT EXCEPTIONS ---
-# Force correct names for tricky files
-NAME_EXCEPTIONS = {
+# --- EXPLICIT PATTERN MATCHING ---
+# If the filename contains the KEY (case-insensitive), it forces the VALUE as the name.
+# This bypasses all stripping logic.
+NAME_PATTERNS = {
     "Model_9": "Model 9",
+    "Monster_Hunter": "Monster Hunter",
+    "Void_Hunter": "Void Hunter",
     "Hunter_A": "Hunter A",
     "Hunter_B": "Hunter B",
     "Hunter_C": "Hunter C",
-    "Monster_Hunter": "Monster Hunter",
-    "Void_Hunter": "Void Hunter",
-    "Witch_Hunter_Marshal": "Ashbringer",
-    "M4E_Stat_Family_Monster_Hunter_A": "Monster Hunter A",
-    "M4E_Stat_Family_Monster_Hunter_B": "Monster Hunter B",
-    "M4E_Stat_Obliteration_Void_Hunter_A": "Void Hunter A",
-    "M4E_Stat_Obliteration_Void_Hunter_B": "Void Hunter B",
-    "M4E_Stat_Obliteration_Void_Hunter_C": "Void Hunter C",
-    "M4E_Stat_Apex_Model_9": "Model 9"
+    "Pale_Rider": "Pale Rider",
+    "Dead_Rider": "Dead Rider",
+    "Mechanical_Rider": "Mechanical Rider",
+    "Hooded_Rider": "Hooded Rider",
+    "Witch_Hunter_Marshal": "Ashbringer"
 }
 
 # --- STRIP LIST ---
 # Words to remove from the START of filenames.
-# REMOVED: MODEL, HUNTER, MONSTER, VOID, UNIT
+# EXCLUDED: MODEL, HUNTER, MONSTER, VOID, UNIT
 STRIP_LIST = {
     # System Terms
     "M4E", "CARD", "STAT", "CREW", "UPGRADE", "VERSATILE", "REFERENCE", "CLAM",
@@ -68,25 +67,22 @@ def clean_string_for_matching(text: str) -> str:
     return re.sub(r"[^a-zA-Z0-9]", "", text).upper()
 
 def get_name_from_filename(filename: str) -> str:
+    # 1. PRIORITY PATTERN CHECK
+    # If any of our special cases exist in the filename, take them immediately.
+    for pattern, forced_name in NAME_PATTERNS.items():
+        if pattern.lower() in filename.lower():
+            print(f"  [MATCH] '{pattern}' found. Name set to: {forced_name}")
+            return forced_name
+
+    # 2. STANDARD CLEANING
     base = os.path.splitext(filename)[0]
-
-    # 1. EXPLICIT EXCEPTIONS
-    for key, value in NAME_EXCEPTIONS.items():
-        if key in base:
-            return value
-
-    # 2. SURGICAL PRE-CLEANING
-    # Remove specific compound phrases that confuse the stripper
-    # "Witch Hunter" causes issues because "Hunter" is a valid name elsewhere.
-    # We remove the faction/keyword phrase entirely first.
-    clean = base.replace("_", " ").replace("-", " ")
     
+    # Surgical Pre-Clean (Remove Faction Names that might trigger stripping)
+    clean = base.replace("_", " ").replace("-", " ")
     phrases_to_remove = ["Witch Hunter", "Witch-Hunter", "Ten Thunders", "Dead Man"]
     for phrase in phrases_to_remove:
         clean = re.sub(phrase, "", clean, flags=re.IGNORECASE)
 
-    # 3. STANDARD STRIPPING
-    # CamelCase Split if needed
     if " " not in clean:
          clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
 
@@ -189,7 +185,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # NAME EXTRACTION: Fixed logic
+            # NAME EXTRACTION
             name = get_name_from_filename(filename)
 
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))

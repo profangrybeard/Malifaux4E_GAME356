@@ -2092,7 +2092,7 @@
     "type": "Model",
     "faction": "Arcanists",
     "subfaction": "Versatile - Arcanists",
-    "name": "Horseman Mechanical Rider",
+    "name": "Mechanical Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -11632,7 +11632,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Family",
-    "name": "Hunter A",
+    "name": "Monster Hunter",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -11650,7 +11650,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Family",
-    "name": "Hunter B",
+    "name": "Monster Hunter",
     "cost": 6,
     "stats": {
       "sp": 6,
@@ -13198,7 +13198,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Versatile - Guild",
-    "name": "Horseman Pale Rider",
+    "name": "Pale Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -16618,7 +16618,7 @@
     "type": "Model",
     "faction": "Neverborn",
     "subfaction": "Versatile - Neverborn",
-    "name": "Horseman Hooded Rider",
+    "name": "Hooded Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -17554,7 +17554,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Amalgam",
-    "name": "Horseman Mechanical Rider",
+    "name": "Mechanical Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -17572,7 +17572,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Amalgam",
-    "name": "Horseman Pale Rider",
+    "name": "Pale Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -17590,7 +17590,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Amalgam",
-    "name": "Horseman Hooded Rider",
+    "name": "Hooded Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -17644,7 +17644,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Amalgam",
-    "name": "Horseman Dead Rider",
+    "name": "Dead Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
@@ -19714,7 +19714,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Hunter A",
+    "name": "Void Hunter",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -19732,7 +19732,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Hunter B",
+    "name": "Void Hunter",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -19750,7 +19750,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Obliteration",
-    "name": "Hunter C",
+    "name": "Void Hunter",
     "cost": 6,
     "stats": {
       "sp": 7,
@@ -24250,7 +24250,7 @@
     "type": "Model",
     "faction": "Resurrectionists",
     "subfaction": "Versatile - Resurrectionists",
-    "name": "Horseman Dead Rider",
+    "name": "Dead Rider",
     "cost": 11,
     "stats": {
       "sp": 8,
