@@ -10,6 +10,12 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# --- CONSTANTS ---
+IGNORED_HEADER_TERMS = {
+    "COST", "STN", "SZ", "HZ", "MINION", "MASTER", "HENCHMAN", "ENFORCER", "PEON", "TOTEM",
+    "GUILD", "RESURRECTIONIST", "ARCANIST", "NEVERBORN", "OUTCAST", "BAYOU", "TEN THUNDERS", "EXPLORER'S SOCIETY"
+}
+
 def generate_github_url(file_path: str) -> str:
     relative_path = os.path.relpath(file_path, ROOT_FOLDER)
     safe_path = relative_path.replace("\\", "/")
@@ -17,128 +23,114 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-# --- SPATIAL NAME EXTRACTOR (The "Horizon" Method) ---
-def get_name_geometric(page) -> str:
-    width = page.width
-    height = page.height
+# --- SMART STRING CLEANERS ---
+
+def smart_de_shadow(text: str) -> str:
+    """
+    Detects and fixes Shadow Text (e.g., "FFIIRREE GGOOLLEEMM").
+    Only runs if the string has a high density of adjacent duplicates.
+    """
+    if not text or len(text) < 4: return text
     
-    # 1. Define the "Header Zone" (Top 22%, avoiding the very top edge)
-    # We trim the very top (0.02) to avoid weird crop marks
-    header_box = (0, height * 0.02, width, height * 0.22)
+    # 1. CLEANUP: Remove spaces for density check
+    clean = text.replace(" ", "")
+    if len(clean) < 2: return text
+    
+    # 2. ANALYZE: Count adjacent duplicates
+    dupes = 0
+    for i in range(len(clean) - 1):
+        if clean[i] == clean[i+1]:
+            dupes += 1
+            
+    # Threshold: If > 40% of characters are doubled, it's a Shadow String.
+    # Normal English doesn't look like "HHeelllloo".
+    density = dupes / len(clean)
+    
+    if density > 0.40:
+        # It's likely shadow text. Reconstruct it aggressively.
+        result = []
+        i = 0
+        while i < len(text):
+            char = text[i]
+            # Check lookahead for duplicate
+            if i + 1 < len(text) and text[i+1] == char:
+                result.append(char)
+                i += 2 # Skip the shadow char
+            else:
+                result.append(char)
+                i += 1
+        return "".join(result)
+        
+    # If density is low, it's a normal string (e.g. "Assassin"). Return as-is.
+    return text
+
+def clean_name_string(text: str) -> str:
+    """
+    Cleans a raw header line into a Card Name.
+    """
+    # 1. De-Shadow (Fix FFIIRREE)
+    text = smart_de_shadow(text)
+    
+    # 2. Strip known Game Labels from the end (COST, STN)
+    # Regex looks for "COST 10" or "STN 5" or just "COST" at the end
+    text = re.sub(r"\s+(COST|STN|SZ|HZ)(\s*\d+)?$", "", text, flags=re.IGNORECASE)
+    
+    # 3. Strip trailing numbers (The Cost value itself)
+    text = re.sub(r"\s+\d+$", "", text)
+    
+    # 4. Remove any leading non-text bullets
+    text = re.sub(r"^[^a-zA-Z0-9]+", "", text)
+    
+    # 5. Title Case (Optional, but looks better: "LADY JUSTICE" -> "Lady Justice")
+    # We only do this if the string is ALL CAPS to avoid ruining "McMourning"
+    if text.isupper():
+        return text.title()
+        
+    return text.strip()
+
+# --- ZONE EXTRACTORS ---
+
+def get_name_from_header(page, width, height) -> str:
+    """
+    Extracts Name from Top 20% using text lines.
+    """
+    # Zone: Top 20% (Cost bubble usually top right, name center)
+    header_box = (0, 0, width, height * 0.20)
     
     try:
-        # Get every individual character object in this zone
-        # We do NOT use extract_text(); we want the raw char objects
-        chars = page.crop(header_box).chars
+        crop = page.crop(header_box)
+        # x_tolerance=2 helps merge "F i r e" into "Fire"
+        text = crop.extract_text(x_tolerance=2, y_tolerance=3)
+        if not text: return "Unknown"
+        
+        lines = [line.strip() for line in text.split('\n') if line.strip()]
+        
+        # Heuristic: The Name is the first line that isn't a number or a known Label
+        for line in lines:
+            # Skip pure numbers (Cost)
+            if re.match(r'^\d+$', line): continue
+            
+            # Skip stats that might float up (Df 5)
+            if re.match(r'^(Df|Wp|Sp|Sz|Mv)\s*\d+', line, re.IGNORECASE): continue
+            
+            # Skip short garbage
+            if len(line) < 3: continue
+            
+            # Clean it
+            cleaned = clean_name_string(line)
+            
+            # Check if it's a banned word (Faction name)
+            if cleaned.upper() in IGNORED_HEADER_TERMS: continue
+            
+            return cleaned
+            
     except Exception:
-        return "Unknown"
-
-    if not chars: return "Unknown"
-
-    # 2. FILTERING: Remove Noise
-    clean_chars = []
-    for c in chars:
-        # Ignore digits (Cost, Totem counts)
-        if c['text'].isdigit(): continue
-        # Ignore tiny text (Legal, small labels) - threshold 8pt
-        if c.get('size', 0) < 8: continue
-        # Ignore characters too far to the right (Cost Bubble area - Right 15%)
-        if c['x0'] > width * 0.85: continue
+        pass
         
-        clean_chars.append(c)
-
-    if not clean_chars: return "Unknown"
-
-    # 3. FIND THE HERO FONT
-    # Group by font size (rounded to nearest 0.5 to account for minor variance)
-    # We want the largest size that has a significant number of characters (avoid drop caps being lonely)
-    clean_chars.sort(key=lambda x: x['size'], reverse=True)
-    
-    # Take the max size found
-    max_size = clean_chars[0]['size']
-    
-    # Keep only characters that are roughly this max size (within 2pt tolerance)
-    # This isolates "LADY JUSTICE" from "Guild Marshal"
-    hero_chars = [c for c in clean_chars if abs(c['size'] - max_size) < 2.0]
-    
-    # 4. DEFINE THE HORIZON (Y-Alignment)
-    # Calculate average 'top' position to find the line they sit on
-    avg_top = sum(c['top'] for c in hero_chars) / len(hero_chars)
-    
-    # Keep only chars that sit on this horizon line (tolerance +/- 5pts)
-    aligned_chars = [c for c in hero_chars if abs(c['top'] - avg_top) < 5]
-    
-    # 5. SORT & DE-SHADOW (X-Alignment)
-    # Sort left-to-right
-    aligned_chars.sort(key=itemgetter('x0'))
-    
-    final_chars = []
-    last_char = None
-    
-    for char in aligned_chars:
-        text = char['text']
-        
-        if last_char:
-            # GEOMETRIC DE-SHADOWING
-            # If it's the same letter AND it physically overlaps the previous one
-            overlap_threshold = char['width'] * 0.6 # If it overlaps by 60% of its width
-            dist = char['x0'] - last_char['x0']
-            
-            if text == last_char['text'] and dist < overlap_threshold:
-                continue # It's a shadow copy, skip it
-        
-        final_chars.append(char)
-        last_char = char
-        
-    # 6. RECONSTRUCT STRING
-    # We need to handle spaces intelligently based on distance between chars
-    name_parts = []
-    if not final_chars: return "Unknown"
-    
-    last_x1 = final_chars[0]['x1']
-    current_word = [final_chars[0]['text']]
-    
-    for char in final_chars[1:]:
-        # If gap between previous end and current start is > 3pt, it's a space
-        gap = char['x0'] - last_x1
-        if gap > 3.5: # Threshold for a space character
-            name_parts.append("".join(current_word))
-            current_word = []
-            
-        current_word.append(char['text'])
-        last_x1 = char['x1']
-        
-    name_parts.append("".join(current_word))
-    
-    full_name = " ".join(name_parts).strip()
-    
-    # Final sanity cleaning for "COST" artifacts that survived geometry checks
-    full_name = re.sub(r"(COST|STN|SZ|HZ)$", "", full_name, flags=re.IGNORECASE).strip()
-    
-    return full_name
-
-# --- OTHER EXTRACTORS ---
-
-def dedupe_chars_proximity(chars: List[Dict]) -> str:
-    """Simple spatial dedupe for other zones"""
-    if not chars: return ""
-    chars.sort(key=itemgetter('top', 'x0'))
-    accepted_chars = []
-    for char in chars:
-        text = char['text']
-        if not text.strip(): 
-            if accepted_chars and accepted_chars[-1]['text'] != " ":
-                accepted_chars.append(char) 
-            continue
-        is_shadow = False
-        for kept in accepted_chars[-5:]:
-            if kept['text'] == text and abs(char['x0'] - kept['x0']) < 3 and abs(char['top'] - kept['top']) < 3:
-                is_shadow = True; break
-        if not is_shadow: accepted_chars.append(char)
-    clean_text = "".join([c['text'] for c in accepted_chars])
-    return re.sub(r'\s+', ' ', clean_text).strip()
+    return "Unknown"
 
 def get_text_in_zone(page, x_range, y_range) -> str:
+    """Generic Zone Extractor"""
     width = page.width
     height = page.height
     x0 = width * x_range[0]
@@ -146,10 +138,23 @@ def get_text_in_zone(page, x_range, y_range) -> str:
     top = height * y_range[0]
     bottom = height * y_range[1]
     try:
-        chars = page.crop((x0, top, x1, bottom)).chars
-        return dedupe_chars_proximity(chars)
+        # Using simple extraction to avoid complex de-dupe bugs
+        return page.crop((x0, top, x1, bottom)).extract_text(x_tolerance=2) or ""
     except Exception:
         return ""
+
+def get_health_spatial(page, width, height) -> int:
+    """Finds Max Health from footer sequence."""
+    footer_zone = (0, height * 0.85, width, height)
+    try:
+        crop = page.crop(footer_zone)
+        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
+        numbers = [int(n) for n in re.findall(r'\d+', text)]
+        valid = [n for n in numbers if n < 30]
+        if valid: return valid[-1]
+    except Exception:
+        pass
+    return 0
 
 def extract_number(text: str) -> int:
     if not text: return 0
@@ -162,6 +167,8 @@ def extract_number(text: str) -> int:
         mid = len(s) // 2
         if s[:mid] == s[mid:]: return int(s[:mid])
     return val
+
+# --- CLASSIFIERS ---
 
 def get_card_type(page) -> str:
     footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
@@ -194,28 +201,35 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # USE THE NEW GEOMETRIC NAME EXTRACTOR
-            name = get_name_geometric(page)
-            if len(name) < 3: name = os.path.splitext(filename)[0].replace("_", " ")
+            # NAME EXTRACTION
+            name = get_name_from_header(page, width, height)
+            if name == "Unknown":
+                name = os.path.splitext(filename)[0].replace("_", " ")
 
+            # COST & STATS
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
+            health = 0
+            
             if card_type == "Model":
                 raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
                 raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
                 raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
                 raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
+                
                 stats = {
                     "sp": extract_number(raw_sp),
                     "df": extract_number(raw_df),
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 }
+                health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
-            
-            print(f"Processed: {name} [{card_type}]")
+
+            print(f"File: {filename}")
+            print(f"   Name: {name} | Cost: {extract_number(raw_cost)}")
 
             return {
                 "id": file_id,
@@ -225,14 +239,14 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": 0, # Disabled
+                "health": health,
                 "base": 30, 
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
 
     except Exception as e:
-        print(f"Error: {filename} - {e}")
+        print(f"Error parsing {filename}: {e}")
         return None
 
 def main():
