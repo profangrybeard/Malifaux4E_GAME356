@@ -1,0 +1,303 @@
+import pdfplumber
+import json
+import re
+import os
+import urllib.parse
+from operator import itemgetter
+from typing import List, Dict, Any
+
+print("--- v12.0 STARTING: HEALTH & SOULSTONE EXTRACTION UPDATE ---")
+
+# --- CONFIGURATION ---
+ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
+IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
+
+# --- EXPLICIT PATTERN MATCHING (PRESERVED) ---
+NAME_PATTERNS = {
+    "Model_9": "Model 9",
+    "Monster_Hunter": "Monster Hunter",
+    "Void_Hunter": "Void Hunter",
+    "Hunter_A": "Hunter A",
+    "Hunter_B": "Hunter B",
+    "Hunter_C": "Hunter C",
+    "Pale_Rider": "Pale Rider",
+    "Dead_Rider": "Dead Rider",
+    "Mechanical_Rider": "Mechanical Rider",
+    "Hooded_Rider": "Hooded Rider",
+    "Witch_Hunter_Marshal": "Ashbringer"
+}
+
+# --- STRIP LIST (PRESERVED) ---
+STRIP_LIST = {
+    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "VERSATILE", "REFERENCE", "CLAM",
+    "ARC", "GLD", "RES", "NVB", "OUT", "BYU", "TT", "EXS", "BOH",
+    "GUILD", "RESURRECTIONIST", "RESURRECTIONISTS", "ARCANIST", "ARCANISTS", 
+    "NEVERBORN", "OUTCAST", "OUTCASTS", "BAYOU", "TEN", "THUNDERS", "EXPLORER", 
+    "EXPLORERS", "SOCIETY", "DEAD", "MAN", "MANS", "HAND",
+    "ACADEMIC", "AMALGAM", "AMPERSAND", "ANCESTOR", "ANGLER", "APEX", "AUGMENTED", 
+    "BANDIT", "BROOD", "BYGONE", "CADMUS", "CAVALIER", "CHIMERA", "DECEMBER", "DUA", 
+    "ELITE", "EVS", "EXPERIMENTAL", "FAE", "FAMILY", "FORGOTTEN", "FOUNDRY", "FREIKORPS", 
+    "FRONTIER", "HONEYPOT", "INFAMOUS", "JOURNALIST", "KIN", "LAST", "BLOSSOM", 
+    "MARSHAL", "MERCENARY", "MONK", "MSU", "NIGHTMARE", "OBLITERATION", "ONI", 
+    "PERFORMER", "PLAGUE", "QI", "GONG", "REDCHAPEL", "RETURNED", "REVENANT", 
+    "SAVAGE", "SEEKER", "SOOEY", "SWAMPFIEND", "SYNDICATE", "TORMENTED", "TRANSMORTIS", 
+    "TRICKSY", "URAMI", "WASTREL", "WILDFIRE", "WITCH", "WITNESS", "WOE",
+    "WIZZ", "BANG", "TRI", "CHI"
+}
+
+# --- UTILITIES ---
+
+def generate_github_url(file_path: str) -> str:
+    relative_path = os.path.relpath(file_path, ROOT_FOLDER)
+    safe_path = relative_path.replace("\\", "/")
+    base_path = os.path.splitext(safe_path)[0]
+    encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
+    return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
+
+def clean_string_for_matching(text: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9]", "", text).upper()
+
+def get_name_from_filename(filename: str) -> str:
+    for pattern, forced_name in NAME_PATTERNS.items():
+        if pattern.lower() in filename.lower():
+            return forced_name
+
+    base = os.path.splitext(filename)[0]
+    clean = base.replace("_", " ").replace("-", " ")
+    
+    phrases_to_remove = ["Witch Hunter", "Witch-Hunter", "Ten Thunders", "Dead Man"]
+    for phrase in phrases_to_remove:
+        clean = re.sub(phrase, "", clean, flags=re.IGNORECASE)
+
+    if " " not in clean:
+         clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
+
+    words = clean.split()
+    start_index = 0
+    
+    for i, word in enumerate(words):
+        check_word = clean_string_for_matching(word)
+        if check_word in STRIP_LIST:
+            start_index = i + 1
+        else:
+            break
+            
+    final_name = " ".join(words[start_index:])
+    return final_name.strip()
+
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    if not chars: return ""
+    chars.sort(key=itemgetter('top', 'x0'))
+    accepted_chars = []
+    for char in chars:
+        text = char['text']
+        if not text.strip(): 
+            if accepted_chars and accepted_chars[-1]['text'] != " ": accepted_chars.append(char) 
+            continue
+        is_shadow = False
+        for kept in accepted_chars[-5:]:
+            if kept['text'] == text:
+                if abs(char['x0'] - kept['x0']) < 3 and abs(char['top'] - kept['top']) < 3:
+                    is_shadow = True; break
+        if not is_shadow: accepted_chars.append(char)
+    clean = "".join([c['text'] for c in accepted_chars])
+    return re.sub(r'\s+', ' ', clean).strip()
+
+def get_text_in_zone(page, x_range, y_range) -> str:
+    width, height = page.width, page.height
+    target_box = (width * x_range[0], height * y_range[0], width * x_range[1], height * y_range[1])
+    try:
+        chars = page.crop(target_box).chars
+        return dedupe_chars_proximity(chars)
+    except: return ""
+
+def extract_number(text: str) -> int:
+    if not text: return 0
+    match = re.search(r'\d+', text)
+    if not match: return 0
+    val = int(match.group(0))
+    if val > 30 and val % 11 == 0 and val < 100: return val // 11
+    if val > 100: 
+        s = str(val); mid = len(s) // 2
+        if s[:mid] == s[mid:]: return int(s[:mid])
+    return val
+
+def get_card_type(page) -> str:
+    footer = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
+    if "upgrade" in footer: return "Upgrade"
+    if "crew" in footer and "card" in footer: return "Crew"
+    return "Model"
+
+# --- NEW & IMPROVED HEALTH/SOULSTONE EXTRACTION ---
+
+def get_health_spatial(page, width, height) -> int:
+    """
+    Scans the bottom area of the card for the health track numbers.
+    Malifaux cards have health tracks like '1 2 3 4 5 6'.
+    We look for the largest number in that sequence.
+    """
+    # Zone: Bottom 15% of the card, full width
+    footer_zone = (0, height * 0.85, width, height)
+    try:
+        crop = page.crop(footer_zone)
+        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
+        
+        # Find all numbers in the footer
+        numbers = [int(n) for n in re.findall(r'\d+', text)]
+        
+        # Filter for reasonable health values (typically 1-20)
+        # We also filter out 30/40/50 which usually denote base sizes
+        valid_health = [n for n in numbers if 0 < n < 30]
+        
+        if valid_health:
+            # The max health is typically the last number in the sequence (e.g. 1 2 3 -> 3)
+            # However, sometimes the sequence is read out of order.
+            # Taking the maximum valid number found in that zone is a safe bet.
+            return max(valid_health)
+            
+    except Exception:
+        pass
+    return 0
+
+def check_soulstone(page, width, height, card_text_full: str) -> bool:
+    """
+    Determines if a model infuses a Soulstone.
+    Strategy:
+    1. Peons NEVER infuse soulstones.
+    2. Masters, Henchmen, Enforcers, Minions usually DO.
+    3. Check for 'Peon' in the card stats text.
+    """
+    # We look in the "Station/Characteristics" zone (middle-ish usually, or just scan full text)
+    # Since we don't have a precise zone for Station, we scan the likely area
+    # Station text is usually below the art, above the abilities.
+    # Let's look at the text we already extracted or grab a specific zone.
+    
+    # Approximate Zone for Station/Keywords: Middle-ish of card
+    station_zone = (0, height * 0.45, width, height * 0.6)
+    try:
+        station_text = get_text_in_zone(page, (0.1, 0.9), (0.45, 0.65)).lower()
+        
+        # If it's a Peon, it does NOT have a soulstone
+        if "peon" in station_text:
+            return False
+            
+        # If it's Master, Henchman, Enforcer, Minion, it DOES (usually)
+        if any(x in station_text for x in ["master", "henchman", "enforcer", "minion"]):
+            return True
+            
+        # Fallback: Check full text for 'Peon' just in case
+        if "peon" in card_text_full.lower():
+             return False
+
+    except:
+        pass
+
+    # Default for Models is True (most models are not Peons)
+    return True
+
+def get_faction_from_path(file_path: str) -> str:
+    known = {"Guild", "Resurrectionist", "Arcanist", "Neverborn", "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", "Dead Man's Hand"}
+    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
+    parts = rel_path.replace("\\", "/").split("/")
+    for part in parts:
+        for k in known:
+            if part.lower() == k.lower(): return k
+    return parts[0] if len(parts) > 1 else "Unknown"
+
+def get_subfaction_from_path(file_path: str, faction: str) -> str:
+    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
+    parts = rel_path.replace("\\", "/").split("/")
+    if len(parts) >= 2:
+        folder_name = parts[-2]
+        if folder_name.lower() == faction.lower() or folder_name == ".": return ""
+        return folder_name
+    return ""
+
+def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
+    try:
+        with pdfplumber.open(file_path) as pdf:
+            if not pdf.pages: return None
+            page = pdf.pages[0]
+            width, height = page.width, page.height
+            
+            # 1. Classify
+            faction = get_faction_from_path(file_path)
+            subfaction = get_subfaction_from_path(file_path, faction)
+            card_type = get_card_type(page)
+            
+            # 2. Name (STRICTLY FROM FILENAME - FORCE)
+            name = get_name_from_filename(filename)
+
+            # 3. Cost (Top Right)
+            raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
+            
+            # 4. Stats
+            stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
+            health = 0
+            has_soulstone = False # Default
+            
+            # Extract full text once for keyword searching
+            full_text = page.extract_text() or ""
+
+            if card_type == "Model":
+                raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
+                raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
+                raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
+                raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
+                
+                stats = {
+                    "sp": extract_number(raw_sp),
+                    "df": extract_number(raw_df),
+                    "wp": extract_number(raw_wp),
+                    "sz": extract_number(raw_sz)
+                }
+                
+                # UPDATED HEALTH LOGIC
+                health = get_health_spatial(page, width, height)
+                
+                # NEW SOULSTONE LOGIC
+                has_soulstone = check_soulstone(page, width, height, full_text)
+
+            # 5. Search Text (Body)
+            search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
+
+            print(f"File: {filename} -> Name: {name} | Hp: {health} | SS: {has_soulstone}")
+
+            return {
+                "id": file_id,
+                "type": card_type,
+                "faction": faction,
+                "subfaction": subfaction,
+                "name": name,
+                "cost": extract_number(raw_cost),
+                "stats": stats,
+                "health": health,
+                "soulstone": has_soulstone, # New field
+                "base": 30, 
+                "attacks": search_text,
+                "imageUrl": generate_github_url(file_path)
+            }
+
+    except Exception as e:
+        print(f"Error parsing {filename}: {e}")
+        return None
+
+def main():
+    all_cards = []
+    file_id_counter = 100
+    print(f"Scanning: {ROOT_FOLDER}")
+    for root, dirs, files in os.walk(ROOT_FOLDER):
+        for filename in files:
+            if filename.lower().endswith(".pdf"):
+                full_path = os.path.join(root, filename)
+                card = process_file(full_path, filename, file_id_counter)
+                if card:
+                    all_cards.append(card)
+                    file_id_counter += 1
+
+    with open(os.path.join(ROOT_FOLDER, "malifaux_data.json"), 'w', encoding='utf-8') as f:
+        json.dump(all_cards, f, indent=2)
+    print(f"Done. {len(all_cards)} cards.")
+
+if __name__ == "__main__":
+    main()
