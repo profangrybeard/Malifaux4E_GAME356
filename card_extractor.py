@@ -23,17 +23,23 @@ def clean_text(text: str) -> str:
 
 def fix_shadow_text_greedy(text: str) -> str:
     """
-    Step 1: Reduce doubled characters.
-    "AA SS TT AARR" -> "A S T AR"
+    Step 1 & 2 Combined:
+    1. Regex: Finds "X X" (spaced duplicate) and turns it into "XX".
+    2. Loop: Finds "XX" (adjacent duplicate) and turns it into "X".
     """
     if not text or len(text) < 2: return text
     
+    # 1. Pre-Pass: Collapse spaced duplicates (Case Insensitive)
+    # "F F I I" -> "FFII"
+    # This prevents the "Merge Words" step later from recreating the shadow text.
+    text = re.sub(r"(.)\s+\1", r"\1\1", text, flags=re.IGNORECASE)
+    
+    # 2. Greedy Collapse: "FFII" -> "FI"
     result = []
     i = 0
     while i < len(text):
         char = text[i]
         
-        # Check adjacent character for duplication
         if i + 1 < len(text):
             next_char = text[i+1]
             if char.lower() == next_char.lower() and char.strip() != "":
@@ -52,9 +58,8 @@ def fix_shadow_text_greedy(text: str) -> str:
 
 def merge_exploded_words(text: str) -> str:
     """
-    Step 2: Merge fragmented tokens.
-    "A S T AR" -> "ASTAR"
-    "Fire Golem" -> "Fire Golem" (Longer words are preserved)
+    Step 3: Merge fragmented tokens.
+    "F I R E" -> "FIRE"
     """
     if not text: return ""
     
@@ -65,14 +70,7 @@ def merge_exploded_words(text: str) -> str:
     current_word = parts[0]
     
     for next_part in parts[1:]:
-        # If both the accumulating word and the next part are short (<3 chars), merge them.
-        # "A" + "S" -> "AS" (Len 2). 
-        # "AS" + "T" -> "AST" (Len 3).
-        # "AST" + "AR" -> "ASTAR" (Len 5).
-        # We check length of next_part to pull it in, and length of current_word to verify it's fragile.
-        # Heuristic: If next_part is short (1-2 chars), it's likely a fragment.
-        # Exception: "of", "to", "in" are short real words, but usually appear between Long words.
-        
+        # If both parts are short (<3 chars), merge them.
         if len(next_part) < 3 or (len(current_word) < 3):
             current_word += next_part
         else:
@@ -137,7 +135,7 @@ def extract_attacks_verbatim(text: str) -> str:
             if not clean or "Rg Skl" in clean:
                 continue
             
-            # Apply same cleaning to attacks to make them readable
+            # Apply same cleaning to attacks
             clean = fix_shadow_text_greedy(clean)
             clean = merge_exploded_words(clean)
             attack_text.append(clean)

@@ -685,7 +685,7 @@
       "wp": 0,
       "sz": 0
     },
-    "attacks": "fWanted: Dead q10\"6Df-3 Removea Bounty token from the target. fWanted: Alive q10\"7Sp-- Removea Bounty token from the target. Place the target inbase contact withan aly within6\"of itself. fColect Debt q10\"6Wp-- Removea Bounty token from the target. The target declares the Interact action controledby this model. Friendly unique Frontier models gain the folowing ability: Claim Bounty: After resolvingan atack action, this model may removea friendly token from the target toheal2. Crew Card",
+    "attacks": "fWanted: Dead q10\"6Df-3 Removea Bounty token from the target. fWanted: Alive q10\"7Sp- Removea Bounty token from the target. Place the target inbase contact withan aly within6\"of itself. fColect Debt q10\"6Wp- Removea Bounty token from the target. The target declares the Interact action controledby this model. Friendly unique Frontier models gain the folowing ability: Claim Bounty: Afteresolvingan atack action, this model may removea friendly token from the target toheal2. Crew Card",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Frontier/M4E_Crew_Frontier_Cornelius_Basse_Badlands_Sheriff.pdf"
   },
   {
@@ -1626,7 +1626,7 @@
   },
   {
     "id": 225,
-    "name": "LIMIT TEST",
+    "name": "LIMITEST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2016,7 +2016,7 @@
   },
   {
     "id": 255,
-    "name": "ANRAVENC",
+    "name": "ANRAVEN CCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2029,7 +2029,7 @@
   },
   {
     "id": 256,
-    "name": "ANRAVENC",
+    "name": "ANRAVEN CCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2419,7 +2419,7 @@
   },
   {
     "id": 286,
-    "name": "BIGER HAT THAN YOU",
+    "name": "BIGER HATHAN YOU",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -2939,7 +2939,7 @@
   },
   {
     "id": 326,
-    "name": "HAEL LaCR",
+    "name": "HAELLaCR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -3069,7 +3069,7 @@
   },
   {
     "id": 336,
-    "name": "PIGSOF FIRE",
+    "name": "PIGS OFIRE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4174,7 +4174,7 @@
   },
   {
     "id": 421,
-    "name": "OSTER RID",
+    "name": "OSTERRID",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4187,7 +4187,7 @@
   },
   {
     "id": 422,
-    "name": "OSTER RID",
+    "name": "OSTERRID",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4200,7 +4200,7 @@
   },
   {
     "id": 423,
-    "name": "OSTER RID",
+    "name": "OSTERRID",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4265,7 +4265,7 @@
   },
   {
     "id": 428,
-    "name": "EST SUBJEC",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4278,7 +4278,7 @@
   },
   {
     "id": 429,
-    "name": "EST SUBJEC",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4291,7 +4291,7 @@
   },
   {
     "id": 430,
-    "name": "EST SUBJEC",
+    "name": "EST SUBJECCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -4785,7 +4785,7 @@
   },
   {
     "id": 468,
-    "name": "FIREWORKS SHOW",
+    "name": "FIREWORKSHOW",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5071,7 +5071,7 @@
   },
   {
     "id": 490,
-    "name": "ELITE EQUIPMENT",
+    "name": "ELITEQUIPMENT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -5526,7 +5526,7 @@
   },
   {
     "id": 525,
-    "name": "NSEELIE ENG",
+    "name": "NSEELIEENG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6163,7 +6163,7 @@
   },
   {
     "id": 574,
-    "name": "UFISHBOC",
+    "name": "UFISHBOCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6384,7 +6384,7 @@
   },
   {
     "id": 591,
-    "name": "GRAVEGOO",
+    "name": "GRAVE GOO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -6930,7 +6930,7 @@
   },
   {
     "id": 633,
-    "name": "LLHOP PORT",
+    "name": "LLHOPPORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -7957,7 +7957,7 @@
   },
   {
     "id": 712,
-    "name": "MOKESTAC",
+    "name": "MOKESTACCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8386,7 +8386,7 @@
   },
   {
     "id": 745,
-    "name": "NCISCO ORT",
+    "name": "NCISCOORT",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -8516,7 +8516,7 @@
   },
   {
     "id": 755,
-    "name": "NTIAGO ORTE",
+    "name": "NTIAGOORTE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9153,7 +9153,7 @@
   },
   {
     "id": 804,
-    "name": "RCOVER REP",
+    "name": "RCOVERREP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9296,7 +9296,7 @@
   },
   {
     "id": 815,
-    "name": "ADY JUSTIC",
+    "name": "ADY JUSTICCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9309,7 +9309,7 @@
   },
   {
     "id": 816,
-    "name": "ADY JUSTIC",
+    "name": "ADY JUSTICCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9400,7 +9400,7 @@
   },
   {
     "id": 823,
-    "name": "CTOR RODR",
+    "name": "CTORRODR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9452,7 +9452,7 @@
   },
   {
     "id": 827,
-    "name": "ATLING GUN",
+    "name": "ATLINGGUN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9465,7 +9465,7 @@
   },
   {
     "id": 828,
-    "name": "ATLING GUN",
+    "name": "ATLINGGUN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9478,7 +9478,7 @@
   },
   {
     "id": 829,
-    "name": "ATLING GUN",
+    "name": "ATLINGGUN",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -9699,7 +9699,7 @@
   },
   {
     "id": 846,
-    "name": "CTOR RODR",
+    "name": "CTORRODR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -10518,7 +10518,7 @@
   },
   {
     "id": 909,
-    "name": "ADAPTIVE EVOLUTION",
+    "name": "ADAPTIVEVOLUTION",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11077,7 +11077,7 @@
   },
   {
     "id": 952,
-    "name": "LUCID DREAMING",
+    "name": "LUCIDREAMING",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11142,7 +11142,7 @@
   },
   {
     "id": 957,
-    "name": "NDERSNATC",
+    "name": "NDERSNATCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11363,7 +11363,7 @@
   },
   {
     "id": 974,
-    "name": "DOW WEAV",
+    "name": "DOWWEAV",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11545,7 +11545,7 @@
   },
   {
     "id": 988,
-    "name": "VERN NEPH",
+    "name": "VERNNEPH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11558,7 +11558,7 @@
   },
   {
     "id": 989,
-    "name": "VERN NEPH",
+    "name": "VERNNEPH",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -11688,7 +11688,7 @@
   },
   {
     "id": 999,
-    "name": "WHITE EYES",
+    "name": "WHITEEYES",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12429,7 +12429,7 @@
   },
   {
     "id": 1056,
-    "name": "RIDERSOF FATE",
+    "name": "RIDERS OFATE",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -12767,7 +12767,7 @@
   },
   {
     "id": 1082,
-    "name": "TRASH HEAP",
+    "name": "TRASHEAP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13339,7 +13339,7 @@
   },
   {
     "id": 1126,
-    "name": "KORPS SCO",
+    "name": "KORPSSCO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13352,7 +13352,7 @@
   },
   {
     "id": 1127,
-    "name": "KORPS SCO",
+    "name": "KORPSSCO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -13365,7 +13365,7 @@
   },
   {
     "id": 1128,
-    "name": "KORPS SCO",
+    "name": "KORPSSCO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14275,7 +14275,7 @@
   },
   {
     "id": 1198,
-    "name": "OID WRETC",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14288,7 +14288,7 @@
   },
   {
     "id": 1199,
-    "name": "OID WRETC",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14301,7 +14301,7 @@
   },
   {
     "id": 1200,
-    "name": "OID WRETC",
+    "name": "OID WRETCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -14691,7 +14691,7 @@
   },
   {
     "id": 1230,
-    "name": "UCO ORTEG",
+    "name": "UCOORTEG",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15692,7 +15692,7 @@
   },
   {
     "id": 1307,
-    "name": "GHT TERRO",
+    "name": "GHTTERRO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15705,7 +15705,7 @@
   },
   {
     "id": 1308,
-    "name": "GHT TERRO",
+    "name": "GHTTERRO",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15900,7 +15900,7 @@
   },
   {
     "id": 1323,
-    "name": "DEAD DAND",
+    "name": "DEADDAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15913,7 +15913,7 @@
   },
   {
     "id": 1324,
-    "name": "DEAD DAND",
+    "name": "DEADDAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15926,7 +15926,7 @@
   },
   {
     "id": 1325,
-    "name": "DEAD DAND",
+    "name": "DEADDAND",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15939,7 +15939,7 @@
   },
   {
     "id": 1326,
-    "name": "DEAD DOXY",
+    "name": "DEADDOXY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15952,7 +15952,7 @@
   },
   {
     "id": 1327,
-    "name": "DEAD DOXY",
+    "name": "DEADDOXY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -15965,7 +15965,7 @@
   },
   {
     "id": 1328,
-    "name": "DEAD DOXY",
+    "name": "DEADDOXY",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16069,7 +16069,7 @@
   },
   {
     "id": 1336,
-    "name": "FLICKERING GRASP",
+    "name": "FLICKERINGRASP",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16225,7 +16225,7 @@
   },
   {
     "id": 1348,
-    "name": "ESTLESS SPIR",
+    "name": "ESTLESSSPIR",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16303,7 +16303,7 @@
   },
   {
     "id": 1354,
-    "name": "EMPERANC",
+    "name": "EMPERANCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16654,7 +16654,7 @@
   },
   {
     "id": 1381,
-    "name": "ENTRANCE EXAMINATION",
+    "name": "ENTRANCEXAMINATION",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -16927,7 +16927,7 @@
   },
   {
     "id": 1402,
-    "name": "DENTOF VISC",
+    "name": "DENTOF VISCCOST",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -17876,7 +17876,7 @@
   },
   {
     "id": 1475,
-    "name": "SCOUT THE ROFTOPS",
+    "name": "SCOUTHE ROFTOPS",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18552,7 +18552,7 @@
   },
   {
     "id": 1527,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18565,7 +18565,7 @@
   },
   {
     "id": 1528,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18578,7 +18578,7 @@
   },
   {
     "id": 1529,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18721,7 +18721,7 @@
   },
   {
     "id": 1540,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18734,7 +18734,7 @@
   },
   {
     "id": 1541,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18747,7 +18747,7 @@
   },
   {
     "id": 1542,
-    "name": "UNLESS SELF",
+    "name": "UNLESSSELF",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -19163,7 +19163,7 @@
   },
   {
     "id": 1574,
-    "name": "ADY YUM",
+    "name": "ADYYUM",
     "cost": 0,
     "stats": {
       "sp": 0,
