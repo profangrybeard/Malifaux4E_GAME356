@@ -31,7 +31,8 @@ import {
   Gem // Ensure Gem is imported for the soulstone icon
 } from 'lucide-react';
 
-const DATA_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/malifaux_data.json";
+const DATA_URL = "malifaux_data.json";
+
 
 // --- CLIENT SIDE NAME CLEANER ---
 // Forces clean names even if the data extractor leaves artifacts
