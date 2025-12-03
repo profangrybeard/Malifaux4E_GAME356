@@ -570,7 +570,7 @@
       "wp": 5,
       "sz": 4
     },
-    "health": 0,
+    "health": 5,
     "base": 30,
     "attacks": "54WPSZcUimniqeudea,c EAle ,rmeebnmtaelc, eGDo le\u2022 mel, iVtaesruOnce per activation. This model may reduce Armor:damage dealt to it by 1. This model cannot be placed by other Behemoth:models. When it would be moved by another model, halve the distance it moves.Once per turn. When this Demise (Reform From Ice):model is kiled, it may place into base contact with a friendly Ice Pilar or Scheme marker within 6\". If it does so, it may remove that marker to heal 5.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/December/M4E_Stat_December_Academic_Ice_Golem.pdf"
@@ -618,7 +618,7 @@
       "wp": 4,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "43WPSZrUenbimqueec,e BDe a,asrt e\u2022m Cih After this model kils a model, it Creative Salvage:may make a Scheme or Remains marker within 1\" of the kiled model.Once per turn. When this model is Demise (Eternal):kiled, it may discard a card. If it does so, it heals 4. When this model Shapechange (Sightless Snow):Sightless activates, it may replace itself with Ceddra, Snow and heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/December/M4E_Stat_December_Ceddra_White_Stag.pdf"
@@ -954,7 +954,7 @@
       "wp": 0,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "01WPSZrPeeiotnno (r4F), C\u2022 otncustr This model may not activate and always Inanimate:counts as having activated this turn. During the end phase, this model\u2019s owner may choose to kil this model. When an enemy model ends its \u201cIt\u2019s A Trap!\u201d:activation within 3\", one model with this ability may ybe placed into base contact with it and declare a action targeting it. Enemy models that activate within 3\" \u201cMy Leg, Ah!\u201d:gain a token.Staggered",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Frontier/M4E_Stat_Frontier_Clockwork_Trap_A.pdf"
@@ -970,7 +970,7 @@
       "wp": 0,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "01WPSZrPeeiotnno (r4F), C\u2022 otncustr This model may not activate and always Inanimate:counts as having activated this turn. During the end phase, this model\u2019s owner may choose to kil this model. When an enemy model ends its \u201cIt\u2019s A Trap!\u201d:activation within 3\", one model with this ability may ybe placed into base contact with it and declare a action targeting it. Enemy models that activate within 3\" \u201cMy Leg, Ah!\u201d:gain a token.Staggered",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Frontier/M4E_Stat_Frontier_Clockwork_Trap_B.pdf"
@@ -986,7 +986,7 @@
       "wp": 0,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "01WPSZrPeeiotnno (r4F), C\u2022 otncustr This model may not activate and always Inanimate:counts as having activated this turn. During the end phase, this model\u2019s owner may choose to kil this model. When an enemy model ends its \u201cIt\u2019s A Trap!\u201d:activation within 3\", one model with this ability may ybe placed into base contact with it and declare a action targeting it. Enemy models that activate within 3\" \u201cMy Leg, Ah!\u201d:gain a token.Staggered",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Frontier/M4E_Stat_Frontier_Clockwork_Trap_C.pdf"
@@ -1002,7 +1002,7 @@
       "wp": 0,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "01WPSZrPeeiotnno (r4F), C\u2022 otncustr This model may not activate and always Inanimate:counts as having activated this turn. During the end phase, this model\u2019s owner may choose to kil this model. When an enemy model ends its \u201cIt\u2019s A Trap!\u201d:activation within 3\", one model with this ability may ybe placed into base contact with it and declare a action targeting it. Enemy models that activate within 3\" \u201cMy Leg, Ah!\u201d:gain a token.Staggered",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Frontier/M4E_Stat_Frontier_Clockwork_Trap_D.pdf"
@@ -1354,7 +1354,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 8,
     "base": 30,
     "attacks": "51WPSZUToSt&emM, \u2022U ngniqivuieL, When this model ends its activation, a Accomplice:friendly model within 6\" that has not activated this turn may discard a card to do so. Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge When this model activates, it may remove Tactician:a friendly Scheme marker within 8\". If it does, another aly within 8\" may declare the action.Walk",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/M%26SU/M4E_Stat_MSU_Mouse.pdf"
@@ -1594,7 +1594,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZrHeemnrcohfmreaPn , \u2022U gnniqivuieL, Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu Enemy atack actions that target this Elusive:-model suffer a to their duel. When this model ends its activation, Prep The Stage:sit may drain a to choose a marker within 6\" and make a friendly copy of it anywhere within 6\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Performer/M4E_Stat_Performer_Cassandra_Felton.pdf"
@@ -1610,7 +1610,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 5,
     "base": 30,
     "attacks": "62WPSZrMeamstreorf,r UePn i\u2022q ugen,i vLiSmuggler's Angelica PathDurand This model may not be the target of Disguised:actions generated by the action.Charge When this model activates, it Smuggler\u2019s Secret:may remove a Scheme marker within 6\" to draw a card. After resolving an enemy atack Vanishing Act:stargeting this model, this model may drain a to place the atacker within 5\" of its curent location.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Performer/M4E_Stat_Performer_Colette_du_Boise_Smuggler.pdf"
@@ -1674,7 +1674,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZrUenmiqruoefr, ePPu p\u2022p tectu, rCtosnuOnce per activation. This model may reduce Armor:damage dealt to it by 1. While resolving the action, this ChargeBlade Rush:model may move through enemy models. Deal 1 damage to enemy models moved through this way. When this model is kiled, it Demise (Dance Apart):is instead replaced with two Coryphee models, then each new model heals 3.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Performer/M4E_Stat_Performer_Coryphee_Duet.pdf"
@@ -1834,7 +1834,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZUelnitiaqsuree,V C ,otcnustrOnce per activation. Friendly models Arcane Conflux:qwithin 6\" may draw range and LoS for actions from +this model. These actions receive a . This model gains the keywords of the Quick Study:friendly leader.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Versatile%20-%20Arcanists/M4E_Stat_Arc-Versatile_Arcane_Fate_Emissary.pdf"
@@ -1866,7 +1866,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,otcrusertmsnaon,C When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.xx The abilities of enemy models Nemesis ():within 3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Versatile%20-%20Arcanists/M4E_Stat_Arc-Versatile_Horseman_Mechanical_Rider.pdf"
@@ -1962,7 +1962,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnUenmiqhucet,a CWon \u2022s terulictta,s Vre This model may choose to ignore the Of-Road:effects of non-Scheme markers.Once per turn. When a Overwhelming Intricacy:friendly marker is made within 3\", this model may place into base contact with it.uOnce per activation. This model may Unwavering:reduce damage dealt to friendly models within 1\" of this model by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Versatile%20-%20Arcanists/M4E_Stat_Arc-Versatile_Watchmen_Harris_J-5.pdf"
@@ -1978,7 +1978,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZaUrneimquiheC, L \u2022iv einligt,a VsreOnce per activation. After this model File Papers:resolves the action targeting a Strategy or Interactenemy Scheme marker, it may draw a card. v This model may deal Intimidating Authority:1 damage to its atacker for every raise this model receives while resisting. When this model Shapechange (The Beast Within):activates, it may replace itself with Ferdinand Vogel, The Beast Within to heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Arcanists/Versatile%20-%20Arcanists/M4E_Stat_Chimera_Ferdinand_Vogel_Self-Righteous_Man.pdf"
@@ -2810,7 +2810,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 10,
     "base": 30,
     "attacks": "53WPSZrUenlgiqnuAe ,\u2022 L givniuOnce per activation. This model may reduce Armor:damage dealt to it by 1. After kiling an enemy model, this \u201cEscar\u2026Go!\u201d:model may declare the action, ignoring any Chargespecial restrictions. When this model removes a DriftSlip and Slide:token to place in base contact with a friendly Tide marker, it may choose a friendly Tide marker within 10\" instead of 5\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Angler/M4E_Stat_Angler_Sir_Vantes.pdf"
@@ -2874,7 +2874,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "63WPSZrMealgsnteAr , \u2022U gnniqivuieL, Tides of Judd & MeridionHoneyuOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. After Meridion\u2019s Passage:resolving an action where this model moves through the centerline, make a Tide marker anywhere on the centerline. While resolving the action, ChargeOfboard Motor:increase the distance this model moves by up to +4\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Angler/M4E_Stat_Angler_The_Clampetts_Bally-Hoo_Bucket.pdf"
@@ -2890,7 +2890,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZrMealgsnteAr , \u2022U gnniqivuieL, Brackish BruceBulyu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. While more than 6\" away from this model, Stealth:enemy models cannot target it and ignore it when drawing LoS. After this model suffers Thrown Overboard:Sdamage, it may drain a . If it does so, make a Tide marker in base contact and heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Angler/M4E_Stat_Angler_The_Clampetts_Fisherfolk.pdf"
@@ -3146,7 +3146,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "51WPSZtMaiHn igoinB (\u20223 )l, aLyivoiLn ,g After this model is Demise (I\u2019m Done With This):kiled, it may summon a Bayou Gremlin into base contact with this model.v If this model has already activated First to Speak:this turn, enemy atack actions that target this model cannot cheat their duel.q Enemy actions that target alies Loudmouth:within 4\" suffer -1 .Skl",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Big%20Hat/M4E_Stat_Big-Hat_Gremlin_Crier_A.pdf"
@@ -3162,7 +3162,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "51WPSZtMaiHn igoinB (\u20223 )l, aLyivoiLn ,g After this model is Demise (I\u2019m Done With This):kiled, it may summon a Bayou Gremlin into base contact with this model.v If this model has already activated First to Speak:this turn, enemy atack actions that target this model cannot cheat their duel.q Enemy actions that target alies Loudmouth:within 4\" suffer -1 .Skl",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Big%20Hat/M4E_Stat_Big-Hat_Gremlin_Crier_B.pdf"
@@ -3178,7 +3178,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "51WPSZtMaiHn igoinB (\u20223 )l, aLyivoiLn ,g After this model is Demise (I\u2019m Done With This):kiled, it may summon a Bayou Gremlin into base contact with this model.v If this model has already activated First to Speak:this turn, enemy atack actions that target this model cannot cheat their duel.q Enemy actions that target alies Loudmouth:within 4\" suffer -1 .Skl",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Big%20Hat/M4E_Stat_Big-Hat_Gremlin_Crier_C.pdf"
@@ -3450,7 +3450,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZyUenkiqcouJe ,, nLiiKvi n\u2022g e, lVitearsOnce per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Chargey This model\u2019s actions generated Ramming Speed:by the action receive +1 and any one suit ChargeSklto its final duel totals.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Kin/M4E_Stat_Byu-Versatile_Kin_Jockey_Squish_and_Squash.pdf"
@@ -3610,7 +3610,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "51WPSZnUinKi q\u2022u ge,n Livi+ This model receives a when Advanced Sights:targeting models at a lower elevation.Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge While this model is at elevation 2 or higher, Sniper:zit increases the of its actions by +6\".RgvOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Kin/M4E_Stat_Kin_Rami_LaCroix.pdf"
@@ -3626,7 +3626,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "51WPSZnUinKi q\u2022u ge,n Livi Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interact When this model succeeds in an Piles of \u201cStuf\u201d:satack, it may drain a to make a Scheme marker in base contact with the target.vOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Kin/M4E_Stat_Kin_Raphael_LaCroix.pdf"
@@ -3930,7 +3930,7 @@
       "wp": 3,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "31WPSZyMeionoioSn \u2022( 4t)s,a Be After this model Grow Up Strong (Wild Boar):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a Wild Boar and heal 4. If it does not have a token, it instead gains a Glutted token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Piglet_A.pdf"
@@ -3946,7 +3946,7 @@
       "wp": 3,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "31WPSZyMeionoioSn \u2022( 4t)s,a Be After this model Grow Up Strong (Wild Boar):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a Wild Boar and heal 4. If it does not have a token, it instead gains a Glutted token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Piglet_B.pdf"
@@ -3962,7 +3962,7 @@
       "wp": 3,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "31WPSZyMeionoioSn \u2022( 4t)s,a Be After this model Grow Up Strong (Wild Boar):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a Wild Boar and heal 4. If it does not have a token, it instead gains a Glutted token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Piglet_C.pdf"
@@ -3978,7 +3978,7 @@
       "wp": 3,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "31WPSZyMeionoioSn \u2022( 4t)s,a Be After this model Grow Up Strong (Wild Boar):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a Wild Boar and heal 4. If it does not have a token, it instead gains a Glutted token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Piglet_D.pdf"
@@ -4026,7 +4026,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZyMeionoioSn \u2022( 3t)s, aBe After this model removes a Remains or Chow Time:enemy Scheme marker, it gains a token.Glutted After this model resolves an Folow the Squeal:atack action, this model may remove a Gluttedtoken. If it does so, an aly in LoS is moved up to 4\" toward this model.u : When this model is dealt damage, it Thick Fatmay remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Squealer_A.pdf"
@@ -4042,7 +4042,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZyMeionoioSn \u2022( 3t)s, aBe After this model removes a Remains or Chow Time:enemy Scheme marker, it gains a token.Glutted After this model resolves an Folow the Squeal:atack action, this model may remove a Gluttedtoken. If it does so, an aly in LoS is moved up to 4\" toward this model.u : When this model is dealt damage, it Thick Fatmay remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Squealer_B.pdf"
@@ -4058,7 +4058,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZyMeionoioSn \u2022( 3t)s, aBe After this model removes a Remains or Chow Time:enemy Scheme marker, it gains a token.Glutted After this model resolves an Folow the Squeal:atack action, this model may remove a Gluttedtoken. If it does so, an aly in LoS is moved up to 4\" toward this model.u : When this model is dealt damage, it Thick Fatmay remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Squealer_C.pdf"
@@ -4090,7 +4090,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZyToetoeomS, \u2022U tnsiaqeuBe , Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interact After this model suffers 2 or more Farrowing:damage, summon a Piglet into base contact with this model.u When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_The_Sow.pdf"
@@ -4138,7 +4138,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZyMeionoioSn \u2022( 2t)s, aBe After this model removes a Remains or Chow Time:enemy Scheme marker, it gains a token. Glutted This model may while ChargeFrenzied Charge:engaged and ignore the once per activation restriction on .Chargeu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_War_Pig_A.pdf"
@@ -4154,7 +4154,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZyMeionoioSn \u2022( 2t)s, aBe After this model removes a Remains or Chow Time:enemy Scheme marker, it gains a token. Glutted This model may while ChargeFrenzied Charge:engaged and ignore the once per activation restriction on .Chargeu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_War_Pig_B.pdf"
@@ -4170,7 +4170,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZyMeionoioSn \u2022( 3t)s, aBe After this model Grow Up Strong (War Pig):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a War Pig and heal 4. If it does not have a token, it instead gains Glutteda token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Wild_Boar_A.pdf"
@@ -4186,7 +4186,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZyMeionoioSn \u2022( 3t)s, aBe After this model Grow Up Strong (War Pig):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a War Pig and heal 4. If it does not have a token, it instead gains Glutteda token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Wild_Boar_B.pdf"
@@ -4202,7 +4202,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZyMeionoioSn \u2022( 3t)s, aBe After this model Grow Up Strong (War Pig):removes an enemy Remains marker or enemy Scheme marker, this model may remove a Gluttedtoken to replace itself with a War Pig and heal 4. If it does not have a token, it instead gains Glutteda token.Gluttedu When this model is dealt damage, it Thick Fat:may remove a token to reduce the damage Glutteddealt by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Sooey/M4E_Stat_Sooey_Wild_Boar_C.pdf"
@@ -4650,7 +4650,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "51WPSZiThoCte-imrT, U\u2022 nginqiuvei,L x Enemy atack actions that target Beer Goggles:-this model suffer a to their duel if the atacking model has a friendly token.Poison After an enemy model within 6\" gains On the House:a token, this model may deal 1 damage to it. Poison When this model activates, it may Tri-Chi Conclave:sdrain two . If it does so, replace this model with The Proof-ProphetBrewmaster, . Then, the new model heals 3.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tri-Chi/M4E_Stat_Tri-Chi_Apprentice_Wesley.pdf"
@@ -4746,7 +4746,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZiUhnCi-qiurTe , \u2022L igvni When this model flips the black joker, Avoid Doom:sit may drain a to discard it without effect and flip a new card. When this model activates, it may Happy Hour:Life of the Partyreplace itself with Nia, and heal 2. u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tri-Chi/M4E_Stat_Tri-Chi_Nia_Fractured_Future.pdf"
@@ -4762,7 +4762,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZiUhnCi-qiurTe , \u2022L igvnix Enemy atack actions that target Beer Goggles:-this model suffer a to their duel if the atacking model has a friendly token.Poisonu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. When this model activates, it may The Hangover:Fractured Futurereplace itself with Nia, and heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tri-Chi/M4E_Stat_Tri-Chi_Nia_Life_of_the_Party.pdf"
@@ -4938,7 +4938,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "62WPSZgUnnaiqBu-zez, iLWiv i,nihg C\u2022- iTru After resolving an enemy atack Butterfly Jump:action targeting this model, this model may move up to 3\". During the end phase, this model may Night Cap:discard a card to move up to 5\" and then give one other model within 1\" a token.Poison When this model declares an action, Toad-Al Power:it may discard a or token to increase GlowyPoisonthe of that action by +4\".Rg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tri-Chi/M4E_Stat_Wizz-Bang_Tri-Chi_Hoochdini.pdf"
@@ -5306,7 +5306,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "51WPSZyTosktecmirT, U \u2022n giqnuivei,L When this model ends its Delegated Authority:activation, it may remove up to one token from al models within 3\". Then, each model that removed a token this way gains this model\u2019s choice of a or token.ShieldedAnalyzed After this model resolves the ChargeMah! Help!:action, a friendly Mah Tucket within 10\" may drain a s to place into base contact with an enemy engaged with this model and deal 2 damage to it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tricksy/M4E_Stat_Tricksy_The_Little_Lass.pdf"
@@ -5322,7 +5322,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZyHseknccihrTm \u2022an l,a UyonLiq ,tuceu, rCtsonuOnce per activation. This model may reduce Armor:damage dealt to it by 1. The folowing do not restrict Don\u2019t Mind Me:this model from taking the action: being Interactengaged, leaving engagement with a , and Walktargeting a marker with an enemy in base contact. This \u201cLook Who\u2019s Reachin\u2019 Over Yer Head Now!\u201d:model\u2019s action has a of 4\".InteractRg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Tricksy/M4E_Stat_Tricksy_Trixiebelle.pdf"
@@ -5498,7 +5498,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZyUenkiqcouJe ,, nLiiKvi n\u2022g e, lVitearsOnce per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Chargey This model\u2019s actions generated Ramming Speed:by the action receive +1 and any one suit ChargeSklto its final duel totals.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Versatile%20-%20Bayou/M4E_Stat_Byu-Versatile_Kin_Jockey_Squish_and_Squash.pdf"
@@ -5530,7 +5530,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZUelnitiaqsuree,V C ,otcnustr This model gains the keywords of the Quick Study:friendly leader.Once per activation. Friendly models Shared Luck:within 2\" may cheat fate with the top card of their fate deck.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Versatile%20-%20Bayou/M4E_Stat_Byu-Versatile_Lucky_Fate_Emissary.pdf"
@@ -5610,7 +5610,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZeUlnitiaqsuree,V B ,etsa After an enemy model within 6\" A Mother\u2019s Rage:kils a friendly Gupps or Silurid, this model may drain Sa . If it does so, deal 2 damage to the enemy model. After this model is kiled, Demise (The Hatching):summon two Gupps into base contact with this model. When this model activates, it Filial Cannibalism:may kil a friendly Gupps or Silurid within 6\". If it does so, this model heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Versatile%20-%20Bayou/M4E_Stat_Byu-Versatile_Spawn_Mother.pdf"
@@ -5994,7 +5994,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "51WPSZgMnianBio-nzz (i3W), L\u2022i vginu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.Once per turn. After resolving a Proper Motivation:friendly effect that damaged this model, this model may move up to 4\" and make a Scheme marker in base contact. This model may remove a GlowySwamp Lights:token on it to reduce damage dealt to it by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Gautraeux_Bokor_A.pdf"
@@ -6010,7 +6010,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "51WPSZgMnianBio-nzz (i3W), L\u2022i vginu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.Once per turn. After resolving a Proper Motivation:friendly effect that damaged this model, this model may move up to 4\" and make a Scheme marker in base contact. This model may remove a GlowySwamp Lights:token on it to reduce damage dealt to it by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Gautraeux_Bokor_B.pdf"
@@ -6026,7 +6026,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "51WPSZgMnianBio-nzz (i3W), L\u2022i vginu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.Once per turn. After resolving a Proper Motivation:friendly effect that damaged this model, this model may move up to 4\" and make a Scheme marker in base contact. This model may remove a GlowySwamp Lights:token on it to reduce damage dealt to it by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Gautraeux_Bokor_C.pdf"
@@ -6154,7 +6154,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "62WPSZgUnnaiqBu-zez, iLWiv i,nihg C\u2022- iTru After resolving an enemy atack Butterfly Jump:action targeting this model, this model may move up to 3\". During the end phase, this model may Night Cap:discard a card to move up to 5\" and then give one other model within 1\" a token.Poison When this model declares an action, Toad-Al Power:it may discard a or token to increase GlowyPoisonthe of that action by +4\".Rg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Tri-Chi_Hoochdini.pdf"
@@ -6202,7 +6202,7 @@
       "wp": 6,
       "sz": 1
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "61WPSZgMnaasBte-zrz, iUWni q\u2022u gen, iLviFireworks Olivia ShowBernardx After this model suffers damage Exit Stage:scaused by an enemy model, it may drain a to make a Pyrotechnic marker within 1\", then place within 6\". At the start and end of this Nothing Up My Sleeve:model\u2019s activation, it may look at the top card of its deck and may discard it. When a non-peon enemy is Three Demon Bag:skiled within 3\", infuse a .",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Bayou/Wizz-Bang/M4E_Stat_Wizz-Bang_Wong_The_Wonderful.pdf"
@@ -6314,7 +6314,7 @@
       "wp": 4,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "42WPSZxToetpeAm \u2022, M tsianeioBn , g(n2)i,v Li When another friendly model Flash of Feathers:targets a model engaged by this model with an atack action, it receives +1 .Skl This model ignores terain and other models Flight:while moving. When this model declares the King of the Skies: action, if it is at elevation 2 or higher, its Chargegenerated atack receives +1 and +1 .SklDmg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Apex/M4E_Stat_Apex_Empyrean_Eagle_A.pdf"
@@ -6330,7 +6330,7 @@
       "wp": 4,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "42WPSZxToetpeAm \u2022, M tsianeioBn , g(n2)i,v Li When another friendly model Flash of Feathers:targets a model engaged by this model with an atack action, it receives +1 .Skl This model ignores terain and other models Flight:while moving. When this model declares the King of the Skies: action, if it is at elevation 2 or higher, its Chargegenerated atack receives +1 and +1 .SklDmg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Apex/M4E_Stat_Apex_Empyrean_Eagle_B.pdf"
@@ -6346,7 +6346,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZxMeapsAte \u2022r, tUcnuirqtsuneo, CElite Runaway (3)Equipment When this model would gain a Eyes on the Prize:token, it may discard a card. If it does so, it does not gain the token. If this model would be moved from Laugh Of:an enemy model\u2019s effect, it may discard a card to choose not to.u This model may drain Soulstone-Powered Armor:sa to reduce damage dealt to it by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Apex/M4E_Stat_Apex_Kird_Cooper_Manhunter.pdf"
@@ -6746,7 +6746,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "63WPSZeUnnoiqguyeB, L\u2022i vtcinugrt, sCno After this model is kiled, al alies Demise (Beacon):gain a token.ShieldedOnce per turn. Before this model Drag Behind:moves, it may remove a marker within 2\" of it. After resolving the move, make a marker of the same type into base contact with this model.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Bygone/M4E_Stat_Bygone_The_First_Light.pdf"
@@ -6954,7 +6954,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZsUunmiqduaeC, L\u2022i vginx When this model is Inhuman Physiology:yztargeted with a or action, the atacking model\u2019s duel cannot be cheated. When this model declares an action, Siphon Power:it may deal 1 damage to a friendly model within 4\" to add a suit of its choice to the duel.v Reduce al damage dealt to Superiority Complex:this model from enemy models with tokens by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Cadmus/M4E_Stat_Cadmus_Cavatica.pdf"
@@ -7146,7 +7146,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "51WPSZsMuimnidoanC ( 2\u2022) ,t TsoaeteBm , After this model is kiled, it Demise (Broken Nest):makes an additional Remains marker. This model is deployed during From Shadow:the start phase of turn 1 anywhere on the table, not within 2\" of a Strategy marker or enemy deployment zone.v Reduce al damage dealt to Unnerving Presence:other alies within 4\" by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Cadmus/M4E_Stat_Cadmus_Shambling_Nest_A.pdf"
@@ -7162,7 +7162,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "51WPSZsMuimnidoanC ( 2\u2022) ,t TsoaeteBm , After this model is kiled, it Demise (Broken Nest):makes an additional Remains marker. This model is deployed during From Shadow:the start phase of turn 1 anywhere on the table, not within 2\" of a Strategy marker or enemy deployment zone.v Reduce al damage dealt to Unnerving Presence:other alies within 4\" by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Cadmus/M4E_Stat_Cadmus_Shambling_Nest_B.pdf"
@@ -7258,7 +7258,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "53WPSZ1ST :NAMUinDio \u2022n )(2 Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interact After this model is summoned, it is Ephemeral (4):dealt 4 damage which may not be reduced. After resolving an atack that Faraday Colar:stargeted this model, this model may drain a to place the atacking model into base contact with a Shadow Door marker within 6\" of it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/DUA/M4E_Stat_DUA_Brocken_Spectre_A.pdf"
@@ -7274,7 +7274,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "53WPSZ1ST :NAMUinDio \u2022n )(2 Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interact After this model is summoned, it is Ephemeral (4):dealt 4 damage which may not be reduced. After resolving an atack that Faraday Colar:stargeted this model, this model may drain a to place the atacking model into base contact with a Shadow Door marker within 6\" of it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/DUA/M4E_Stat_DUA_Brocken_Spectre_B.pdf"
@@ -7290,7 +7290,7 @@
       "wp": 4,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "42WPSZS9 T:NAMUinDio \u2022n )(3 After this model is Demise (Spectral Passage):kiled, it may make a Shadow Door marker in base contact with itself.Once per activation. After this model is Made to Kil:yplaced, it may declare a action after resolving the curent action.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/DUA/M4E_Stat_DUA_Daeva_A.pdf"
@@ -7306,7 +7306,7 @@
       "wp": 4,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "42WPSZS9 T:NAMUinDio \u2022n )(3 After this model is Demise (Spectral Passage):kiled, it may make a Shadow Door marker in base contact with itself.Once per activation. After this model is Made to Kil:yplaced, it may declare a action after resolving the curent action.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/DUA/M4E_Stat_DUA_Daeva_B.pdf"
@@ -7322,7 +7322,7 @@
       "wp": 4,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "42WPSZS9 T:NAMUinDio \u2022n )(3 After this model is Demise (Spectral Passage):kiled, it may make a Shadow Door marker in base contact with itself.Once per activation. After this model is Made to Kil:yplaced, it may declare a action after resolving the curent action.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/DUA/M4E_Stat_DUA_Daeva_C.pdf"
@@ -7770,7 +7770,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZSMVaEst \u2022e rg, nUinviiqL u,eAge of Orvile InspirationAgasizOnce per activation. When Captain of the Superior:an aly within 8\" empowers a duel, the aly may gain a token.Voyage When this model activates, choose any Polymath:suit for the value of X on this model\u2019s stat card.Once per activation. When this Two Steps Ahead:crew\u2019s research bar is ful, enemy atack actions that target this model reduce their by 2.Skl",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/EVS/M4E_Stat_EVS_Maxine_Agassiz_The_Renowned.pdf"
@@ -7882,7 +7882,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZrMeakseteeSr, \u2022U dnaiqeuden, UInevitability The Kurganof Death While this model has a Curse of the Dancing Forest: token, enemy atack actions that target this Death-model suffer a to their duel. This model is unaffected by severe and Unimpeded:hazardous terain. Enemy models that activate Weight of the Grave:within 4\" of this model are dealt 1 damage. Then, this model heals 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Seeker/M4E_Stat_Seeker_Jedza_Everlasting.pdf"
@@ -7898,7 +7898,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 10,
     "base": 30,
     "attacks": "62WPSZrMeakseteeSr, \u2022U dnaiqeuden, UEternal SophiePilgrimagev While this model has a LifeCradle the Spark:token, enemy atack actions that target this model -suffer a to their duel. When a model is kiled within LoS of Fragility of Life:Sthis model, this model may drain a . If it does so, an aly within 6\" of this model may heal 2. When declaring non-general Midnight Crossing:actions, this model may remove a token. If it Lifedoes so, increase the of the action by +10\".Rg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Seeker/M4E_Stat_Seeker_Jedza_The_Wanderer.pdf"
@@ -8634,7 +8634,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZUelnitiaqsuree,V C ,otcnustr This model gains the keywords of the Quick Study:friendly leader.v Reduce damage dealt to Stalwart Protector:friendly models within 2\" by 1.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Versatile%20-%20Explorer%27s%20Society/M4E_Stat_Exs-Versatile_Intrepid_Fate_Emissary.pdf"
@@ -8986,7 +8986,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZlMeratsstaeWr, U \u2022n giqnuivei, LAntique LunaDealer This model may not scale terain.Cumbersome:u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. After resolving an atack Unexpected Dismount:action that damaged this model, this model may Sdrain a to replace to itself with Lucas McCabe, Dismounted Hunter, heal 2, and then move up to 2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Explorer%27s%20Society/Wastrel/M4E_Stat_Wastrel_Lucas_McCabe_Relic_Hunter.pdf"
@@ -9210,7 +9210,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "63WPSZdMeatsnteerm, UgunAiq u\u2022 eg, CniovniLst ,rtucUltimate Edie ClarkCreation When this model empowers a duel, Amplify Power:it receives +1 to its duel total.Once per turn. After a friendly Pylon Arcing Current:marker is made on the enemy table half by another model, this model may declare its Electrical Beamaction, drawing range and LoS from the made marker.uOnce per activation. This model may reduce Armor:damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Augmented/M4E_Stat_Augmented_Charles_Hoffman_Inventor.pdf"
@@ -9226,7 +9226,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "63WPSZdMeatsnteerm, UgunAiq u\u2022 eg, CniovniLst ,rtucTempered Mechanical SteelAtendantuOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. After an enemy Magnetic Field:atack targeting this model succeeds, this model smay drain a to have another aly within 6\" suffer the effects of the action instead of this model.Once per turn. After another Mechanical Genius:friendly model ends its activation within 6\", this smodel may drain a to heal it 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Augmented/M4E_Stat_Augmented_Charles_Hoffman_Steel_Sculptor.pdf"
@@ -9354,7 +9354,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "51WPSZdToettenmem, UgnuiAq u\u2022e t, cCuorntsuOnce per activation. This model may reduce Armor:damage dealt to it by 1. When this model activates, it may By Your Side:discard a card to place itself in base contact with a unique aly within 12\" . When this model ends its Power Converter:activation, it may remove a token from Shieldeditself to make a Scheme marker within 1\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Augmented/M4E_Stat_Augmented_Mechanical_Attendant.pdf"
@@ -10154,7 +10154,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "62WPSZeMtailsEt e\u2022r ,g UninviiqLu ,eVigilante Jane DoeJustice After this model kils an enemy A Fistful of Scrip:model, it may make a Scheme marker in base contact with the kiled model. After this model discards a Inhuman Reflexes:friendly upgrade, it heals 2. After an enemy deals damage to this Lying Low:smodel, this model may drain a . If it does, it may be placed into base contact with blocking terain within 6\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Elite/M4E_Stat_Elite_Lucius_Mattheson_Dishonorable.pdf"
@@ -10314,7 +10314,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "52WPSZyHleimncahFm \u2022a gnn, UivniLiq ,euuOnce per activation. This model may reduce Armor:damage dealt to it by 1. This model may not scale terain.Cumbersome: After an aly within 6\" kils a \u201cNice Shot, Dear!\u201d:non-peon outside of its activation, this model sinfuses a .z After this model resolves a action, it On Wheels:may move up to 3\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Family/M4E_Stat_Family_Abuela_Ortega.pdf"
@@ -10410,7 +10410,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "62WPSZyMliamstaeFr ,\u2022 U gnniqivuieL, Bound Papa Locoby Bloodz When declaring actions, this Impossible Angles:model may choose a marker within 8\" of a type it has not chosen this turn. If it does so, this model draws range and LoS for the declared action from the chosen marker. After resolving the declared action, remove the chosen marker.v Enemy models receive Stand Strong Together:-a when targeting this model if this model is within 6\" of another aly.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Family/M4E_Stat_Family_Perdita_Ortega_La_Diabla.pdf"
@@ -10602,7 +10602,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZdMraasutGer ,\u2022 L givniExcesive Disease ViolenceContainment Unit This model may while ChargeFrenzied Charge:engaged and ignore the once per activation restriction on .Charge Enemy models leaving Grip of the Guild:engagement with this model with a action Walkreduce their movement by an additional 2\".vOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Guard/M4E_Stat_Guard_Dashel_Barker_Butcher.pdf"
@@ -10826,7 +10826,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZS0T1 :NdMrianuioGn \u2022 ( 2g)n, iLvi After an enemy model resolves an Bring the Heat:atack action that damaged an aly within 6\" of this smodel, this model may drain a . If it does so, deal 2 damage to the enemy model. Other alies that activate within 6\" Lead the Patrol:gain +1 for the duration of their activation.Spu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Guard/M4E_Stat_Guard_Sergeant_A.pdf"
@@ -10842,7 +10842,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZS0T1 :NdMrianuioGn \u2022 ( 2g)n, iLvi After an enemy model resolves an Bring the Heat:atack action that damaged an aly within 6\" of this smodel, this model may drain a . If it does so, deal 2 damage to the enemy model. Other alies that activate within 6\" Lead the Patrol:gain +1 for the duration of their activation.Spu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Guard/M4E_Stat_Guard_Sergeant_B.pdf"
@@ -11162,7 +11162,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZtMsialastnerru, oUJn \u2022iq gunei,v LiMorning The Printing EditionPres When this model activates, Never Miss a Deadline:sit may drain a to heal 4.v When this model is targeted by an Public Outcry:atack action, if this crew\u2019s scandal bar is half ful or more, the atacking model\u2019s duel cannot be cheated. Once per activation. After an The Pen is Mightier:enemy model within 8\" resolves the action, Interactit is dealt 1 damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Journalist/M4E_Stat_Journalist_Nellie_Cochrane_The_Tattler.pdf"
@@ -11338,7 +11338,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZlMahinsiroanM ( 3\u2022) ,d Uaned Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Marshal/M4E_Stat_Marshal_Death_Marshal_A.pdf"
@@ -11354,7 +11354,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZlMahinsiroanM ( 3\u2022) ,d Uaned Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Marshal/M4E_Stat_Marshal_Death_Marshal_B.pdf"
@@ -11370,7 +11370,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZlMahinsiroanM ( 3\u2022) ,d Uaned Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Marshal/M4E_Stat_Marshal_Death_Marshal_C.pdf"
@@ -11498,7 +11498,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZlHahensrcahMm a\u2022n g, UninviiqLu ,eu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. When this model declares One Foot in the Grave:the action, it may remove a Remains marker Walkwithin 1\". If it does so, it may treat the action Walkfas a .u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Marshal/M4E_Stat_Marshal_The_Judge.pdf"
@@ -11514,7 +11514,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZlUanhisqrauMe, L\u2022i vginOnce per activation. When Balancing the Scales:resolving an atack targeting this model, if this model ssuffers damage, this model may drain a to deal an equal amount of damage to the attacking model. When this model activates, it may make a Evidence:Remains marker within 8\".u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Marshal/M4E_Stat_Marshal_The_Jury.pdf"
@@ -11610,7 +11610,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZUelnitiaqsuree,V U ,nddae Enemy models within 6\" may not Crowd Control:declare enemy-controled actions unless it is their activation. This model gains the keywords of the Quick Study:friendly leader.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Versatile%20-%20Guild/M4E_Stat_Gld-Versatile_Brutal_Fate_Emissary.pdf"
@@ -11738,7 +11738,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,gonrsiveimL a,n When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.uu The abilities of enemy models within Nemesis ():3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Versatile%20-%20Guild/M4E_Stat_Gld-Versatile_Horseman_Pale_Rider.pdf"
@@ -11802,7 +11802,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZdUrnaiuqgunea, VLi v\u2022i negli, tVaserOnce per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge When this model activates, it may On the Move:move up to 3\", ignoring other models.v Friendly models within 2\" of this Shields Up:zmodel targeted by a action increase their final duel total by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Versatile%20-%20Guild/M4E_Stat_Gld-Versatile_Vanguard_Bracer.pdf"
@@ -12010,7 +12010,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "62WPSZrMeatnstueHr, hUcntiiqWue \u2022, LginviEngulfing Purifying FlamesFlamexOnce per activation. This model may reduce Aegis:damage dealt to it by 1. When this model succeeds in an Burning Briliance:action, it may remove a token to receive Shieldedone additional raise.v After this model is dealt damage by an Ignite:satack, it may drain a to give the atacker a Burningtoken and move it 4\" directly away from this model.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Witch%20Hunter/M4E_Stat_Witch-Hunter_Sonnia_Criid_Unrelenting.pdf"
@@ -12058,7 +12058,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZrMeitnnS0T1i :NuoHn (h2c),t iLWiv in\u2022 g Enemy models within 6\" must each Counterspel:discard a card to declare triggers during opposed duels. After resolving an atack against Drawn to Power:sthis model, it may drain a . If it does, place it into base contact with a Strategy marker within 6\". When an alied minion activates Goad Witchling:within 6\", move it up to 4\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Witch%20Hunter/M4E_Stat_Witch-Hunter_Witchling_Handler_A.pdf"
@@ -12074,7 +12074,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZrMeitnnS0T1i :NuoHn (h2c),t iLWiv in\u2022 g Enemy models within 6\" must each Counterspel:discard a card to declare triggers during opposed duels. After resolving an atack against Drawn to Power:sthis model, it may drain a . If it does, place it into base contact with a Strategy marker within 6\". When an alied minion activates Goad Witchling:within 6\", move it up to 4\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Guild/Witch%20Hunter/M4E_Stat_Witch-Hunter_Witchling_Handler_B.pdf"
@@ -12225,14 +12225,14 @@
   },
   {
     "id": 864,
-    "type": "Model",
+    "type": "Upgrade",
     "name": "OF R TOHTEA CNROORWONC",
     "cost": 8,
     "stats": {
-      "sp": 5,
-      "df": 4,
-      "wp": 4,
-      "sz": 2
+      "sp": 0,
+      "df": 0,
+      "wp": 0,
+      "sz": 0
     },
     "health": 0,
     "base": 30,
@@ -12250,7 +12250,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZdHeehnscihnmaBa n\u2022, UgnniivqiuL e,Once per activation. After an atack Cloak of Spines:targeting this model fails, the atacker gains an token.Injured When this model declares an Regal Swordsman:atack, it may remove a token to receive a Shielded+ and a suit of its choice to its .Sklu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Banished/M4E_Stat_Banished_Dynast_Bram.pdf"
@@ -12417,14 +12417,14 @@
   },
   {
     "id": 876,
-    "type": "Model",
+    "type": "Upgrade",
     "name": "ORWC NEHEDT",
     "cost": 6,
     "stats": {
-      "sp": 6,
-      "df": 5,
-      "wp": 5,
-      "sz": 2
+      "sp": 0,
+      "df": 0,
+      "wp": 0,
+      "sz": 0
     },
     "health": 0,
     "base": 30,
@@ -12433,14 +12433,14 @@
   },
   {
     "id": 877,
-    "type": "Model",
+    "type": "Upgrade",
     "name": "ORWC NEHEDT",
     "cost": 6,
     "stats": {
-      "sp": 6,
-      "df": 5,
-      "wp": 5,
-      "sz": 2
+      "sp": 0,
+      "df": 0,
+      "wp": 0,
+      "sz": 0
     },
     "health": 0,
     "base": 30,
@@ -12449,14 +12449,14 @@
   },
   {
     "id": 878,
-    "type": "Model",
+    "type": "Upgrade",
     "name": "ORWC NEHEDT",
     "cost": 6,
     "stats": {
-      "sp": 6,
-      "df": 5,
-      "wp": 5,
-      "sz": 2
+      "sp": 0,
+      "df": 0,
+      "wp": 0,
+      "sz": 0
     },
     "health": 0,
     "base": 30,
@@ -12698,7 +12698,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZdHoeonrcBh m\u2022 agnn, iUvinLi q,eu This model ignores terain and other models Flight:while moving.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. During enemy activations, Revitalizing Ichor:after a friendly model within 8\" is within range of a pfriendly generated by , it may heal 1.Black Blood",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Brood/M4E_Stat_Brood_Hayreddin.pdf"
@@ -12778,7 +12778,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "63WPSZdMoaosrteBr ,\u2022 U gnniiqvuiLe ,PitborneCrumb This model ignores terain and other models Flight:while moving. When an enemy would gain an InjuredPotency:token due to this model\u2019s ability but Black Bloodcannot because it already has an token, it is Injureddealt 1 damage.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Brood/M4E_Stat_Brood_Nekima_Broodmother.pdf"
@@ -13002,7 +13002,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZaUrneimquiheC, L \u2022iv einligt,a VsreOnce per activation. After this model File Papers:resolves the action targeting a Strategy or Interactenemy Scheme marker, it may draw a card. v This model may deal Intimidating Authority:1 damage to its atacker for every raise this model receives while resisting. When this model Shapechange (The Beast Within):activates, it may replace itself with Ferdinand Vogel, The Beast Within to heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Chimera/M4E_Stat_Chimera_Ferdinand_Vogel_Self-Righteous_Man.pdf"
@@ -13258,7 +13258,7 @@
       "wp": 4,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "43WPSZrUenbimqueec,e BDe a,asrt e\u2022m Cih After this model kils a model, it Creative Salvage:may make a Scheme or Remains marker within 1\" of the kiled model.Once per turn. When this model is Demise (Eternal):kiled, it may discard a card. If it does so, it heals 4. When this model Shapechange (Sightless Snow):Sightless activates, it may replace itself with Ceddra, Snow and heal 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Chimera/M4E_Stat_December_Ceddra_White_Stag.pdf"
@@ -13610,7 +13610,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 5,
     "base": 30,
     "attacks": "62WPSZeMaaFs t\u2022e dr,a UedninqUu e,Stifling Erymanthian ThicketBoar This model ignores terain and other models Flight:while moving.v After an enemy model targets Protected (Fae):this model, this model may discard a card. If it does so, a friendly Fae model within 2\" suffers any effects generated by that action. When this model activates, it may Royal Escort:sdrain a . If it does so, it and up to two alies within p8\" may move up to 5\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Fae/M4E_Stat_Fae_Titania_Autumn_Queen.pdf"
@@ -14058,7 +14058,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZeUonWiqu ,ee r\u2022a mNtigh Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. While resolving the action, increase ChargeRush:the distance this model moves by up to +2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Nightmare/M4E_Stat_Woe_Nightmare_Delirium.pdf"
@@ -14138,7 +14138,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZdUenniqruutee, RLi v\u2022 ing When this model activates, if it has Bloody Rites:a token, another aly within 3\" may gain an Hunger token.Insight Other alies within 3\" of this model may Eta Kithae:choose not to resolve tokens when they end Hungertheir activation.u When this model suffers damage, Hard to Kil:if it has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Returned/M4E_Stat_Returned_Athorak.pdf"
@@ -14362,7 +14362,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZdToetnermut, eMRi n\u2022i ognn i(v2i)L, Crews containing one or more Arcane Reservoir:models with this ability increase their maximum hand size by one. The area within 2\" of this model is Pools of Blood:hazardous terain. Friendly models may choose to be unaffected by this terain.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Returned/M4E_Stat_Returned_Urnbearer_A.pdf"
@@ -14378,7 +14378,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZdToetnermut, eMRi n\u2022i ognn i(v2i)L, Crews containing one or more Arcane Reservoir:models with this ability increase their maximum hand size by one. The area within 2\" of this model is Pools of Blood:hazardous terain. Friendly models may choose to be unaffected by this terain.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Returned/M4E_Stat_Returned_Urnbearer_B.pdf"
@@ -14778,7 +14778,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,gonrsiveimL a,n When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.vv The abilities of enemy models Nemesis ():within 3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Versatile%20-%20Neverborn/M4E_Stat_Nvb-Versatile_Horseman_Hooded_Rider.pdf"
@@ -14810,7 +14810,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "53WPSZeUlnitiaqsuree,V Friendly models within 2\" Branches and Brambles:have cover. This model gains the keywords of the Quick Study:friendly leader.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Versatile%20-%20Neverborn/M4E_Stat_Nvb-Versatile_Mysterious_Fate_Emissary.pdf"
@@ -15162,7 +15162,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZeUonWiqu ,ee r\u2022a mNtigh Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. While resolving the action, increase ChargeRush:the distance this model moves by up to +2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Woe/M4E_Stat_Woe_Nightmare_Delirium.pdf"
@@ -15226,7 +15226,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZ7S T:NeMoiWnio n\u2022 )(3 This model ignores terain and other models Flight:while moving.v Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When an enemy model activates within Life Leech:2\" of this model, deal +1 damage to it for each model with this ability within 2\" of it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Woe/M4E_Stat_Woe_Sorrow_A.pdf"
@@ -15242,7 +15242,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZ7S T:NeMoiWnio n\u2022 )(3 This model ignores terain and other models Flight:while moving.v Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When an enemy model activates within Life Leech:2\" of this model, deal +1 damage to it for each model with this ability within 2\" of it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Woe/M4E_Stat_Woe_Sorrow_B.pdf"
@@ -15258,7 +15258,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZ7S T:NeMoiWnio n\u2022 )(3 This model ignores terain and other models Flight:while moving.v Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When an enemy model activates within Life Leech:2\" of this model, deal +1 damage to it for each model with this ability within 2\" of it.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Neverborn/Woe/M4E_Stat_Woe_Sorrow_C.pdf"
@@ -15418,7 +15418,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "63WPSZmUnaigqlaume, AC o\u2022n tsctur When this model is kiled, Demise (Desolate Core):it heals 4 and replaces with an Ashen Core. Then, summon a Dust Storm in base contact with any table edge. This model ignores terain and other models Flight:while moving.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Ashes_and_Dust.pdf"
@@ -15450,7 +15450,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZmUnaigqlaume A \u2022 This model ignores terain and other models Flight:while moving.v Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. During the end phase, if a friendly Reformation:Ashen Core is in base contact, replace this model and the Ashen Core with an Ashes and Dust. Then, the new model heals 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Dust_Storm.pdf"
@@ -15514,7 +15514,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "63WPSZmMaagstleamr, AU n\u2022i qtuceu,r LtsinvionCg ,Soul *Batery When this model is dealt damage, it Chasing Fate:smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: When this model is hired, it must Hoofbeats of Ruin:choose a crew card: Riders of Fate or Rust-Eaten Fate.vuxvux The , , and abilities of Nemesis (,, and):enemy models within 3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Rusty_Alyce_Rider_Remade.pdf"
@@ -15546,7 +15546,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZmMaingiloanmS9 T:N (A3) ,\u2022 L ticvuinrtgs, nCouOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. After this model Hel of a Find:sinfuses a , it may flip a card which may not be scheated. On a 10+, infuse another . When this model ends its activation, Unmade:penemy models within 3\" with an token are Injureddealt 1 damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Scavenger_A.pdf"
@@ -15562,7 +15562,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZmMaingiloanmS9 T:N (A3) ,\u2022 L ticvuinrtgs, nCouOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. After this model Hel of a Find:sinfuses a , it may flip a card which may not be scheated. On a 10+, infuse another . When this model ends its activation, Unmade:penemy models within 3\" with an token are Injureddealt 1 damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Scavenger_B.pdf"
@@ -15578,7 +15578,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZmMaingiloanmS9 T:N (A3) ,\u2022 L ticvuinrtgs, nCouOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. After this model Hel of a Find:sinfuses a , it may flip a card which may not be scheated. On a 10+, infuse another . When this model ends its activation, Unmade:penemy models within 3\" with an token are Injureddealt 1 damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Amalgam_Scavenger_C.pdf"
@@ -15610,7 +15610,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,otcrusertmsnaon,C When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.xx The abilities of enemy models Nemesis ():within 3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Arc-Versatile_Horseman_Mechanical_Rider.pdf"
@@ -15626,7 +15626,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,gonrsiveimL a,n When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.uu The abilities of enemy models within Nemesis ():3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Gld-Versatile_Horseman_Pale_Rider.pdf"
@@ -15642,7 +15642,7 @@
       "wp": 7,
       "sz": 3
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "73WPSZeUlnitiaqsuree,V H ,gonrsiveimL a,n When this model is dealt damage, it Chasing Fate:Smay drain a to reduce an amount of damage equal to the turn number. This model may not scale terain.Cumbersome: This model may not be targeted by the Lone Rider:actions of friendly models.vv The abilities of enemy models Nemesis ():within 3\" are blank.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Amalgam/M4E_Stat_Nvb-Versatile_Horseman_Hooded_Rider.pdf"
@@ -15770,7 +15770,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "62WPSZdMnaasstreerp, UmnAiq \u2022u etc, uCrotnsTrash HeapGoopuOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per turn. When a Remains Parts on Order:marker is made within 6\" of this model, this model may remove it after resolving the curent action s(if any) to infuse a . After resolving an enemy atack Reverse Gyros:saction targeting this model, this model may drain a to move the atacker up to 6\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Ampersand/M4E_Stat_Ampersand_Clockwork_Queen_The_Paradox.pdf"
@@ -16186,7 +16186,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZtMidanstaeBr ,\u2022 U gnniqivuieL, Shadow of Ashen the NooseEchoOnce per activation. When an enemy Ashen Spoils:model within 6\" discards one or more cards, this model may draw a card.Once per game. When this model Demise (Perdition):sis kiled by an enemy model, it may drain a to heal 4 and place in base contact with that enemy. Then, deal 2 damage to that enemy model. When this model declares an action, \u201cYou Can Run..\u201d:if the target has a token, the action receives Staggered+1 .Skl",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Bandit/M4E_Stat_Bandit_Parker_Barrows_Dead_Man_Walking.pdf"
@@ -16202,7 +16202,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZtMidanstaeBr ,\u2022 U gnniqivuieL, The Barows Doc MitchelGangOnce per activation. After this model Found Fortune:resolves a action, it may remove a Scheme Walkmarker within 2\" to draw a card.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. After this model uses the Quick GetawayShootout:ability, it deals 2 damage to the atacker.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Bandit/M4E_Stat_Bandit_Parker_Barrows_Most_Wanted.pdf"
@@ -16250,7 +16250,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZtUidnniqauBe ,\u2022 L givniu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. When this model activates, it may deal 2 Hurt:ireducible damage to itself to move up to 3\" and make a Scheme marker in base contact.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Bandit/M4E_Stat_Bandit_Sue.pdf"
@@ -16298,7 +16298,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZHspernockhimeraFn \u2022, U gnniiqvuiLe ,, tCcounrtsOnce per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge+- Models ignore al and during Honorable:opposed duels with this model. Once per activation. When this Kinetic Amplifier:smodel is dealt damage, it may drain a to reduce that damage by 2 and then move up to 2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Freikorps/M4E_Stat_Freikorps_Arik_Schottemer.pdf"
@@ -16922,7 +16922,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "53WPSZsTuootemma,f UnIn \u2022iq gunei, vLi Models engaged by this model Caught in the Ring:cannot target other models with atack actions.Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Chargeu Atacks targeting this model reduce Resilient: raises they receive by 1 (to a minimum of 0). While resolving the action, increase ChargeRush:the distance this model moves by up to +2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Infamous/M4E_Stat_Infamous_Mancha_Roja.pdf"
@@ -17370,7 +17370,7 @@
       "wp": 7,
       "sz": 2
     },
-    "health": 0,
+    "health": 3,
     "base": 30,
     "attacks": "72WPSZnHoeintachremtailnb,O U n\u2022 igqnuiev, iL After kiling a model, this model A Stitch in Time:may give a or token to a model SlowBacktrackwithin 6\".xOnce per activation. This model may reduce Aegis:damage dealt to it by 1. When this model ends its activation, it Bufering:may remove a friendly Echo marker within 6\". If it does so, make an Echo marker within 3\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Obliteration/M4E_Stat_Obliteration_Aionus.pdf"
@@ -17530,7 +17530,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZS9 T:NnMoiintiaorne t(i3lb) O \u2022 Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When this model gains a token, it SlowSoul Burn:may instead be dealt 2 ireducible damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Obliteration/M4E_Stat_Obliteration_Void_Hunter_A.pdf"
@@ -17546,7 +17546,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZS9 T:NnMoiintiaorne t(i3lb) O \u2022 Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When this model gains a token, it SlowSoul Burn:may instead be dealt 2 ireducible damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Obliteration/M4E_Stat_Obliteration_Void_Hunter_B.pdf"
@@ -17562,7 +17562,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZS9 T:NnMoiintiaorne t(i3lb) O \u2022 Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. When this model gains a token, it SlowSoul Burn:may instead be dealt 2 ireducible damage.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Obliteration/M4E_Stat_Obliteration_Void_Hunter_C.pdf"
@@ -17706,7 +17706,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "62WPSZeMuagsatlePr , \u2022U enuiqContagion\u2019s Obedient KisWretch When this model would gain a token, it Nihilism:may discard a card instead.x When this model is dealt damage, it Plagueborn:smay drain a to reduce the damage by an amount equal to the number of friendly tokens on Blightmodels within 6\" (maximum 4). Enemy models that Source of the Contagion:activate within 6\" gain a token.Blight",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Plague/M4E_Stat_Plague_Hamelin_Plaguebringer.pdf"
@@ -17722,7 +17722,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "62WPSZeMuagsatlePr , \u2022U enuiqEyes in Benny the WalsWolcomb When this model activates, any Folow My Tune:number of friendly Malifaux Rats in play may declare the action.Walk When this model would gain a token, it Nihilism:may discard a card instead.x When this model is dealt \u201cProtect Me, Lovelies\u201d:sdamage, it may drain a to reduce the damage by an amount equal to the number of friendly Malifaux Rats within 6\" (maximum 4).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Plague/M4E_Stat_Plague_Hamelin_The_Piper.pdf"
@@ -18106,7 +18106,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZeUlnitiaqsuree,V L i,gvni+ This model receives a when Advanced Sights:targeting models at a lower elevation.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.v This model ignores the abilities of other Ruthless:models. While this model is at elevation 2 or higher, it Sniper:zincreases the of its actions by +6\".Rg",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Versatile%20-%20Outcasts/M4E_Stat_Out-Versatile_Hans.pdf"
@@ -18138,7 +18138,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "63WPSZeUlnitiaqsuree,V L i,gvniu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. This model gains the keywords of the Quick Study:friendly leader.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Versatile%20-%20Outcasts/M4E_Stat_Out-Versatile_Hodgepodge_Fate_Emissary.pdf"
@@ -18154,7 +18154,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "52WPSZeUlnitiaqsuree,V L i,gvni After this model kils a model, it Creative Salvage:may make a Scheme or Remains marker within 1\" of the kiled model.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health. While resolving the action, increase ChargeRush:the distance this model moves by up to +2\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Outcasts/Versatile%20-%20Outcasts/M4E_Stat_Out-Versatile_Johan_Creedy.pdf"
@@ -18426,7 +18426,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZrMoitnsieocnn A(3 )\u2022, Lginvi When this model is Demise (Ancient Bloodline):kiled, it may discard a Reliquary upgrade. If it does, replace it with an Ancestor model with a different name and cost 8 or less and it heals 2.f Enemy models within 4\" count al Diversion:symbols on their cards as blank.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Ancestor/M4E_Stat_Ancestor_Gokudo_A.pdf"
@@ -18442,7 +18442,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZrMoitnsieocnn A(3 )\u2022, Lginvi When this model is Demise (Ancient Bloodline):kiled, it may discard a Reliquary upgrade. If it does, replace it with an Ancestor model with a different name and cost 8 or less and it heals 2.f Enemy models within 4\" count al Diversion:symbols on their cards as blank.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Ancestor/M4E_Stat_Ancestor_Gokudo_B.pdf"
@@ -18458,7 +18458,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZrMoitnsieocnn A(3 )\u2022, Lginvi When this model is Demise (Ancient Bloodline):kiled, it may discard a Reliquary upgrade. If it does, replace it with an Ancestor model with a different name and cost 8 or less and it heals 2.f Enemy models within 4\" count al Diversion:symbols on their cards as blank.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Ancestor/M4E_Stat_Ancestor_Gokudo_C.pdf"
@@ -18602,7 +18602,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZrUontisqeucen,A L iv\u2022 ign After resolving an action in which Bedside Manner:another aly within 6\" of this model suffered damage, this smodel may drain a to place the damaged model into base contact with this model. The folowing do not restrict this model Don\u2019t Mind Me:from declaring the action: being engaged, leaving Interactengagement with a , and targeting a marker with an Walkenemy in base contact.u When this model suffers damage, if it has 2 Hard to Kil:or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Ancestor/M4E_Stat_Ancestor_Sun_Quiang.pdf"
@@ -18682,7 +18682,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 8,
     "base": 30,
     "attacks": "62WPSZrMoatssetecrn, AU n\u2022 iqeuSpirit Yin, Ascendantthe Penangalan After an aly within 8\" of Hand of the Ancestors:this model discards a Reliquary upgrade, that aly may gain a token.Shieldedv Reduce damage dealt to this model Incorporeal:qby 1. Damage from actions may not be reduced this way. This model may draw range and Lingering Voice:qLoS for actions from alies with atached Reliquary upgrades within 8\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Ancestor/M4E_Stat_Ancestor_Yan_Lo.pdf"
@@ -19034,7 +19034,7 @@
       "wp": 5,
       "sz": 1
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "51WPSZUlantniqeumei, rHeepnxcEh m\u2022 agnn,i vLi When an enemy model with a friendly Catalyst: token activates within 3\", deal 1 damage to it.Poison After an enemy model \u201cNot Leavin\u2019, Are Ya?\u201d:resolves an action that caused it to leave engagement with this model, it gains a Poisontoken. If that enemy has a friendly token, it Poisonis dealt 1 damage instead.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Experimental/M4E_Stat_Experimental_Sebastian.pdf"
@@ -19274,7 +19274,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnMeatstoegrr, oUFn i\u2022q duaee, dUnParade Noxious of the DeadNephilimv After resolving an enemy atack Fal in Step:action that damaged this model, this model may move the atacking model up to 3\" and the atacking model gains a token.Distracted After this model resolves a general Fun Prizes:action, it may make a Remains marker within 3\".u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_Molly_Squidpiddge_Chaotic_Conductor.pdf"
@@ -19290,7 +19290,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZnMeatstoegrr, oUFn i\u2022q duaee, dUnTake Back Necrotic the NightMachinev Enemy atack actions that Serene Countenance:target this model cannot cheat their duel. This model may draw range and LoS The Lost Speak:qfor its actions from models with an Abandonedtoken within 8\".Once per activation. After Thorough Investigation:an enemy model within 8\" empowers a duel or sdrains a , this model may make a Scheme marker within 1\" of that enemy.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_Molly_Squidpiddge_Harbinger_of_Havoc.pdf"
@@ -19386,7 +19386,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnMeitnioognr (o3F), \u2022U enidbemado,Z After this model is Demise (Trouble \u2018Til the End):kiled, the model that kiled it must discard a card or be kiled. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_Rabble_Riser_A.pdf"
@@ -19402,7 +19402,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnMeitnioognr (o3F), \u2022U enidbemado,Z After this model is Demise (Trouble \u2018Til the End):kiled, the model that kiled it must discard a card or be kiled. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_Rabble_Riser_B.pdf"
@@ -19418,7 +19418,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnMeitnioognr (o3F), \u2022U enidbemado,Z After this model is Demise (Trouble \u2018Til the End):kiled, the model that kiled it must discard a card or be kiled. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_Rabble_Riser_C.pdf"
@@ -19466,7 +19466,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZnUentitqouger,o UFn \u2022d eda Other alies that activate Calm Their Madness:within 4\" of this model may remove a token from themselves.Once per activation. When Forgotten Weapons:declaring an attack, this model may remove a marker within 2\" to increase the atack\u2019s by +2.Dmgu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Forgotten/M4E_Stat_Forgotten_The_Forgotten_Marshal.pdf"
@@ -19626,7 +19626,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZMlepinaihocnd (e3R), U\u2022 nedibemado, Z During the start phase, this A Pleasant Evening:model may choose to be dealt 1 damage to gain an token.Aura (Concealment) When this model declares an attack Fair Prey:action, if the target is within 1\" of blocking terain, +the action receives a . u Attacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Redchapel/M4E_Stat_Redchapel_Dead_Doxy_A.pdf"
@@ -19642,7 +19642,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZMlepinaihocnd (e3R), U\u2022 nedibemado, Z During the start phase, this A Pleasant Evening:model may choose to be dealt 1 damage to gain an token.Aura (Concealment) When this model declares an attack Fair Prey:action, if the target is within 1\" of blocking terain, +the action receives a . u Attacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Redchapel/M4E_Stat_Redchapel_Dead_Doxy_B.pdf"
@@ -19658,7 +19658,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZMlepinaihocnd (e3R), U\u2022 nedibemado, Z During the start phase, this A Pleasant Evening:model may choose to be dealt 1 damage to gain an token.Aura (Concealment) When this model declares an attack Fair Prey:action, if the target is within 1\" of blocking terain, +the action receives a . u Attacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Redchapel/M4E_Stat_Redchapel_Dead_Doxy_C.pdf"
@@ -19898,7 +19898,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZtMniannioenve (R2) ,\u2022 U dnade After resolving the movement Fires of Rage:portion of the action, this model may deal 1 Chargedamage to itself to give enemies engaged with it a token.Burning After resolving an atack action Fury of the Faithful:that targeted this model and caused it to remove a token, deal 1 damage to the atacker.Shieldedu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Revenant/M4E_Stat_Revenant_Draugr_A.pdf"
@@ -19914,7 +19914,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "52WPSZtMniannioenve (R2) ,\u2022 U dnade After resolving the movement Fires of Rage:portion of the action, this model may deal 1 Chargedamage to itself to give enemies engaged with it a token.Burning After resolving an atack action Fury of the Faithful:that targeted this model and caused it to remove a token, deal 1 damage to the atacker.Shieldedu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Revenant/M4E_Stat_Revenant_Draugr_B.pdf"
@@ -19994,7 +19994,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "63WPSZtMnaasnteevr,e URn \u2022iq gunei,v LiFire Shield Corpse the FaithfulCandle (2) This model may not scale terain.Cumbersome: This model cannot gain Dark Garden\u2019s Horse:enemy tokens.Once per game. When this Demise (Death Defied):smodel is kiled, this model may drain a to heal 8 pand have alies within 8\" gain a token.Shieldedu Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Revenant/M4E_Stat_Revenant_Reva_Cortinas_Death_Shepherd.pdf"
@@ -20650,7 +20650,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZsHiternocmhmsnaanr,T U \u2022n igqnuiev,i LC o,tncsutruOnce per activation. This model may reduce Armor:damage dealt to it by 1.Once per activation. When an aly Career Counselor:within 6\" resolves the action, it may gain Preparetwo tokens instead of one. Once per activation. After another Reverse Gravity:smodel places within 6\", this model may drain a to place it anywhere within 6\" of this model.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Transmortis/M4E_Stat_Transmortis_Anna_Lovelace.pdf"
@@ -20762,7 +20762,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 10,
     "base": 30,
     "attacks": "52WPSZsTiottreomm,s UnanriqT u\u2022e ,g Lniiv When this model ends its activation, a Accomplice:friendly model within 6\" that has not activated this turn may discard a card to do so.u When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.c This crew starts the game Wel-Provisioned (10):cwith the 10 in its hand.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Transmortis/M4E_Stat_Transmortis_Research_Assistant.pdf"
@@ -21546,7 +21546,7 @@
       "wp": 5,
       "sz": 4
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "54WPSZUelnitiaqsuree,V C ,otcnustrOnce per turn. When this Demise (Grave to Grave):model is kiled, it may place into base contact with a Remains marker within 8\" and remove it to heal 4. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Resurrectionists/Versatile%20-%20Resurrectionists/M4E_Stat_Res-Versatile_Grave_Golem.pdf"
@@ -22490,7 +22490,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 2,
     "base": 30,
     "attacks": "62WPSZtHoepnycehnmoaHn ,\u2022 L ogynailv, iUL n,eiqu When performing opposed duels Luck Thief:+against this model, enemy models treat al as if -they were . Before a friendly model within Stack the Deck:6\" resists an atack, they may remove a friendly + token to receive a .Briliancev When resolving, if the atacking Unimpressed:model declared a trigger, reduce the damage dealt to this model by 2.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Honeypot/M4E_Stat_Honeypot_Gwyneth_Maddox.pdf"
@@ -22634,7 +22634,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "53WPSZtUonpiyqeune,o LHiv i\u2022 ngOnce per activation. After this Bloody Briliant:model suffers damage from an action or trigger, pmodels within 2\" gain a token.Briliance Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.Interactu When this model suffers damage, if it Hard to Kil:has 2 or more health, it may not be reduced to below 1 health.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Honeypot/M4E_Stat_Honeypot_Mr_Graves.pdf"
@@ -23178,7 +23178,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZkMnionMio n\u2022 ( g3)n, iLvi When an enemy model declares Catch the Blade:ya action against this model, this model may drain s--a . If it does so, the action suffers and if the action fails, the attacking model is dealt 2 damage. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.InteractvOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Monk/M4E_Stat_Monk_River_Monk_A.pdf"
@@ -23194,7 +23194,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZkMnionMio n\u2022 ( g3)n, iLvi When an enemy model declares Catch the Blade:ya action against this model, this model may drain s--a . If it does so, the action suffers and if the action fails, the attacking model is dealt 2 damage. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.InteractvOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Monk/M4E_Stat_Monk_River_Monk_B.pdf"
@@ -23210,7 +23210,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZkMnionMio n\u2022 ( g3)n, iLvi When an enemy model declares Catch the Blade:ya action against this model, this model may drain s--a . If it does so, the action suffers and if the action fails, the attacking model is dealt 2 damage. Enemy models that activate Don\u2019t Turn Your Back:engaged with this model may not declare the action until the end of their activation.InteractvOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Monk/M4E_Stat_Monk_River_Monk_C.pdf"
@@ -23258,7 +23258,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZkMnaosMte r\u2022, UgnniivqiuLe ,Repeat Mu LongUntil PerfectOnce per activation. When another Expert Educator:aly within 6\" declares an atack action, it may +receive a . After this model is dealt Impossible Movement:sdamage by an atack, it may drain a to place itself anywhere within 4\" of its curent location.vOnce per activation. Threatening Demeanor:This model may reduce damage dealt to it by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Monk/M4E_Stat_Monk_Shenlong_The_Teacher.pdf"
@@ -23514,7 +23514,7 @@
       "wp": 7,
       "sz": 2
     },
-    "health": 0,
+    "health": 8,
     "base": 30,
     "attacks": "72WPSZiMnOas t\u2022e rg, nUivniiLq ,ueEntangled Ama No ZakoSpiritsv When another friendly Oni model A Mother\u2019s Love:within 8\" is dealt damage from an action, it may reduce that damage by up to 2, to a minimum of 0. If it does so, this model is dealt ireducible damage equal to the amount reduced.Once per activation . After this model Shuddering Rift:is dealt damage, it may remove a friendly Rift marker within 2\". If it does so, reduce the damage dealt to this model by 1 and deal 1 damage to an enemy model within 8\".",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Oni/M4E_Stat_Oni_Asami_Tanaka_Shintaku.pdf"
@@ -24058,7 +24058,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZgTontoeGm d, nMai niQio n\u2022 (g3n),i vLi Crews containing one or more Arcane Reservoir:models with this ability increase their maximum hand size by one.Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge After an enemy model resolves an atack Lookout:action that targeted an aly at a lower elevation and sin this model\u2019s LoS, this model may drain a to place the aly within 6\" of its curent location.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Qi%20and%20Gong/M4E_Stat_Qi-and-Gong_Kunoichi_A.pdf"
@@ -24074,7 +24074,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZgTontoeGm d, nMai niQio n\u2022 (g3n),i vLi Crews containing one or more Arcane Reservoir:models with this ability increase their maximum hand size by one.Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge After an enemy model resolves an atack Lookout:action that targeted an aly at a lower elevation and sin this model\u2019s LoS, this model may drain a to place the aly within 6\" of its curent location.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Qi%20and%20Gong/M4E_Stat_Qi-and-Gong_Kunoichi_B.pdf"
@@ -24090,7 +24090,7 @@
       "wp": 5,
       "sz": 2
     },
-    "health": 0,
+    "health": 6,
     "base": 30,
     "attacks": "52WPSZgTontoeGm d, nMai niQio n\u2022 (g3n),i vLi Crews containing one or more Arcane Reservoir:models with this ability increase their maximum hand size by one.Once per activation. This model may Expert Climber:ignore vertical distance while resolving the or Walk action.Charge After an enemy model resolves an atack Lookout:action that targeted an aly at a lower elevation and sin this model\u2019s LoS, this model may drain a to place the aly within 6\" of its curent location.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Qi%20and%20Gong/M4E_Stat_Qi-and-Gong_Kunoichi_C.pdf"
@@ -24106,7 +24106,7 @@
       "wp": 6,
       "sz": 2
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "62WPSZgMnaosGte dr,n Ua niQiq u\u2022e g, LniivSilent Chiyo ControlHamasaki If this crew\u2019s leverage bar is ful, Eyes Everywhere:the opponent must play with their control hand revealed. When an atack targeting this Power of Secrets:model deals damage, this model may lower its leverage bar by up to 2 to reduce the damage by the same amount (to a minimum of 0). The opposing player\u2019s Unseen Manipulator:maximum hand size is reduced by 1.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Qi%20and%20Gong/M4E_Stat_Qi-and-Gong_Youko_Hamasaki_Silk_of_the_Lotus.pdf"
@@ -24714,7 +24714,7 @@
       "wp": 6,
       "sz": 3
     },
-    "health": 0,
+    "health": 4,
     "base": 30,
     "attacks": "63WPSZeUlnitiaqsuree,V L i,gvni During the start phase of the Aspect of the Dragon:first turn, attach an Aspect upgrade to this model. This model gains the keywords of the Quick Study:friendly leader.Once per game. When a friendly Tempting Fate:Smaster is kiled, this model may drain two . If it does so, deal 4 ireducible damage to this model, then the friendly master heals 4.",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Versatile%20-%20Ten%20Thunders/M4E_Stat_TT-Versatile_Shadow_Fate_Emissary.pdf"
@@ -24778,7 +24778,7 @@
       "wp": 5,
       "sz": 3
     },
-    "health": 0,
+    "health": 1,
     "base": 30,
     "attacks": "53WPSZUelnitiaqsuree,V C ,otcnustry After resolving a action targeting Counterattack:Sthis model, this model may drain a to deal 3 damage to the atacking model. When this model activates, it Powerful Guardian:may either atach a Petrified Sentinel upgrade to itself or remove a Petrified Sentinel upgrade from itself.u Atacks targeting this model reduce Resilient:raises they receive by 1 (to a minimum of 0).",
     "imageUrl": "https://profangrybeard.github.io/Malifaux4E_GAME356/Ten%20Thunders/Versatile%20-%20Ten%20Thunders/M4E_Stat_TT-Versatile_Zheng.pdf"

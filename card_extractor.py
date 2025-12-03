@@ -66,6 +66,35 @@ def get_text_in_zone(page, x_range, y_range) -> str:
     except Exception:
         return ""
 
+def get_health_spatial(page, width, height) -> int:
+    """
+    Scans the bottom footer for the Health Track.
+    Malifaux cards have a row of numbers (1 2 3 4 5...) at the bottom.
+    We find the highest number that ISN'T a base size (30/40/50).
+    """
+    # Footer Zone: Bottom 8%, Full Width
+    footer_zone = (0, height * 0.92, width, height)
+    
+    try:
+        crop = page.crop(footer_zone)
+        text = crop.extract_text() or ""
+        
+        # Find all distinct integers in the footer
+        numbers = [int(n) for n in re.findall(r'\b\d+\b', text)]
+        
+        if not numbers: return 0
+        
+        # Filter out Base Sizes (30, 40, 50) and unreasonably high numbers
+        # Health is typically between 4 and 16.
+        valid_health = [n for n in numbers if n < 25]
+        
+        if valid_health:
+            return max(valid_health)
+            
+    except Exception:
+        pass
+    return 0
+
 def extract_number(text: str) -> int:
     if not text: return 0
     match = re.search(r'\d+', text)
@@ -79,11 +108,8 @@ def extract_number(text: str) -> int:
     return val
 
 def get_card_type(page) -> str:
-    """
-    Scans the footer (Bottom 10%) to determine if this is a Model, Crew Card, or Upgrade.
-    """
-    # Scan bottom 10% of card
-    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.90, 1.0))
+    # Scan bottom 12% of card for keywords
+    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0))
     footer_lower = footer_text.lower()
     
     if "upgrade" in footer_lower:
@@ -91,7 +117,6 @@ def get_card_type(page) -> str:
     if "crew" in footer_lower and "card" in footer_lower:
         return "Crew"
         
-    # Default to Model
     return "Model"
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
@@ -99,6 +124,8 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
             page = pdf.pages[0]
+            width = page.width
+            height = page.height
             
             # --- 1. DETERMINE CARD TYPE ---
             card_type = get_card_type(page)
@@ -111,8 +138,8 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
 
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
-            # Only Models usually have these bubbles
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
+            health = 0
             
             if card_type == "Model":
                 raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
@@ -126,19 +153,22 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 }
+                
+                # NEW: Extract Health from footer pips
+                health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
-            print(f"File: {filename} -> Type: {card_type} | Name: {clean_name}")
+            print(f"File: {filename} -> Type: {card_type} | Name: {clean_name} | Hp: {health}")
 
             return {
                 "id": file_id,
-                "type": card_type,  # NEW FIELD
+                "type": card_type,
                 "name": clean_name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": 0,
-                "base": 30,
+                "health": health, # Now populated via pips
+                "base": 30, # Default, can be manually adjusted later
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
