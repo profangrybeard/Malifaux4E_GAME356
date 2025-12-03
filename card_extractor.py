@@ -10,8 +10,6 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
-# --- UTILITIES ---
-
 def generate_github_url(file_path: str) -> str:
     relative_path = os.path.relpath(file_path, ROOT_FOLDER)
     safe_path = relative_path.replace("\\", "/")
@@ -19,129 +17,145 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-def dedupe_chars_proximity(chars: List[Dict]) -> str:
-    """
-    Removes 'Shadow Text' by checking if identical characters are 
-    physically stacked on top of each other (within 3 points).
-    """
-    if not chars: return ""
+# --- SPATIAL NAME EXTRACTOR (The "Horizon" Method) ---
+def get_name_geometric(page) -> str:
+    width = page.width
+    height = page.height
     
-    # Sort by vertical position (top) then horizontal (x0)
-    chars.sort(key=itemgetter('top', 'x0'))
-    accepted_chars = []
+    # 1. Define the "Header Zone" (Top 22%, avoiding the very top edge)
+    # We trim the very top (0.02) to avoid weird crop marks
+    header_box = (0, height * 0.02, width, height * 0.22)
     
-    for char in chars:
+    try:
+        # Get every individual character object in this zone
+        # We do NOT use extract_text(); we want the raw char objects
+        chars = page.crop(header_box).chars
+    except Exception:
+        return "Unknown"
+
+    if not chars: return "Unknown"
+
+    # 2. FILTERING: Remove Noise
+    clean_chars = []
+    for c in chars:
+        # Ignore digits (Cost, Totem counts)
+        if c['text'].isdigit(): continue
+        # Ignore tiny text (Legal, small labels) - threshold 8pt
+        if c.get('size', 0) < 8: continue
+        # Ignore characters too far to the right (Cost Bubble area - Right 15%)
+        if c['x0'] > width * 0.85: continue
+        
+        clean_chars.append(c)
+
+    if not clean_chars: return "Unknown"
+
+    # 3. FIND THE HERO FONT
+    # Group by font size (rounded to nearest 0.5 to account for minor variance)
+    # We want the largest size that has a significant number of characters (avoid drop caps being lonely)
+    clean_chars.sort(key=lambda x: x['size'], reverse=True)
+    
+    # Take the max size found
+    max_size = clean_chars[0]['size']
+    
+    # Keep only characters that are roughly this max size (within 2pt tolerance)
+    # This isolates "LADY JUSTICE" from "Guild Marshal"
+    hero_chars = [c for c in clean_chars if abs(c['size'] - max_size) < 2.0]
+    
+    # 4. DEFINE THE HORIZON (Y-Alignment)
+    # Calculate average 'top' position to find the line they sit on
+    avg_top = sum(c['top'] for c in hero_chars) / len(hero_chars)
+    
+    # Keep only chars that sit on this horizon line (tolerance +/- 5pts)
+    aligned_chars = [c for c in hero_chars if abs(c['top'] - avg_top) < 5]
+    
+    # 5. SORT & DE-SHADOW (X-Alignment)
+    # Sort left-to-right
+    aligned_chars.sort(key=itemgetter('x0'))
+    
+    final_chars = []
+    last_char = None
+    
+    for char in aligned_chars:
         text = char['text']
         
-        # Skip empty text but handle spaces if they separate words
+        if last_char:
+            # GEOMETRIC DE-SHADOWING
+            # If it's the same letter AND it physically overlaps the previous one
+            overlap_threshold = char['width'] * 0.6 # If it overlaps by 60% of its width
+            dist = char['x0'] - last_char['x0']
+            
+            if text == last_char['text'] and dist < overlap_threshold:
+                continue # It's a shadow copy, skip it
+        
+        final_chars.append(char)
+        last_char = char
+        
+    # 6. RECONSTRUCT STRING
+    # We need to handle spaces intelligently based on distance between chars
+    name_parts = []
+    if not final_chars: return "Unknown"
+    
+    last_x1 = final_chars[0]['x1']
+    current_word = [final_chars[0]['text']]
+    
+    for char in final_chars[1:]:
+        # If gap between previous end and current start is > 3pt, it's a space
+        gap = char['x0'] - last_x1
+        if gap > 3.5: # Threshold for a space character
+            name_parts.append("".join(current_word))
+            current_word = []
+            
+        current_word.append(char['text'])
+        last_x1 = char['x1']
+        
+    name_parts.append("".join(current_word))
+    
+    full_name = " ".join(name_parts).strip()
+    
+    # Final sanity cleaning for "COST" artifacts that survived geometry checks
+    full_name = re.sub(r"(COST|STN|SZ|HZ)$", "", full_name, flags=re.IGNORECASE).strip()
+    
+    return full_name
+
+# --- OTHER EXTRACTORS ---
+
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    """Simple spatial dedupe for other zones"""
+    if not chars: return ""
+    chars.sort(key=itemgetter('top', 'x0'))
+    accepted_chars = []
+    for char in chars:
+        text = char['text']
         if not text.strip(): 
             if accepted_chars and accepted_chars[-1]['text'] != " ":
                 accepted_chars.append(char) 
             continue
-
         is_shadow = False
-        # Check against the last few accepted chars for overlap
         for kept in accepted_chars[-5:]:
-            if kept['text'] == text:
-                dx = abs(char['x0'] - kept['x0'])
-                dy = abs(char['top'] - kept['top'])
-                if dx < 3 and dy < 3:
-                    is_shadow = True
-                    break
-        
-        if not is_shadow:
-            accepted_chars.append(char)
-            
+            if kept['text'] == text and abs(char['x0'] - kept['x0']) < 3 and abs(char['top'] - kept['top']) < 3:
+                is_shadow = True; break
+        if not is_shadow: accepted_chars.append(char)
     clean_text = "".join([c['text'] for c in accepted_chars])
     return re.sub(r'\s+', ' ', clean_text).strip()
 
 def get_text_in_zone(page, x_range, y_range) -> str:
-    """
-    Extracts text from a specific percentage zone.
-    """
     width = page.width
     height = page.height
     x0 = width * x_range[0]
     x1 = width * x_range[1]
     top = height * y_range[0]
     bottom = height * y_range[1]
-    target_box = (x0, top, x1, bottom)
-    
     try:
-        chars = page.crop(target_box).chars
+        chars = page.crop((x0, top, x1, bottom)).chars
         return dedupe_chars_proximity(chars)
     except Exception:
         return ""
 
-# --- SPECIFIC EXTRACTORS ---
-
-def get_name_by_max_font(page, width, height) -> str:
-    """
-    Finds the Name by isolating the LARGEST text characters 
-    in the Top 33% of the card. Ignores numbers.
-    """
-    # Zone: Top 33%
-    header_zone = (0, 0, width, height * 0.33)
-    
-    try:
-        # Get all characters in the header zone
-        chars = page.crop(header_zone).chars
-        
-        # Filter: Must be a letter (not a digit, not a symbol)
-        # We also assume the Name is at least size 12pt to filter out small legal text
-        candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
-        
-        if not candidates: return "Unknown"
-
-        # Find the maximum font size present
-        max_size = max(c['size'] for c in candidates)
-        
-        # Collect only characters that match this max size (within 1.5pt tolerance)
-        # This isolates "Lady Justice" from "Guild" or "Marshal" if they are smaller.
-        name_chars = [c for c in candidates if abs(c['size'] - max_size) < 1.5]
-        
-        # Run de-shadower on just these name characters
-        name = dedupe_chars_proximity(name_chars)
-        
-        # Final cleanup: Remove common artifacts
-        name = re.sub(r"(COST|STN|SZ|HZ).*$", "", name, flags=re.IGNORECASE).strip()
-        
-        return name
-
-    except Exception:
-        return "Unknown"
-
-def get_health_spatial(page, width, height) -> int:
-    """
-    Scans Bottom 15% for number sequence (1 2 3 4 5).
-    Returns the last number found < 30.
-    """
-    footer_zone = (0, height * 0.85, width, height)
-    try:
-        crop = page.crop(footer_zone)
-        # Use basic extraction for number parsing
-        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
-        numbers = [int(n) for n in re.findall(r'\d+', text)]
-        
-        if not numbers: return 0
-        
-        # Filter out base sizes (30/40/50) and insanely high numbers
-        valid = [n for n in numbers if n < 30]
-        
-        if valid:
-            # The last number in the sequence is the Max Health
-            return valid[-1]
-    except Exception:
-        pass
-    return 0
-
 def extract_number(text: str) -> int:
-    """Finds first integer in string."""
     if not text: return 0
     match = re.search(r'\d+', text)
     if not match: return 0
     val = int(match.group(0))
-    # Sanity check for double-scan errors (e.g. "1010" -> 10)
     if val > 30 and val % 11 == 0 and val < 100: return val // 11
     if val > 100: 
         s = str(val)
@@ -150,34 +164,22 @@ def extract_number(text: str) -> int:
     return val
 
 def get_card_type(page) -> str:
-    # Check footer text for type keywords
-    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0))
-    footer_lower = footer_text.lower()
-    if "upgrade" in footer_lower: return "Upgrade"
-    if "crew" in footer_lower and "card" in footer_lower: return "Crew"
+    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
+    if "upgrade" in footer_text: return "Upgrade"
+    if "crew" in footer_text and "card" in footer_text: return "Crew"
     return "Model"
 
 def get_faction_from_path(file_path: str) -> str:
-    known_factions = {
-        "Guild", "Resurrectionist", "Arcanist", "Neverborn", 
-        "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", 
-        "Dead Man's Hand"
-    }
-    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
-    parts = rel_path.replace("\\", "/").split("/")
-    
+    known = {"Guild", "Resurrectionist", "Arcanist", "Neverborn", "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", "Dead Man's Hand"}
+    parts = file_path.replace("\\", "/").split("/")
     for part in parts:
-        for known in known_factions:
-            if part.lower() == known.lower():
-                return known
-    if len(parts) > 1: return parts[0]
-    return "Unknown"
+        for k in known:
+            if part.lower() == k.lower(): return k
+    return parts[0] if len(parts) > 1 else "Unknown"
 
 def get_subfaction_from_path(file_path: str, faction: str) -> str:
-    directory = os.path.dirname(file_path)
-    folder_name = os.path.basename(directory)
-    if folder_name.lower() == faction.lower(): return ""
-    if not folder_name or folder_name == ".": return ""
+    folder_name = os.path.basename(os.path.dirname(file_path))
+    if folder_name.lower() == faction.lower() or folder_name == ".": return ""
     return folder_name
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
@@ -188,42 +190,32 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
-            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # 2. Name (Largest Font Logic)
-            name = get_name_by_max_font(page, width, height)
-            if not name or name == "Unknown":
-                name = os.path.splitext(filename)[0].replace("_", " ")
+            # USE THE NEW GEOMETRIC NAME EXTRACTOR
+            name = get_name_geometric(page)
+            if len(name) < 3: name = os.path.splitext(filename)[0].replace("_", " ")
 
-            # 3. Cost (Top Right)
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
-            # 4. Stats & Health
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
-            health = 0
-            
             if card_type == "Model":
                 raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
                 raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
                 raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
                 raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
-                
                 stats = {
                     "sp": extract_number(raw_sp),
                     "df": extract_number(raw_df),
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 }
-                health = get_health_spatial(page, width, height)
 
-            # 5. Search Text (Body)
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
-
-            print(f"File: {filename}")
-            print(f"   Type: {card_type} | Name: {name} | Cost: {extract_number(raw_cost)} | Hp: {health}")
+            
+            print(f"Processed: {name} [{card_type}]")
 
             return {
                 "id": file_id,
@@ -233,23 +225,20 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": health,
+                "health": 0, # Disabled
                 "base": 30, 
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
 
     except Exception as e:
-        print(f"Error parsing {filename}: {e}")
+        print(f"Error: {filename} - {e}")
         return None
 
 def main():
     all_cards = []
     file_id_counter = 100
-
-    print(f"Scanning for PDFs in: {ROOT_FOLDER}")
-    print("-" * 50)
-
+    print(f"Scanning: {ROOT_FOLDER}")
     for root, dirs, files in os.walk(ROOT_FOLDER):
         for filename in files:
             if filename.lower().endswith(".pdf"):
@@ -259,13 +248,9 @@ def main():
                     all_cards.append(card)
                     file_id_counter += 1
 
-    output_path = os.path.join(ROOT_FOLDER, "malifaux_data.json")
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(os.path.join(ROOT_FOLDER, "malifaux_data.json"), 'w', encoding='utf-8') as f:
         json.dump(all_cards, f, indent=2)
-
-    print("-" * 50)
-    print(f"Success! Scanned {len(all_cards)} cards.")
-    print(f"Data saved to: {output_path}")
+    print(f"Done. {len(all_cards)} cards.")
 
 if __name__ == "__main__":
     main()
