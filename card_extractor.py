@@ -19,6 +19,93 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
+def get_name_from_filename(filename: str) -> str:
+    """
+    Extracts a clean name from the filename.
+    'M4E_Guild_Lady_Justice.pdf' -> 'Lady Justice'
+    """
+    # Remove extension
+    base = os.path.splitext(filename)[0]
+    
+    # Remove common prefixes if present (optional, based on your file naming)
+    # Adjust this regex if your files have specific prefixes like "M4E_01_"
+    clean = re.sub(r"^(M4E|Card)_+", "", base, flags=re.IGNORECASE)
+    
+    # Replace underscores and dashes with spaces
+    clean = clean.replace("_", " ").replace("-", " ")
+    
+    # Clean up multiple spaces
+    return re.sub(r"\s+", " ", clean).strip()
+
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    """
+    Removes 'Shadow Text' by checking if identical characters are 
+    physically stacked on top of each other (within 3 points).
+    """
+    if not chars: return ""
+    
+    chars.sort(key=itemgetter('top', 'x0'))
+    accepted_chars = []
+    
+    for char in chars:
+        text = char['text']
+        
+        if not text.strip(): 
+            if accepted_chars and accepted_chars[-1]['text'] != " ":
+                accepted_chars.append(char) 
+            continue
+
+        is_shadow = False
+        for kept in accepted_chars[-5:]:
+            if kept['text'] == text:
+                dx = abs(char['x0'] - kept['x0'])
+                dy = abs(char['top'] - kept['top'])
+                if dx < 2.5 and dy < 2.5:
+                    is_shadow = True
+                    break
+        
+        if not is_shadow:
+            accepted_chars.append(char)
+            
+    clean_text = "".join([c['text'] for c in accepted_chars])
+    return re.sub(r'\s+', ' ', clean_text).strip()
+
+def get_text_in_zone(page, x_range, y_range) -> str:
+    """
+    Extracts text from a specific percentage zone.
+    """
+    width = page.width
+    height = page.height
+    x0 = width * x_range[0]
+    x1 = width * x_range[1]
+    top = height * y_range[0]
+    bottom = height * y_range[1]
+    target_box = (x0, top, x1, bottom)
+    
+    try:
+        chars = page.crop(target_box).chars
+        return dedupe_chars_proximity(chars)
+    except Exception:
+        return ""
+
+def extract_number(text: str) -> int:
+    if not text: return 0
+    match = re.search(r'\d+', text)
+    if not match: return 0
+    val = int(match.group(0))
+    if val > 30 and val % 11 == 0 and val < 100: return val // 11
+    if val > 100: 
+        s = str(val)
+        mid = len(s) // 2
+        if s[:mid] == s[mid:]: return int(s[:mid])
+    return val
+
+def get_card_type(page) -> str:
+    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
+    if "upgrade" in footer_text: return "Upgrade"
+    if "crew" in footer_text and "card" in footer_text: return "Crew"
+    return "Model"
+
 def get_faction_from_path(file_path: str) -> str:
     known = {"Guild", "Resurrectionist", "Arcanist", "Neverborn", "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", "Dead Man's Hand"}
     rel_path = os.path.relpath(file_path, ROOT_FOLDER)
@@ -37,183 +124,46 @@ def get_subfaction_from_path(file_path: str, faction: str) -> str:
         return folder_name
     return ""
 
-# --- GEOMETRIC NAME EXTRACTOR ---
-
-def get_name_smart_clustering(page, width, height) -> str:
-    # 1. Zone: Top 28% (Slightly tightened to avoid body text)
-    header_box = (0, 0, width, height * 0.28)
-    try:
-        chars = page.crop(header_box).chars
-    except:
-        return "Unknown"
-
-    # 2. Filter Noise (Digits, small text)
-    # Assume Name is at least 12pt font to separate it from labels
-    candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
-    
-    if not candidates: return "Unknown"
-
-    # 3. Cluster into Lines based on 'top' (y-position)
-    # We group chars that share a vertical alignment within 50% of their font size
-    candidates.sort(key=itemgetter('top'))
-    
-    lines = []
-    if candidates:
-        current_line = [candidates[0]]
-        for char in candidates[1:]:
-            # If vertical distance is small, it's the same line
-            if abs(char['top'] - current_line[-1]['top']) < (char['size'] * 0.5):
-                current_line.append(char)
-            else:
-                lines.append(current_line)
-                current_line = [char]
-        lines.append(current_line)
-
-    # 4. Identify the "Name Line"
-    # Find the line with the LARGEST average font size. This is almost always the Name.
-    best_line = []
-    max_avg_size = 0
-    
-    for line in lines:
-        if not line: continue
-        avg_size = sum(c['size'] for c in line) / len(line)
-        
-        # We prefer lines with > 2 chars to avoid stray artifacts
-        if avg_size > max_avg_size and len(line) > 2:
-            max_avg_size = avg_size
-            best_line = line
-    
-    if not best_line: return "Unknown"
-
-    # 5. Sort Left-to-Right for reading
-    best_line.sort(key=itemgetter('x0'))
-
-    # 6. Clean & Reconstruct (Geometric De-Shadow + Spacing)
-    clean_name_parts = []
-    last_char = None
-    
-    for char in best_line:
-        text = char['text']
-        
-        # A. De-Shadowing: If same char matches previous char AND physically overlaps
-        if last_char and last_char['text'] == text:
-            # If the start of this char is BEFORE the end of the last char + tiny buffer
-            # It effectively means they are stacked.
-            overlap_threshold = last_char['x0'] + (last_char['width'] * 0.5)
-            if char['x0'] < overlap_threshold:
-                continue # Skip this shadow/bold copy
-
-        # B. Dynamic Spacing: If gap is detected, add space
-        if last_char:
-            gap = char['x0'] - last_char['x1']
-            # If gap is > 2.5pts, it's a space. (Tight kerning is usually < 1pt)
-            if gap > 2.5: 
-                clean_name_parts.append(" ")
-        
-        clean_name_parts.append(text)
-        last_char = char
-
-    full_name = "".join(clean_name_parts).strip()
-    
-    # 7. Final Polish
-    # Remove any "COST" or "STN" that might have been same size/line (rare but possible)
-    full_name = re.sub(r"\s+(COST|STN|SZ|HZ).*$", "", full_name, flags=re.IGNORECASE).strip()
-    # Fix double spaces
-    full_name = re.sub(r"\s+", " ", full_name)
-    
-    return full_name
-
-# --- STAT EXTRACTORS (Proximity Based) ---
-
-def dedupe_chars_proximity(chars: List[Dict]) -> str:
-    if not chars: return ""
-    chars.sort(key=itemgetter('top', 'x0'))
-    accepted_chars = []
-    for char in chars:
-        text = char['text']
-        if not text.strip(): 
-            if accepted_chars and accepted_chars[-1]['text'] != " ": accepted_chars.append(char) 
-            continue
-        is_shadow = False
-        for kept in accepted_chars[-5:]:
-            if kept['text'] == text:
-                if abs(char['x0'] - kept['x0']) < 3 and abs(char['top'] - kept['top']) < 3:
-                    is_shadow = True; break
-        if not is_shadow: accepted_chars.append(char)
-    clean = "".join([c['text'] for c in accepted_chars])
-    return re.sub(r'\s+', ' ', clean).strip()
-
-def get_text_in_zone(page, x_range, y_range) -> str:
-    width, height = page.width, page.height
-    target_box = (width * x_range[0], height * y_range[0], width * x_range[1], height * y_range[1])
-    try:
-        chars = page.crop(target_box).chars
-        return dedupe_chars_proximity(chars)
-    except: return ""
-
-def get_health_spatial(page, width, height) -> int:
-    footer_zone = (0, height * 0.85, width, height)
-    try:
-        crop = page.crop(footer_zone)
-        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
-        numbers = [int(n) for n in re.findall(r'\d+', text)]
-        valid = [n for n in numbers if n < 30]
-        if valid: return valid[-1]
-    except: pass
-    return 0
-
-def extract_number(text: str) -> int:
-    if not text: return 0
-    match = re.search(r'\d+', text)
-    if not match: return 0
-    val = int(match.group(0))
-    if val > 30 and val % 11 == 0 and val < 100: return val // 11
-    if val > 100: 
-        s = str(val); mid = len(s) // 2
-        if s[:mid] == s[mid:]: return int(s[:mid])
-    return val
-
-def get_card_type(page) -> str:
-    footer = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
-    if "upgrade" in footer: return "Upgrade"
-    if "crew" in footer and "card" in footer: return "Crew"
-    return "Model"
-
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
     try:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
             page = pdf.pages[0]
-            width, height = page.width, page.height
+            width = page.width
+            height = page.height
             
+            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # NEW NAME LOGIC
-            name = get_name_smart_clustering(page, width, height)
-            if len(name) < 3: name = os.path.splitext(filename)[0].replace("_", " ")
+            # 2. Name (FROM FILENAME - The most reliable source)
+            name = get_name_from_filename(filename)
 
+            # 3. Cost (Top Right)
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
+            # 4. Stats
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
-            health = 0
             
             if card_type == "Model":
                 raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
                 raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
                 raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
                 raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
+                
                 stats = {
-                    "sp": extract_number(raw_sp), "df": extract_number(raw_df),
-                    "wp": extract_number(raw_wp), "sz": extract_number(raw_sz)
+                    "sp": extract_number(raw_sp),
+                    "df": extract_number(raw_df),
+                    "wp": extract_number(raw_wp),
+                    "sz": extract_number(raw_sz)
                 }
-                health = get_health_spatial(page, width, height)
 
+            # 5. Search Text (Body)
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
-            
+
             print(f"File: {filename}")
-            print(f"  -> Name: {name}")
+            print(f"   Type: {card_type} | Name: {name} | Cost: {extract_number(raw_cost)}")
 
             return {
                 "id": file_id,
@@ -223,13 +173,14 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": health,
+                "health": 0, # Disabled
                 "base": 30, 
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
+
     except Exception as e:
-        print(f"Error: {filename} - {e}")
+        print(f"Error parsing {filename}: {e}")
         return None
 
 def main():
