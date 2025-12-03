@@ -10,6 +10,32 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# --- STRIP LIST ---
+# Words to aggressively strip from the START of filenames.
+# Note: "Big", "Red", "Dark", "Pale" are INTENTIONALLY OMITTED to protect 
+# Big Jake, Red Cap, Dark Debts, Pale Rider, etc.
+STRIP_LIST = {
+    # System Terms
+    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "UNIT", "MODEL", "VERSATILE", "REFERENCE",
+    
+    # Faction Codes & Names
+    "ARC", "GLD", "RES", "NVB", "OUT", "BYU", "TT", "EXS",
+    "GUILD", "RESURRECTIONIST", "RESURRECTIONISTS", "ARCANIST", "ARCANISTS", 
+    "NEVERBORN", "OUTCAST", "OUTCASTS", "BAYOU", "TEN", "THUNDERS", "EXPLORER", 
+    "EXPLORERS", "SOCIETY", "DEAD", "MAN", "MANS", "HAND",
+
+    # Specific Keywords (Long List)
+    "ACADEMIC", "AMALGAM", "AMPERSAND", "ANCESTOR", "ANGLER", "APEX", "AUGMENTED", 
+    "BANDIT", "BROOD", "BYGONE", "CADMUS", "CAVALIER", "CHIMERA", "DECEMBER", "DUA", 
+    "ELITE", "EVS", "EXPERIMENTAL", "FAE", "FAMILY", "FORGOTTEN", "FOUNDRY", "FREIKORPS", 
+    "FRONTIER", "GUARD", "HONEYPOT", "INFAMOUS", "JOURNALIST", "KIN", "LAST", "BLOSSOM", 
+    "MARSHAL", "MERCENARY", "MONK", "MSU", "NIGHTMARE", "OBLITERATION", "ONI", 
+    "PERFORMER", "PLAGUE", "QI", "GONG", "REDCHAPEL", "RETURNED", "REVENANT", 
+    "SAVAGE", "SEEKER", "SOOEY", "SWAMPFIEND", "SYNDICATE", "TORMENTED", "TRANSMORTIS", 
+    "TRICKSY", "URAMI", "WASTREL", "WILDFIRE", "WITCH", "HUNTER", "WITNESS", "WOE",
+    "WIZZ", "BANG", "TRI", "CHI"
+}
+
 # --- UTILITIES ---
 
 def generate_github_url(file_path: str) -> str:
@@ -21,31 +47,44 @@ def generate_github_url(file_path: str) -> str:
 
 def get_name_from_filename(filename: str) -> str:
     """
-    Extracts the clean name from the filename.
-    This is the 'Source of Truth' when PDF text is garbled.
-    e.g. 'M4E_Guild_Lady_Justice.pdf' -> 'Lady Justice'
+    Intelligently strips prefixes from the filename to find the true Model Name.
     """
     # 1. Remove Extension
     base = os.path.splitext(filename)[0]
     
-    # 2. Strip common prefixes (M4E_, Card_, 01_)
-    clean = re.sub(r"^(M4E|Card|Unit|Model)_\d*_", "", base, flags=re.IGNORECASE)
-    clean = re.sub(r"^(M4E|Card)_", "", clean, flags=re.IGNORECASE)
+    # 2. Replace dividers with spaces
+    clean_str = base.replace("_", " ").replace("-", " ")
     
-    # 3. Replace separators with spaces
-    clean = clean.replace("_", " ").replace("-", " ")
-    
-    # 4. Handle CamelCase if present (LadyJustice -> Lady Justice)
-    # (Optional, depends on your file naming. Only applies if no spaces exist)
-    if " " not in clean and "_" not in base:
-         clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
+    # 3. CamelCase Split (if no spaces existed)
+    if " " not in clean_str:
+         clean_str = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean_str)
 
-    return re.sub(r"\s+", " ", clean).strip()
+    # 4. Tokenize and Eat Prefixes
+    # We split into words and eat from the left as long as they are in the STRIP_LIST.
+    words = clean_str.split()
+    start_index = 0
+    
+    for i, word in enumerate(words):
+        # Clean punctuation for matching
+        check_word = re.sub(r"[^\w\s]", "", word).upper()
+        
+        # Special Case: "M&SU"
+        if "M&SU" in word.upper():
+            start_index = i + 1
+            continue
+
+        if check_word in STRIP_LIST:
+            start_index = i + 1
+        else:
+            # We hit a word NOT in the strip list (like "Fire" or "Lady"), stop eating.
+            break
+            
+    final_name = " ".join(words[start_index:])
+    return final_name.strip()
 
 # --- SPATIAL HELPERS ---
 
 def dedupe_chars_proximity(chars: List[Dict]) -> str:
-    """Cleans up shadow text in stat bubbles."""
     if not chars: return ""
     chars.sort(key=itemgetter('top', 'x0'))
     accepted_chars = []
@@ -76,7 +115,6 @@ def extract_number(text: str) -> int:
     match = re.search(r'\d+', text)
     if not match: return 0
     val = int(match.group(0))
-    # Sanity check for double-scans (33 -> 3)
     if val > 30 and val % 11 == 0 and val < 100: return val // 11
     if val > 100: 
         s = str(val); mid = len(s) // 2
@@ -127,18 +165,15 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             page = pdf.pages[0]
             width, height = page.width, page.height
             
-            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # 2. Name (FILENAME - The Fix)
+            # NAME EXTRACTION: Filename Stripper
             name = get_name_from_filename(filename)
-
-            # 3. Cost (Top Right)
+            
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
-            # 4. Stats
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
             health = 0
             
@@ -147,19 +182,15 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 raw_wp = get_text_in_zone(page, (0.0, 0.20), (0.38, 0.50))
                 raw_sp = get_text_in_zone(page, (0.80, 1.0), (0.20, 0.35))
                 raw_sz = get_text_in_zone(page, (0.80, 1.0), (0.38, 0.50))
-                
                 stats = {
-                    "sp": extract_number(raw_sp),
-                    "df": extract_number(raw_df),
-                    "wp": extract_number(raw_wp),
-                    "sz": extract_number(raw_sz)
+                    "sp": extract_number(raw_sp), "df": extract_number(raw_df),
+                    "wp": extract_number(raw_wp), "sz": extract_number(raw_sz)
                 }
                 health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
-            print(f"File: {filename}")
-            print(f"   Name: {name} | Type: {card_type}")
+            print(f"File: {filename} -> Name: {name}")
 
             return {
                 "id": file_id,
