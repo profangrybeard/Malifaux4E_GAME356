@@ -10,11 +10,7 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
-# --- CONSTANTS ---
-IGNORED_HEADER_TERMS = {
-    "COST", "STN", "SZ", "HZ", "MINION", "MASTER", "HENCHMAN", "ENFORCER", "PEON", "TOTEM",
-    "GUILD", "RESURRECTIONIST", "ARCANIST", "NEVERBORN", "OUTCAST", "BAYOU", "TEN THUNDERS", "EXPLORER'S SOCIETY"
-}
+# --- UTILITIES ---
 
 def generate_github_url(file_path: str) -> str:
     relative_path = os.path.relpath(file_path, ROOT_FOLDER)
@@ -23,114 +19,54 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-# --- SMART STRING CLEANERS ---
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    if not chars: return ""
+    chars.sort(key=itemgetter('top', 'x0'))
+    accepted_chars = []
+    
+    for char in chars:
+        text = char['text']
+        if not text.strip(): 
+            if accepted_chars and accepted_chars[-1]['text'] != " ":
+                accepted_chars.append(char) 
+            continue
 
-def smart_de_shadow(text: str) -> str:
-    """
-    Detects and fixes Shadow Text (e.g., "FFIIRREE GGOOLLEEMM").
-    Only runs if the string has a high density of adjacent duplicates.
-    """
-    if not text or len(text) < 4: return text
-    
-    # 1. CLEANUP: Remove spaces for density check
-    clean = text.replace(" ", "")
-    if len(clean) < 2: return text
-    
-    # 2. ANALYZE: Count adjacent duplicates
-    dupes = 0
-    for i in range(len(clean) - 1):
-        if clean[i] == clean[i+1]:
-            dupes += 1
+        is_shadow = False
+        for kept in accepted_chars[-5:]:
+            if kept['text'] == text:
+                dx = abs(char['x0'] - kept['x0'])
+                dy = abs(char['top'] - kept['top'])
+                if dx < 2.5 and dy < 2.5:
+                    is_shadow = True
+                    break
+        
+        if not is_shadow:
+            accepted_chars.append(char)
             
-    # Threshold: If > 40% of characters are doubled, it's a Shadow String.
-    # Normal English doesn't look like "HHeelllloo".
-    density = dupes / len(clean)
-    
-    if density > 0.40:
-        # It's likely shadow text. Reconstruct it aggressively.
-        result = []
-        i = 0
-        while i < len(text):
-            char = text[i]
-            # Check lookahead for duplicate
-            if i + 1 < len(text) and text[i+1] == char:
-                result.append(char)
-                i += 2 # Skip the shadow char
-            else:
-                result.append(char)
-                i += 1
-        return "".join(result)
-        
-    # If density is low, it's a normal string (e.g. "Assassin"). Return as-is.
-    return text
+    clean_text = "".join([c['text'] for c in accepted_chars])
+    return re.sub(r'\s+', ' ', clean_text).strip()
 
-def clean_name_string(text: str) -> str:
-    """
-    Cleans a raw header line into a Card Name.
-    """
-    # 1. De-Shadow (Fix FFIIRREE)
-    text = smart_de_shadow(text)
-    
-    # 2. Strip known Game Labels from the end (COST, STN)
-    # Regex looks for "COST 10" or "STN 5" or just "COST" at the end
-    text = re.sub(r"\s+(COST|STN|SZ|HZ)(\s*\d+)?$", "", text, flags=re.IGNORECASE)
-    
-    # 3. Strip trailing numbers (The Cost value itself)
-    text = re.sub(r"\s+\d+$", "", text)
-    
-    # 4. Remove any leading non-text bullets
-    text = re.sub(r"^[^a-zA-Z0-9]+", "", text)
-    
-    # 5. Title Case (Optional, but looks better: "LADY JUSTICE" -> "Lady Justice")
-    # We only do this if the string is ALL CAPS to avoid ruining "McMourning"
-    if text.isupper():
-        return text.title()
-        
-    return text.strip()
+# --- SPECIFIC EXTRACTORS ---
 
-# --- ZONE EXTRACTORS ---
-
-def get_name_from_header(page, width, height) -> str:
-    """
-    Extracts Name from Top 20% using text lines.
-    """
-    # Zone: Top 20% (Cost bubble usually top right, name center)
-    header_box = (0, 0, width, height * 0.20)
-    
+def get_name_by_max_font(page, width, height) -> str:
+    header_zone = (0, 0, width, height * 0.33)
     try:
-        crop = page.crop(header_box)
-        # x_tolerance=2 helps merge "F i r e" into "Fire"
-        text = crop.extract_text(x_tolerance=2, y_tolerance=3)
-        if not text: return "Unknown"
+        chars = page.crop(header_zone).chars
+        candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
         
-        lines = [line.strip() for line in text.split('\n') if line.strip()]
+        if not candidates: return "Unknown"
+
+        max_size = max(c['size'] for c in candidates)
+        name_chars = [c for c in candidates if abs(c['size'] - max_size) < 1.5]
         
-        # Heuristic: The Name is the first line that isn't a number or a known Label
-        for line in lines:
-            # Skip pure numbers (Cost)
-            if re.match(r'^\d+$', line): continue
-            
-            # Skip stats that might float up (Df 5)
-            if re.match(r'^(Df|Wp|Sp|Sz|Mv)\s*\d+', line, re.IGNORECASE): continue
-            
-            # Skip short garbage
-            if len(line) < 3: continue
-            
-            # Clean it
-            cleaned = clean_name_string(line)
-            
-            # Check if it's a banned word (Faction name)
-            if cleaned.upper() in IGNORED_HEADER_TERMS: continue
-            
-            return cleaned
-            
+        name = dedupe_chars_proximity(name_chars)
+        name = re.sub(r"(COST|STN|SZ|HZ).*$", "", name, flags=re.IGNORECASE).strip()
+        
+        return name
     except Exception:
-        pass
-        
-    return "Unknown"
+        return "Unknown"
 
 def get_text_in_zone(page, x_range, y_range) -> str:
-    """Generic Zone Extractor"""
     width = page.width
     height = page.height
     x0 = width * x_range[0]
@@ -138,13 +74,12 @@ def get_text_in_zone(page, x_range, y_range) -> str:
     top = height * y_range[0]
     bottom = height * y_range[1]
     try:
-        # Using simple extraction to avoid complex de-dupe bugs
-        return page.crop((x0, top, x1, bottom)).extract_text(x_tolerance=2) or ""
+        chars = page.crop((x0, top, x1, bottom)).chars
+        return dedupe_chars_proximity(chars)
     except Exception:
         return ""
 
 def get_health_spatial(page, width, height) -> int:
-    """Finds Max Health from footer sequence."""
     footer_zone = (0, height * 0.85, width, height)
     try:
         crop = page.crop(footer_zone)
@@ -168,8 +103,6 @@ def extract_number(text: str) -> int:
         if s[:mid] == s[mid:]: return int(s[:mid])
     return val
 
-# --- CLASSIFIERS ---
-
 def get_card_type(page) -> str:
     footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
     if "upgrade" in footer_text: return "Upgrade"
@@ -178,16 +111,35 @@ def get_card_type(page) -> str:
 
 def get_faction_from_path(file_path: str) -> str:
     known = {"Guild", "Resurrectionist", "Arcanist", "Neverborn", "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", "Dead Man's Hand"}
-    parts = file_path.replace("\\", "/").split("/")
+    
+    # FIX: Calculate path relative to the script location to ignore C:/...
+    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
+    parts = rel_path.replace("\\", "/").split("/")
+    
     for part in parts:
         for k in known:
+            # Case insensitive match
             if part.lower() == k.lower(): return k
+            
+    # Fallback: Return the first folder name if no known faction matched
     return parts[0] if len(parts) > 1 else "Unknown"
 
 def get_subfaction_from_path(file_path: str, faction: str) -> str:
-    folder_name = os.path.basename(os.path.dirname(file_path))
-    if folder_name.lower() == faction.lower() or folder_name == ".": return ""
-    return folder_name
+    # FIX: Use relative path here as well
+    rel_path = os.path.relpath(file_path, ROOT_FOLDER)
+    parts = rel_path.replace("\\", "/").split("/")
+    
+    # If structure is Faction/Keyword/Card.pdf, the keyword is the 2nd to last part
+    if len(parts) >= 2:
+        # The folder immediately containing the file
+        folder_name = parts[-2] 
+        
+        # If the folder is just the faction name (e.g. Guild/LadyJ.pdf), no subfaction
+        if folder_name.lower() == faction.lower() or folder_name == ".": 
+            return ""
+        return folder_name
+        
+    return ""
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
     try:
@@ -197,18 +149,20 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
+            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # NAME EXTRACTION
-            name = get_name_from_header(page, width, height)
-            if name == "Unknown":
+            # 2. Name
+            name = get_name_by_max_font(page, width, height)
+            if not name or name == "Unknown":
                 name = os.path.splitext(filename)[0].replace("_", " ")
 
-            # COST & STATS
+            # 3. Cost
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
+            # 4. Stats
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
             health = 0
             
@@ -229,7 +183,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
             print(f"File: {filename}")
-            print(f"   Name: {name} | Cost: {extract_number(raw_cost)}")
+            print(f"   Faction: {faction} | Sub: {subfaction}")
 
             return {
                 "id": file_id,
