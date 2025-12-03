@@ -10,19 +10,6 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
-# --- MUTE LIST ---
-MUTE_LIST = {
-    # Labels & Artifacts
-    "COST", "STN", "SZ", "HZ", "DF", "WP", "SP", "MV", "HEALTH", "BASE", "STAT", "STATS",
-    # Stations
-    "MINION", "MASTER", "HENCHMAN", "ENFORCER", "PEON", "TOTEM", "TITLE",
-    # Factions
-    "GUILD", "RESURRECTIONIST", "ARCANIST", "NEVERBORN", "OUTCAST", "BAYOU", 
-    "TEN", "THUNDERS", "EXPLORER'S", "SOCIETY", "DEAD", "MAN'S", "HAND",
-    # Common Keywords & Characteristics found in headers
-    "ACADEMIC", "LIVING", "CONSTRUCT", "UNDEAD", "BEAST", "SPIRIT", "NIGHTMARE", "FAMILY"
-}
-
 # --- UTILITIES ---
 
 def generate_github_url(file_path: str) -> str:
@@ -32,125 +19,77 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-def dedupe_and_space_chars(chars: List[Dict]) -> str:
+def get_name_from_filename(filename: str) -> str:
     """
-    1. Removes Shadow Text (overlapping chars).
-    2. Inserts Spaces based on physical distance (Fixes 'JusticeAcademic').
+    Extracts the clean name from the filename.
+    This is the 'Source of Truth' when PDF text is garbled.
+    e.g. 'M4E_Guild_Lady_Justice.pdf' -> 'Lady Justice'
     """
-    if not chars: return ""
+    # 1. Remove Extension
+    base = os.path.splitext(filename)[0]
     
-    # Sort by vertical position (top) then horizontal (x0)
+    # 2. Strip common prefixes (M4E_, Card_, 01_)
+    clean = re.sub(r"^(M4E|Card|Unit|Model)_\d*_", "", base, flags=re.IGNORECASE)
+    clean = re.sub(r"^(M4E|Card)_", "", clean, flags=re.IGNORECASE)
+    
+    # 3. Replace separators with spaces
+    clean = clean.replace("_", " ").replace("-", " ")
+    
+    # 4. Handle CamelCase if present (LadyJustice -> Lady Justice)
+    # (Optional, depends on your file naming. Only applies if no spaces exist)
+    if " " not in clean and "_" not in base:
+         clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
+
+    return re.sub(r"\s+", " ", clean).strip()
+
+# --- SPATIAL HELPERS ---
+
+def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    """Cleans up shadow text in stat bubbles."""
+    if not chars: return ""
     chars.sort(key=itemgetter('top', 'x0'))
     accepted_chars = []
-    
-    # --- PASS 1: De-Shadow ---
     for char in chars:
         text = char['text']
-        if not text.strip(): continue # Ignore existing space objects, we calc our own
-
+        if not text.strip(): 
+            if accepted_chars and accepted_chars[-1]['text'] != " ": accepted_chars.append(char) 
+            continue
         is_shadow = False
         for kept in accepted_chars[-5:]:
             if kept['text'] == text:
-                # Check physical overlap
-                dx = abs(char['x0'] - kept['x0'])
-                dy = abs(char['top'] - kept['top'])
-                if dx < 2.5 and dy < 2.5:
-                    is_shadow = True
-                    break
-        
-        if not is_shadow:
-            accepted_chars.append(char)
-            
-    if not accepted_chars: return ""
-
-    # --- PASS 2: Reconstruct with Spacing ---
-    # Sort left-to-right to ensure spacing check works
-    accepted_chars.sort(key=itemgetter('x0'))
-    
-    result = [accepted_chars[0]['text']]
-    last_x1 = accepted_chars[0]['x1'] # Right edge of last char
-    
-    for char in accepted_chars[1:]:
-        current_x0 = char['x0'] # Left edge of current char
-        
-        # Calculate gap. If > 2.5pts, insert space.
-        # (Standard tight kerning is ~0-1pt. A space is usually 3-5pt)
-        if (current_x0 - last_x1) > 2.5:
-            result.append(" ")
-            
-        result.append(char['text'])
-        last_x1 = char['x1']
-
-    return "".join(result).strip()
-
-def clean_name_final(name: str) -> str:
-    """
-    Filters the spaced-out string against the Mute List.
-    """
-    if not name: return ""
-    
-    # 1. Tokenize by space (now reliable due to dedupe_and_space_chars)
-    parts = name.split()
-    clean_parts = []
-    
-    for part in parts:
-        # Strip punctuation for comparison
-        normalized = re.sub(r"[^\w\s]", "", part)
-        
-        # Mute List Check
-        if normalized.upper() not in MUTE_LIST:
-            clean_parts.append(part)
-            
-    cleaned_name = " ".join(clean_parts)
-    
-    # 2. Final Regex Cleanup
-    cleaned_name = re.sub(r"\s+(COST|STN)\s*\d*$", "", cleaned_name, flags=re.IGNORECASE)
-    cleaned_name = re.sub(r"\s+\d+$", "", cleaned_name)
-    
-    return cleaned_name.strip()
-
-# --- EXTRACTORS ---
-
-def get_name_by_max_font(page, width, height) -> str:
-    """
-    Finds Name by Largest Font in Top 33%, then cleans it.
-    """
-    header_zone = (0, 0, width, height * 0.33)
-    
-    try:
-        chars = page.crop(header_zone).chars
-        
-        # Filter candidates
-        candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
-        if not candidates: return "Unknown"
-
-        # Find max font size
-        max_size = max(c['size'] for c in candidates)
-        
-        # Collect chars matching max size
-        name_chars = [c for c in candidates if abs(c['size'] - max_size) < 1.5]
-        
-        # De-shadow AND Insert Spaces
-        raw_name = dedupe_and_space_chars(name_chars)
-        
-        # Clean Mute List words
-        return clean_name_final(raw_name)
-
-    except Exception:
-        return "Unknown"
+                if abs(char['x0'] - kept['x0']) < 3 and abs(char['top'] - kept['top']) < 3:
+                    is_shadow = True; break
+        if not is_shadow: accepted_chars.append(char)
+    clean = "".join([c['text'] for c in accepted_chars])
+    return re.sub(r'\s+', ' ', clean).strip()
 
 def get_text_in_zone(page, x_range, y_range) -> str:
-    width = page.width
-    height = page.height
-    x0 = width * x_range[0]
-    x1 = width * x_range[1]
-    top = height * y_range[0]
-    bottom = height * y_range[1]
+    width, height = page.width, page.height
+    target_box = (width * x_range[0], height * y_range[0], width * x_range[1], height * y_range[1])
     try:
-        chars = page.crop((x0, top, x1, bottom)).chars
-        return dedupe_and_space_chars(chars)
-    except Exception:
-        return ""
+        chars = page.crop(target_box).chars
+        return dedupe_chars_proximity(chars)
+    except: return ""
+
+def extract_number(text: str) -> int:
+    if not text: return 0
+    match = re.search(r'\d+', text)
+    if not match: return 0
+    val = int(match.group(0))
+    # Sanity check for double-scans (33 -> 3)
+    if val > 30 and val % 11 == 0 and val < 100: return val // 11
+    if val > 100: 
+        s = str(val); mid = len(s) // 2
+        if s[:mid] == s[mid:]: return int(s[:mid])
+    return val
+
+# --- CLASSIFIERS ---
+
+def get_card_type(page) -> str:
+    footer = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
+    if "upgrade" in footer: return "Upgrade"
+    if "crew" in footer and "card" in footer: return "Crew"
+    return "Model"
 
 def get_health_spatial(page, width, height) -> int:
     footer_zone = (0, height * 0.85, width, height)
@@ -160,26 +99,8 @@ def get_health_spatial(page, width, height) -> int:
         numbers = [int(n) for n in re.findall(r'\d+', text)]
         valid = [n for n in numbers if n < 30]
         if valid: return valid[-1]
-    except Exception:
-        pass
+    except: pass
     return 0
-
-def extract_number(text: str) -> int:
-    if not text: return 0
-    match = re.search(r'\d+', text)
-    if not match: return 0
-    val = int(match.group(0))
-    if val > 30 and val % 11 == 0 and val < 100: return val // 11
-    if val > 100: 
-        s = str(val); mid = len(s) // 2
-        if s[:mid] == s[mid:]: return int(s[:mid])
-    return val
-
-def get_card_type(page) -> str:
-    footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
-    if "upgrade" in footer_text: return "Upgrade"
-    if "crew" in footer_text and "card" in footer_text: return "Crew"
-    return "Model"
 
 def get_faction_from_path(file_path: str) -> str:
     known = {"Guild", "Resurrectionist", "Arcanist", "Neverborn", "Outcast", "Bayou", "Ten Thunders", "Explorer's Society", "Dead Man's Hand"}
@@ -204,19 +125,20 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
         with pdfplumber.open(file_path) as pdf:
             if not pdf.pages: return None
             page = pdf.pages[0]
-            width = page.width
-            height = page.height
+            width, height = page.width, page.height
             
+            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            name = get_name_by_max_font(page, width, height)
-            if not name or name == "Unknown" or len(name) < 2:
-                name = os.path.splitext(filename)[0].replace("_", " ")
+            # 2. Name (FILENAME - The Fix)
+            name = get_name_from_filename(filename)
 
+            # 3. Cost (Top Right)
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
+            # 4. Stats
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
             health = 0
             
@@ -237,7 +159,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
             print(f"File: {filename}")
-            print(f"   Name: {name}")
+            print(f"   Name: {name} | Type: {card_type}")
 
             return {
                 "id": file_id,
