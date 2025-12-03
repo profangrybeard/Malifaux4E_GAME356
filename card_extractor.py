@@ -62,56 +62,30 @@ def get_text_in_zone(page, x_range, y_range) -> str:
 
 def get_health_spatial(page, width, height) -> int:
     """
-    Scans the bottom footer for the Health Track.
-    Looks for a SEQUENCE of numbers (e.g., 4 5 6 7 8) to identify the track.
+    Scans the bottom 15% of the card.
+    Finds all numbers < 30.
+    Returns the LAST one found (which corresponds to Max Health in the 1-2-3-4-5 track).
     """
-    # Footer Zone: Expanded to Bottom 15% to catch floating pips
+    # Footer Zone: Bottom 15%
     footer_zone = (0, height * 0.85, width, height)
     
     try:
         crop = page.crop(footer_zone)
-        # Use basic extraction to get spacing right
+        # Using simple extraction to get reading order
         text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
         
-        # Find all numbers
+        # Find all integers
         numbers = [int(n) for n in re.findall(r'\d+', text)]
         
         if not numbers: return 0
         
-        # Filter plausible health values (1-25)
-        candidates = sorted([n for n in numbers if 0 < n < 25])
+        # Filter out Base Sizes (30, 40, 50)
+        # Health is rarely above 20.
+        valid_health = [n for n in numbers if n < 30]
         
-        if not candidates: return 0
-
-        # Detect Sequence: Find the longest chain of consecutive integers (e.g. 5,6,7,8)
-        longest_seq = []
-        current_seq = []
-        
-        for i, num in enumerate(candidates):
-            if not current_seq:
-                current_seq.append(num)
-                continue
-            
-            if num == current_seq[-1] + 1:
-                current_seq.append(num)
-            elif num == current_seq[-1]:
-                continue # Ignore duplicates
-            else:
-                if len(current_seq) > len(longest_seq):
-                    longest_seq = current_seq
-                current_seq = [num]
-        
-        if len(current_seq) > len(longest_seq):
-            longest_seq = current_seq
-            
-        # If we found a sequence of at least 3 numbers (e.g. 4 5 6), trust it.
-        if len(longest_seq) >= 3:
-            return longest_seq[-1]
-            
-        # Fallback: If no sequence, exclude base sizes and take max
-        filtered = [n for n in candidates if n not in [30, 40, 50]]
-        if filtered:
-            return max(filtered)
+        if valid_health:
+            # Return the last number in the sequence
+            return valid_health[-1]
             
     except Exception:
         pass
@@ -123,9 +97,9 @@ def extract_number(text: str) -> int:
     if not match: return 0
     val = int(match.group(0))
     # Sanity check for double-scanning errors (e.g. "1010" -> 10)
-    if val > 30 and val % 11 == 0 and val < 100: # e.g. 33, 44
+    if val > 30 and val % 11 == 0 and val < 100: 
          return val // 11
-    if val > 100: # e.g. 1010
+    if val > 100: 
         s = str(val)
         mid = len(s) // 2
         if s[:mid] == s[mid:]:
@@ -172,7 +146,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                     "sz": extract_number(raw_sz)
                 }
                 
-                # Health Extraction
+                # UPDATED: Get Health via simple last-numeral check
                 health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
