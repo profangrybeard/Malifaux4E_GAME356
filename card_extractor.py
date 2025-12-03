@@ -6,29 +6,36 @@ import urllib.parse
 from operator import itemgetter
 from typing import List, Dict, Any
 
-print("--- v8.0 STARTING: EXPLICIT EXCEPTIONS + STANDARD CLEANING ---")
+print("--- v9.0 STARTING: SURGICAL PHRASE REMOVAL ---")
 
 # --- CONFIGURATION ---
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
 # --- EXPLICIT EXCEPTIONS ---
-# If a filename contains these specific patterns, we force the name immediately.
-# This fixes the "Model 9" -> "9" and "Hunter A" -> "A" issues without breaking the main logic.
+# Force correct names for tricky files
 NAME_EXCEPTIONS = {
     "Model_9": "Model 9",
     "Hunter_A": "Hunter A",
     "Hunter_B": "Hunter B",
     "Hunter_C": "Hunter C",
-    "Director_Rodriguez": "Director Rodriguez", # Often gets cut by "Director" or "Witch Hunter"
-    "M4E_Stat_Witch-Hunter_Marshal_Ashbringer": "Ashbringer" # Edge case cleanup
+    "Monster_Hunter": "Monster Hunter",
+    "Void_Hunter": "Void Hunter",
+    "Witch_Hunter_Marshal": "Ashbringer",
+    "M4E_Stat_Family_Monster_Hunter_A": "Monster Hunter A",
+    "M4E_Stat_Family_Monster_Hunter_B": "Monster Hunter B",
+    "M4E_Stat_Obliteration_Void_Hunter_A": "Void Hunter A",
+    "M4E_Stat_Obliteration_Void_Hunter_B": "Void Hunter B",
+    "M4E_Stat_Obliteration_Void_Hunter_C": "Void Hunter C",
+    "M4E_Stat_Apex_Model_9": "Model 9"
 }
 
 # --- STRIP LIST ---
-# Standard noise words to strip from the start of filenames.
+# Words to remove from the START of filenames.
+# REMOVED: MODEL, HUNTER, MONSTER, VOID, UNIT
 STRIP_LIST = {
     # System Terms
-    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "UNIT", "MODEL", "VERSATILE", "REFERENCE", "CLAM",
+    "M4E", "CARD", "STAT", "CREW", "UPGRADE", "VERSATILE", "REFERENCE", "CLAM",
     
     # Faction Codes
     "ARC", "GLD", "RES", "NVB", "OUT", "BYU", "TT", "EXS", "BOH",
@@ -44,7 +51,7 @@ STRIP_LIST = {
     "MARSHAL", "MERCENARY", "MONK", "MSU", "NIGHTMARE", "OBLITERATION", "ONI", 
     "PERFORMER", "PLAGUE", "QI", "GONG", "REDCHAPEL", "RETURNED", "REVENANT", 
     "SAVAGE", "SEEKER", "SOOEY", "SWAMPFIEND", "SYNDICATE", "TORMENTED", "TRANSMORTIS", 
-    "TRICKSY", "URAMI", "WASTREL", "WILDFIRE", "WITCH", "HUNTER", "WITNESS", "WOE",
+    "TRICKSY", "URAMI", "WASTREL", "WILDFIRE", "WITCH", "WITNESS", "WOE",
     "WIZZ", "BANG", "TRI", "CHI"
 }
 
@@ -61,42 +68,37 @@ def clean_string_for_matching(text: str) -> str:
     return re.sub(r"[^a-zA-Z0-9]", "", text).upper()
 
 def get_name_from_filename(filename: str) -> str:
-    """
-    Extracts the clean name.
-    1. Checks Explicit Exceptions.
-    2. If no match, runs standard Prefix Stripping.
-    """
     base = os.path.splitext(filename)[0]
 
-    # 1. EXPLICIT EXCEPTIONS CHECK
+    # 1. EXPLICIT EXCEPTIONS
     for key, value in NAME_EXCEPTIONS.items():
         if key in base:
             return value
 
-    # 2. STANDARD CLEANING (The "Eat Prefixes" Logic)
-    # Replace separators with spaces
+    # 2. SURGICAL PRE-CLEANING
+    # Remove specific compound phrases that confuse the stripper
+    # "Witch Hunter" causes issues because "Hunter" is a valid name elsewhere.
+    # We remove the faction/keyword phrase entirely first.
     clean = base.replace("_", " ").replace("-", " ")
     
-    # CamelCase Split (if no spaces existed)
+    phrases_to_remove = ["Witch Hunter", "Witch-Hunter", "Ten Thunders", "Dead Man"]
+    for phrase in phrases_to_remove:
+        clean = re.sub(phrase, "", clean, flags=re.IGNORECASE)
+
+    # 3. STANDARD STRIPPING
+    # CamelCase Split if needed
     if " " not in clean:
          clean = re.sub(r'(?<!^)(?=[A-Z])', ' ', clean)
 
-    # Tokenize and Eat Prefixes
     words = clean.split()
     start_index = 0
     
     for i, word in enumerate(words):
         check_word = clean_string_for_matching(word)
         
-        # Special Case: M&SU
-        if "M&SU" in word.upper():
-            start_index = i + 1
-            continue
-
         if check_word in STRIP_LIST:
             start_index = i + 1
         else:
-            # We hit a real word (like "Fire" or "Lady"), stop eating.
             break
             
     final_name = " ".join(words[start_index:])
@@ -140,8 +142,6 @@ def extract_number(text: str) -> int:
         s = str(val); mid = len(s) // 2
         if s[:mid] == s[mid:]: return int(s[:mid])
     return val
-
-# --- CLASSIFIERS ---
 
 def get_card_type(page) -> str:
     footer = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0)).lower()
@@ -189,7 +189,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # NAME EXTRACTION: Standard cleaning + Explicit Exceptions
+            # NAME EXTRACTION: Fixed logic
             name = get_name_from_filename(filename)
 
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))

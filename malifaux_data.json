@@ -12982,7 +12982,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Marshal",
-    "name": "Ashbringer",
+    "name": "Ashbringer A",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13000,7 +13000,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Marshal",
-    "name": "Ashbringer",
+    "name": "Ashbringer B",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13396,7 +13396,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Witch Hunter",
-    "name": "Ashbringer",
+    "name": "Ashbringer A",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -13414,7 +13414,7 @@
     "type": "Model",
     "faction": "Guild",
     "subfaction": "Witch Hunter",
-    "name": "Ashbringer",
+    "name": "Ashbringer B",
     "cost": 5,
     "stats": {
       "sp": 6,
@@ -17950,7 +17950,7 @@
     "type": "Crew",
     "faction": "Outcasts",
     "subfaction": "Bandit",
-    "name": "Parker Barrows Dead Man Walking",
+    "name": "Parker Barrows Walking",
     "cost": 0,
     "stats": {
       "sp": 0,
@@ -18202,7 +18202,7 @@
     "type": "Model",
     "faction": "Outcasts",
     "subfaction": "Bandit",
-    "name": "Parker Barrows Dead Man Walking",
+    "name": "Parker Barrows Walking",
     "cost": 0,
     "stats": {
       "sp": 6,
