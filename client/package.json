@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "build:vite": "vite build",
+  "preview": "vite preview"
+}
+,
   "dependencies": {
     "-": "^0.0.1",
     "@tailwindcss/postcss": "^4.1.17",
