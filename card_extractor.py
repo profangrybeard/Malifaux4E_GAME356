@@ -10,6 +10,8 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# --- UTILITIES ---
+
 def generate_github_url(file_path: str) -> str:
     relative_path = os.path.relpath(file_path, ROOT_FOLDER)
     safe_path = relative_path.replace("\\", "/")
@@ -18,16 +20,27 @@ def generate_github_url(file_path: str) -> str:
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
 def dedupe_chars_proximity(chars: List[Dict]) -> str:
+    """
+    Removes 'Shadow Text' by checking if identical characters are 
+    physically stacked on top of each other (within 3 points).
+    """
     if not chars: return ""
+    
+    # Sort by vertical position (top) then horizontal (x0)
     chars.sort(key=itemgetter('top', 'x0'))
     accepted_chars = []
+    
     for char in chars:
         text = char['text']
+        
+        # Skip empty text but handle spaces if they separate words
         if not text.strip(): 
             if accepted_chars and accepted_chars[-1]['text'] != " ":
                 accepted_chars.append(char) 
             continue
+
         is_shadow = False
+        # Check against the last few accepted chars for overlap
         for kept in accepted_chars[-5:]:
             if kept['text'] == text:
                 dx = abs(char['x0'] - kept['x0'])
@@ -35,12 +48,17 @@ def dedupe_chars_proximity(chars: List[Dict]) -> str:
                 if dx < 3 and dy < 3:
                     is_shadow = True
                     break
+        
         if not is_shadow:
             accepted_chars.append(char)
+            
     clean_text = "".join([c['text'] for c in accepted_chars])
     return re.sub(r'\s+', ' ', clean_text).strip()
 
 def get_text_in_zone(page, x_range, y_range) -> str:
+    """
+    Extracts text from a specific percentage zone.
+    """
     width = page.width
     height = page.height
     x0 = width * x_range[0]
@@ -48,32 +66,82 @@ def get_text_in_zone(page, x_range, y_range) -> str:
     top = height * y_range[0]
     bottom = height * y_range[1]
     target_box = (x0, top, x1, bottom)
+    
     try:
         chars = page.crop(target_box).chars
-        text = dedupe_chars_proximity(chars)
-        return text
+        return dedupe_chars_proximity(chars)
     except Exception:
         return ""
 
+# --- SPECIFIC EXTRACTORS ---
+
+def get_name_by_max_font(page, width, height) -> str:
+    """
+    Finds the Name by isolating the LARGEST text characters 
+    in the Top 33% of the card. Ignores numbers.
+    """
+    # Zone: Top 33%
+    header_zone = (0, 0, width, height * 0.33)
+    
+    try:
+        # Get all characters in the header zone
+        chars = page.crop(header_zone).chars
+        
+        # Filter: Must be a letter (not a digit, not a symbol)
+        # We also assume the Name is at least size 12pt to filter out small legal text
+        candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
+        
+        if not candidates: return "Unknown"
+
+        # Find the maximum font size present
+        max_size = max(c['size'] for c in candidates)
+        
+        # Collect only characters that match this max size (within 1.5pt tolerance)
+        # This isolates "Lady Justice" from "Guild" or "Marshal" if they are smaller.
+        name_chars = [c for c in candidates if abs(c['size'] - max_size) < 1.5]
+        
+        # Run de-shadower on just these name characters
+        name = dedupe_chars_proximity(name_chars)
+        
+        # Final cleanup: Remove common artifacts
+        name = re.sub(r"(COST|STN|SZ|HZ).*$", "", name, flags=re.IGNORECASE).strip()
+        
+        return name
+
+    except Exception:
+        return "Unknown"
+
 def get_health_spatial(page, width, height) -> int:
+    """
+    Scans Bottom 15% for number sequence (1 2 3 4 5).
+    Returns the last number found < 30.
+    """
     footer_zone = (0, height * 0.85, width, height)
     try:
         crop = page.crop(footer_zone)
+        # Use basic extraction for number parsing
         text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
         numbers = [int(n) for n in re.findall(r'\d+', text)]
+        
         if not numbers: return 0
-        valid_health = [n for n in numbers if n < 30]
-        if valid_health:
-            return valid_health[-1]
+        
+        # Filter out base sizes (30/40/50) and insanely high numbers
+        valid = [n for n in numbers if n < 30]
+        
+        if valid:
+            # The last number in the sequence is the Max Health
+            return valid[-1]
     except Exception:
         pass
     return 0
 
 def extract_number(text: str) -> int:
+    """Finds first integer in string."""
     if not text: return 0
     match = re.search(r'\d+', text)
     if not match: return 0
     val = int(match.group(0))
+    # Sanity check for double-scan errors (e.g. "1010" -> 10)
     if val > 30 and val % 11 == 0 and val < 100: return val // 11
     if val > 100: 
         s = str(val)
@@ -82,6 +150,7 @@ def extract_number(text: str) -> int:
     return val
 
 def get_card_type(page) -> str:
+    # Check footer text for type keywords
     footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0))
     footer_lower = footer_text.lower()
     if "upgrade" in footer_lower: return "Upgrade"
@@ -96,6 +165,7 @@ def get_faction_from_path(file_path: str) -> str:
     }
     rel_path = os.path.relpath(file_path, ROOT_FOLDER)
     parts = rel_path.replace("\\", "/").split("/")
+    
     for part in parts:
         for known in known_factions:
             if part.lower() == known.lower():
@@ -104,21 +174,10 @@ def get_faction_from_path(file_path: str) -> str:
     return "Unknown"
 
 def get_subfaction_from_path(file_path: str, faction: str) -> str:
-    """
-    Uses the parent folder name as the Sub-Faction (Keyword).
-    Ignores it if it matches the Faction name (e.g. stored in root of Faction folder).
-    """
     directory = os.path.dirname(file_path)
     folder_name = os.path.basename(directory)
-    
-    # If the folder name is the same as the faction, it's not a sub-faction
-    if folder_name.lower() == faction.lower():
-        return ""
-    
-    # If file is at root, folder might be '.' or empty
-    if not folder_name or folder_name == ".":
-        return ""
-        
+    if folder_name.lower() == faction.lower(): return ""
+    if not folder_name or folder_name == ".": return ""
     return folder_name
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
@@ -129,17 +188,20 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
+            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            raw_name = get_text_in_zone(page, (0.15, 0.85), (0.0, 0.15))
-            clean_name = re.sub(r"(COST|STN|SZ|HZ).*$", "", raw_name, flags=re.IGNORECASE).strip()
-            if len(clean_name) < 3:
-                clean_name = os.path.splitext(filename)[0].replace("_", " ")
+            # 2. Name (Largest Font Logic)
+            name = get_name_by_max_font(page, width, height)
+            if not name or name == "Unknown":
+                name = os.path.splitext(filename)[0].replace("_", " ")
 
+            # 3. Cost (Top Right)
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
+            # 4. Stats & Health
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
             health = 0
             
@@ -157,17 +219,18 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 }
                 health = get_health_spatial(page, width, height)
 
+            # 5. Search Text (Body)
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
             print(f"File: {filename}")
-            print(f"   Type: {card_type} | Faction: {faction} | Sub: {subfaction}")
+            print(f"   Type: {card_type} | Name: {name} | Cost: {extract_number(raw_cost)} | Hp: {health}")
 
             return {
                 "id": file_id,
                 "type": card_type,
                 "faction": faction,
-                "subfaction": subfaction, # NEW FIELD
-                "name": clean_name,
+                "subfaction": subfaction,
+                "name": name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
                 "health": health,
