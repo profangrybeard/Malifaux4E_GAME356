@@ -18,9 +18,6 @@ def generate_github_url(file_path: str) -> str:
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
 def dedupe_chars_proximity(chars: List[Dict]) -> str:
-    """
-    Advanced Spatial Deduplication.
-    """
     if not chars: return ""
     chars.sort(key=itemgetter('top', 'x0'))
     accepted_chars = []
@@ -48,9 +45,6 @@ def dedupe_chars_proximity(chars: List[Dict]) -> str:
     return re.sub(r'\s+', ' ', clean_text).strip()
 
 def get_text_in_zone(page, x_range, y_range) -> str:
-    """
-    Extracts text from a specific percentage zone of the card.
-    """
     width = page.width
     height = page.height
     x0 = width * x_range[0]
@@ -69,27 +63,55 @@ def get_text_in_zone(page, x_range, y_range) -> str:
 def get_health_spatial(page, width, height) -> int:
     """
     Scans the bottom footer for the Health Track.
-    Malifaux cards have a row of numbers (1 2 3 4 5...) at the bottom.
-    We find the highest number that ISN'T a base size (30/40/50).
+    Looks for a SEQUENCE of numbers (e.g., 4 5 6 7 8) to identify the track.
     """
-    # Footer Zone: Bottom 8%, Full Width
-    footer_zone = (0, height * 0.92, width, height)
+    # Footer Zone: Expanded to Bottom 15% to catch floating pips
+    footer_zone = (0, height * 0.85, width, height)
     
     try:
         crop = page.crop(footer_zone)
-        text = crop.extract_text() or ""
+        # Use basic extraction to get spacing right
+        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
         
-        # Find all distinct integers in the footer
-        numbers = [int(n) for n in re.findall(r'\b\d+\b', text)]
+        # Find all numbers
+        numbers = [int(n) for n in re.findall(r'\d+', text)]
         
         if not numbers: return 0
         
-        # Filter out Base Sizes (30, 40, 50) and unreasonably high numbers
-        # Health is typically between 4 and 16.
-        valid_health = [n for n in numbers if n < 25]
+        # Filter plausible health values (1-25)
+        candidates = sorted([n for n in numbers if 0 < n < 25])
         
-        if valid_health:
-            return max(valid_health)
+        if not candidates: return 0
+
+        # Detect Sequence: Find the longest chain of consecutive integers (e.g. 5,6,7,8)
+        longest_seq = []
+        current_seq = []
+        
+        for i, num in enumerate(candidates):
+            if not current_seq:
+                current_seq.append(num)
+                continue
+            
+            if num == current_seq[-1] + 1:
+                current_seq.append(num)
+            elif num == current_seq[-1]:
+                continue # Ignore duplicates
+            else:
+                if len(current_seq) > len(longest_seq):
+                    longest_seq = current_seq
+                current_seq = [num]
+        
+        if len(current_seq) > len(longest_seq):
+            longest_seq = current_seq
+            
+        # If we found a sequence of at least 3 numbers (e.g. 4 5 6), trust it.
+        if len(longest_seq) >= 3:
+            return longest_seq[-1]
+            
+        # Fallback: If no sequence, exclude base sizes and take max
+        filtered = [n for n in candidates if n not in [30, 40, 50]]
+        if filtered:
+            return max(filtered)
             
     except Exception:
         pass
@@ -99,24 +121,22 @@ def extract_number(text: str) -> int:
     if not text: return 0
     match = re.search(r'\d+', text)
     if not match: return 0
-    raw_num = match.group(0)
-    val = int(raw_num)
-    if val > 20: 
-        mid = len(raw_num) // 2
-        if raw_num[:mid] == raw_num[mid:]:
-            return int(raw_num[:mid])
+    val = int(match.group(0))
+    # Sanity check for double-scanning errors (e.g. "1010" -> 10)
+    if val > 30 and val % 11 == 0 and val < 100: # e.g. 33, 44
+         return val // 11
+    if val > 100: # e.g. 1010
+        s = str(val)
+        mid = len(s) // 2
+        if s[:mid] == s[mid:]:
+            return int(s[:mid])
     return val
 
 def get_card_type(page) -> str:
-    # Scan bottom 12% of card for keywords
     footer_text = get_text_in_zone(page, (0.2, 0.8), (0.88, 1.0))
     footer_lower = footer_text.lower()
-    
-    if "upgrade" in footer_lower:
-        return "Upgrade"
-    if "crew" in footer_lower and "card" in footer_lower:
-        return "Crew"
-        
+    if "upgrade" in footer_lower: return "Upgrade"
+    if "crew" in footer_lower and "card" in footer_lower: return "Crew"
     return "Model"
 
 def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
@@ -127,10 +147,8 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
-            # --- 1. DETERMINE CARD TYPE ---
             card_type = get_card_type(page)
             
-            # --- 2. SPATIAL EXTRACTION ---
             raw_name = get_text_in_zone(page, (0.15, 0.85), (0.0, 0.15))
             clean_name = re.sub(r"(COST|STN|SZ|HZ).*$", "", raw_name, flags=re.IGNORECASE).strip()
             if len(clean_name) < 3:
@@ -154,7 +172,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                     "sz": extract_number(raw_sz)
                 }
                 
-                # NEW: Extract Health from footer pips
+                # Health Extraction
                 health = get_health_spatial(page, width, height)
 
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
@@ -167,8 +185,8 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": clean_name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": health, # Now populated via pips
-                "base": 30, # Default, can be manually adjusted later
+                "health": health,
+                "base": 30, 
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
             }
