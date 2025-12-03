@@ -10,6 +10,20 @@ from typing import List, Dict, Any
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
 
+# --- MUTE LIST (Words to strip from Names) ---
+# These are words that often appear in the header zone but are NOT part of the name.
+MUTE_LIST = {
+    # Stats & Labels
+    "COST", "STN", "SZ", "HZ", "DF", "WP", "SP", "MV", "HEALTH", "BASE", "STAT",
+    # Stations
+    "MINION", "MASTER", "HENCHMAN", "ENFORCER", "PEON", "TOTEM", "TITLE",
+    # Factions
+    "GUILD", "RESURRECTIONIST", "ARCANIST", "NEVERBORN", "OUTCAST", "BAYOU", 
+    "TEN", "THUNDERS", "EXPLORER'S", "SOCIETY", "DEAD", "MAN'S", "HAND",
+    # Common Header Keywords (Add more here as you find them)
+    "ACADEMIC", "LIVING", "CONSTRUCT", "UNDEAD", "BEAST"
+}
+
 # --- UTILITIES ---
 
 def generate_github_url(file_path: str) -> str:
@@ -19,28 +33,9 @@ def generate_github_url(file_path: str) -> str:
     encoded_path = "/".join([urllib.parse.quote(part) for part in base_path.split("/")])
     return f"{IMAGE_BASE_URL}{encoded_path}.pdf"
 
-def get_name_from_filename(filename: str) -> str:
-    """
-    Extracts a clean name from the filename.
-    'M4E_Guild_Lady_Justice.pdf' -> 'Lady Justice'
-    """
-    # Remove extension
-    base = os.path.splitext(filename)[0]
-    
-    # Remove common prefixes if present (optional, based on your file naming)
-    # Adjust this regex if your files have specific prefixes like "M4E_01_"
-    clean = re.sub(r"^(M4E|Card)_+", "", base, flags=re.IGNORECASE)
-    
-    # Replace underscores and dashes with spaces
-    clean = clean.replace("_", " ").replace("-", " ")
-    
-    # Clean up multiple spaces
-    return re.sub(r"\s+", " ", clean).strip()
-
 def dedupe_chars_proximity(chars: List[Dict]) -> str:
     """
-    Removes 'Shadow Text' by checking if identical characters are 
-    physically stacked on top of each other (within 3 points).
+    Removes 'Shadow Text' by checking physical proximity.
     """
     if not chars: return ""
     
@@ -49,7 +44,6 @@ def dedupe_chars_proximity(chars: List[Dict]) -> str:
     
     for char in chars:
         text = char['text']
-        
         if not text.strip(): 
             if accepted_chars and accepted_chars[-1]['text'] != " ":
                 accepted_chars.append(char) 
@@ -70,23 +64,87 @@ def dedupe_chars_proximity(chars: List[Dict]) -> str:
     clean_text = "".join([c['text'] for c in accepted_chars])
     return re.sub(r'\s+', ' ', clean_text).strip()
 
+def clean_name_final(name: str) -> str:
+    """
+    Applies the Mute List and Regex cleanup to the extracted name string.
+    """
+    if not name: return ""
+    
+    # 1. Tokenize and Filter against Mute List
+    parts = name.split()
+    clean_parts = []
+    for part in parts:
+        # Strip punctuation for comparison (e.g. "Academic," -> "Academic")
+        normalized = re.sub(r"[^\w\s]", "", part)
+        if normalized.upper() not in MUTE_LIST:
+            clean_parts.append(part)
+            
+    cleaned_name = " ".join(clean_parts)
+    
+    # 2. Regex Cleanup for trailing artifacts
+    # Remove "Cost 10", "Stn 5" patterns at end of string
+    cleaned_name = re.sub(r"\s+(COST|STN)\s*\d*$", "", cleaned_name, flags=re.IGNORECASE)
+    
+    # 3. Remove single trailing numbers
+    cleaned_name = re.sub(r"\s+\d+$", "", cleaned_name)
+    
+    return cleaned_name.strip()
+
+# --- EXTRACTORS ---
+
+def get_name_by_max_font(page, width, height) -> str:
+    """
+    Finds Name by Largest Font in Top 33%, then cleans it.
+    """
+    header_zone = (0, 0, width, height * 0.33)
+    
+    try:
+        chars = page.crop(header_zone).chars
+        
+        # Filter candidates (Letters only, Size > 10)
+        candidates = [c for c in chars if not c['text'].isdigit() and c.get('size', 0) > 10]
+        
+        if not candidates: return "Unknown"
+
+        # Find max font size
+        max_size = max(c['size'] for c in candidates)
+        
+        # Collect chars matching max size
+        name_chars = [c for c in candidates if abs(c['size'] - max_size) < 1.5]
+        
+        # De-shadow
+        raw_name = dedupe_chars_proximity(name_chars)
+        
+        # Clean artifacts
+        return clean_name_final(raw_name)
+
+    except Exception:
+        return "Unknown"
+
 def get_text_in_zone(page, x_range, y_range) -> str:
-    """
-    Extracts text from a specific percentage zone.
-    """
     width = page.width
     height = page.height
     x0 = width * x_range[0]
     x1 = width * x_range[1]
     top = height * y_range[0]
     bottom = height * y_range[1]
-    target_box = (x0, top, x1, bottom)
-    
     try:
-        chars = page.crop(target_box).chars
+        chars = page.crop((x0, top, x1, bottom)).chars
         return dedupe_chars_proximity(chars)
     except Exception:
         return ""
+
+def get_health_spatial(page, width, height) -> int:
+    footer_zone = (0, height * 0.85, width, height)
+    try:
+        crop = page.crop(footer_zone)
+        text = crop.extract_text(x_tolerance=3, y_tolerance=3) or ""
+        numbers = [int(n) for n in re.findall(r'\d+', text)]
+        valid = [n for n in numbers if n < 30]
+        if valid: return valid[-1]
+    except Exception:
+        pass
+    return 0
 
 def extract_number(text: str) -> int:
     if not text: return 0
@@ -95,8 +153,7 @@ def extract_number(text: str) -> int:
     val = int(match.group(0))
     if val > 30 and val % 11 == 0 and val < 100: return val // 11
     if val > 100: 
-        s = str(val)
-        mid = len(s) // 2
+        s = str(val); mid = len(s) // 2
         if s[:mid] == s[mid:]: return int(s[:mid])
     return val
 
@@ -132,19 +189,20 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
             width = page.width
             height = page.height
             
-            # 1. Classify
             faction = get_faction_from_path(file_path)
             subfaction = get_subfaction_from_path(file_path, faction)
             card_type = get_card_type(page)
             
-            # 2. Name (FROM FILENAME - The most reliable source)
-            name = get_name_from_filename(filename)
+            # 1. Name (Cleaned)
+            name = get_name_by_max_font(page, width, height)
+            if not name or name == "Unknown" or len(name) < 2:
+                name = os.path.splitext(filename)[0].replace("_", " ")
 
-            # 3. Cost (Top Right)
+            # 2. Cost
             raw_cost = get_text_in_zone(page, (0.85, 1.0), (0.0, 0.15))
             
-            # 4. Stats
             stats = {"sp": 0, "df": 0, "wp": 0, "sz": 0}
+            health = 0
             
             if card_type == "Model":
                 raw_df = get_text_in_zone(page, (0.0, 0.20), (0.20, 0.35))
@@ -158,12 +216,12 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                     "wp": extract_number(raw_wp),
                     "sz": extract_number(raw_sz)
                 }
+                health = get_health_spatial(page, width, height)
 
-            # 5. Search Text (Body)
             search_text = get_text_in_zone(page, (0.0, 1.0), (0.40, 1.0))
 
             print(f"File: {filename}")
-            print(f"   Type: {card_type} | Name: {name} | Cost: {extract_number(raw_cost)}")
+            print(f"   Name: {name}")
 
             return {
                 "id": file_id,
@@ -173,7 +231,7 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
                 "name": name,
                 "cost": extract_number(raw_cost),
                 "stats": stats,
-                "health": 0, # Disabled
+                "health": health,
                 "base": 30, 
                 "attacks": search_text,
                 "imageUrl": generate_github_url(file_path)
