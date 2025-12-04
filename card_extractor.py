@@ -6,11 +6,15 @@ import urllib.parse
 from operator import itemgetter
 from typing import List, Dict, Any
 
-print("--- v14.0 STARTING: BASELINE HEALTH & STATION EXTRACTION ---")
+print("--- v15.0 STARTING: Updating for hosting on github ---")
 
 # --- CONFIGURATION ---
 ROOT_FOLDER = os.path.dirname(os.path.abspath(__file__))
-IMAGE_BASE_URL = "https://profangrybeard.github.io/Malifaux4E_GAME356/" 
+# Files stay in the repo; the web app reads them via raw.githubusercontent.com
+IMAGE_BASE_URL = (
+    "https://raw.githubusercontent.com/"
+    "profangrybeard/Malifaux4E_GAME356/main/"
+)
 
 # --- EXPLICIT PATTERN MATCHING (PRESERVED) ---
 NAME_PATTERNS = {
@@ -271,7 +275,10 @@ def process_file(file_path: str, filename: str, file_id: int) -> Dict[str, Any]:
 def main():
     all_cards = []
     file_id_counter = 100
+
     print(f"Scanning: {ROOT_FOLDER}")
+
+    # Single pass through ROOT_FOLDER
     for root, dirs, files in os.walk(ROOT_FOLDER):
         for filename in files:
             if filename.lower().endswith(".pdf"):
@@ -281,9 +288,24 @@ def main():
                     all_cards.append(card)
                     file_id_counter += 1
 
-    with open(os.path.join(ROOT_FOLDER, "malifaux_data.json"), 'w', encoding='utf-8') as f:
-        json.dump(all_cards, f, indent=2)
-    print(f"Done. {len(all_cards)} cards.")
+    # Write JSON in two places:
+    # 1) Root repo (for your local tools)
+    # 2) client/public (for the web app / GitHub Pages)
+    output_paths = [
+        os.path.join(ROOT_FOLDER, "malifaux_data.json"),
+        os.path.join(ROOT_FOLDER, "client", "public", "malifaux_data.json"),
+    ]
+
+    for output_path in output_paths:
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(all_cards, f, indent=2, ensure_ascii=False)
+
+    print(f"\nDone. Extracted {len(all_cards)} cards.")
+    print("Wrote malifaux_data.json to:")
+    for p in output_paths:
+        print("  -", p)
+    print()
 
 if __name__ == "__main__":
     main()
